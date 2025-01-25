@@ -130,7 +130,10 @@ void fragment() {
     vec4 color = texture(TEXTURE, UV);
 
     if (enable_wave) {
-		float wave = texture(wave_texture, vec2(UV.x, UV.y * mod(TIME / time_scale, 1.0))).r;
+	float wave = texture(wave_texture, vec2(
+	    UV.x + sin(TIME * 0.5) * 0.1,
+	    UV.y + cos(TIME * 0.3) * 0.1
+	)).r;
     if (color.a > 0.0) {
         color.rgb /= color.a;
     }

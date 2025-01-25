@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dkr40lnpqntlq"]
+[gd_scene load_steps=11 format=3 uid="uid://dkr40lnpqntlq"]
 
 [ext_resource type="Shader" path="res://Shaders/Water.gdshader" id="1_m1xhi"]
-[ext_resource type="Script" path="res://Bubble/addrandomseed.gd" id="2_juqio"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vxvh1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -63,7 +62,6 @@ environment = SubResource("Environment_ky1xk")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("ShaderMaterial_qvivj")
 mesh = SubResource("SphereMesh_d4c7y")
-script = ExtResource("2_juqio")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0420367, 1.44618)

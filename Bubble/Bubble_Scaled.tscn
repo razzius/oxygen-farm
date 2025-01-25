@@ -5,6 +5,7 @@
 [node name="BubbleScaled" type="Node2D"]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 2
 offset_left = -1002.0
 offset_top = -1036.0
 offset_right = 1142.0
