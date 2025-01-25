@@ -1,30 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdy3tagav4qmb"]
+[gd_scene load_steps=11 format=3 uid="uid://bdy3tagav4qmb"]
 
 [ext_resource type="PackedScene" uid="uid://ba0hqbqmx7rha" path="res://player.tscn" id="1_pwm58"]
-[ext_resource type="Texture2D" uid="uid://cae5003q3i5iy" path="res://icon.svg" id="2_johkk"]
+[ext_resource type="Shader" path="res://razzishader.gdshader" id="2_gyp2u"]
+[ext_resource type="Texture2D" uid="uid://cae5003q3i5iy" path="res://icon.svg" id="3_4ldu5"]
 [ext_resource type="Texture2D" uid="uid://ll0agfil831v" path="res://art/mockup.png" id="3_ce1ep"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uew2f"]
+shader = ExtResource("2_gyp2u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0nsgx"]
+shader = ExtResource("2_gyp2u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rhgpg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8x5v"]
 size = Vector2(164, 20)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8jrpg"]
+shader = ExtResource("2_gyp2u")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ea2y"]
+
 [node name="Main" type="Node2D"]
+material = SubResource("ShaderMaterial_uew2f")
 
 [node name="Player" parent="." instance=ExtResource("1_pwm58")]
 position = Vector2(537, 319)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="Icon" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(539.5, 447.5)
-scale = Vector2(1.10156, 0.164062)
-texture = ExtResource("2_johkk")
+material = SubResource("ShaderMaterial_0nsgx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+material = SubResource("ShaderMaterial_rhgpg")
 position = Vector2(531, 450)
 shape = SubResource("RectangleShape2D_p8x5v")
 
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+material = SubResource("ShaderMaterial_8jrpg")
+position = Vector2(531, 450)
+scale = Vector2(1.28125, 0.15625)
+texture = ExtResource("3_4ldu5")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
+material = SubResource("ShaderMaterial_5ea2y")
 position = Vector2(573, 327)
 scale = Vector2(3.18889, 3.22)
 texture = ExtResource("3_ce1ep")
