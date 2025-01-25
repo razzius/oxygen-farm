@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdy3tagav4qmb"]
+[gd_scene load_steps=12 format=3 uid="uid://bdy3tagav4qmb"]
+[gd_scene load_steps=12 format=3 uid="uid://bdy3tagav4qmb"]
 
-[ext_resource type="PackedScene" uid="uid://ba0hqbqmx7rha" path="res://player.tscn" id="1_pwm58"]
+[ext_resource type="PackedScene" uid="uid://ba0hqbqmx7rha" path="res://Player/player.tscn" id="1_pwm58"]
 [ext_resource type="Shader" path="res://razzishader.gdshader" id="2_gyp2u"]
+[ext_resource type="PackedScene" uid="uid://csn4hjyqdpbqp" path="res://Bubble/bubble_composite.tscn" id="2_plnqy"]
 [ext_resource type="Texture2D" uid="uid://cae5003q3i5iy" path="res://icon.svg" id="3_4ldu5"]
 [ext_resource type="Texture2D" uid="uid://ll0agfil831v" path="res://art/mockup.png" id="3_ce1ep"]
+[ext_resource type="PackedScene" uid="uid://dfmwi20j1detr" path="res://scenes/plant/plant.tscn" id="5_wpcyw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uew2f"]
 shader = ExtResource("2_gyp2u")
@@ -14,7 +17,7 @@ shader = ExtResource("2_gyp2u")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rhgpg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8x5v"]
-size = Vector2(164, 20)
+size = Vector2(1145, 47)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8jrpg"]
 shader = ExtResource("2_gyp2u")
@@ -24,26 +27,35 @@ shader = ExtResource("2_gyp2u")
 [node name="Main" type="Node2D"]
 material = SubResource("ShaderMaterial_uew2f")
 
+[node name="Bubble Composite" parent="." instance=ExtResource("2_plnqy")]
+position = Vector2(-1124, -1155)
+scale = Vector2(4.4, 4.4)
+
 [node name="Player" parent="." instance=ExtResource("1_pwm58")]
-position = Vector2(537, 319)
+position = Vector2(1, -41)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 material = SubResource("ShaderMaterial_0nsgx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 material = SubResource("ShaderMaterial_rhgpg")
-position = Vector2(531, 450)
+position = Vector2(0, 24)
 shape = SubResource("RectangleShape2D_p8x5v")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 material = SubResource("ShaderMaterial_8jrpg")
-position = Vector2(531, 450)
-scale = Vector2(1.28125, 0.15625)
+position = Vector2(-1.99994, 24.0001)
+scale = Vector2(8.96094, 0.382813)
 texture = ExtResource("3_4ldu5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 material = SubResource("ShaderMaterial_5ea2y")
-position = Vector2(573, 327)
+position = Vector2(1, -273)
 scale = Vector2(3.18889, 3.22)
 texture = ExtResource("3_ce1ep")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -272)
+
+[node name="Plant" parent="." instance=ExtResource("5_wpcyw")]
