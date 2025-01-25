@@ -7,6 +7,9 @@ const PLANT_NODE = preload("res://scenes/plant/plant_node.tscn")
 @onready var grow_timer: Timer = $GrowTimer
 @onready var node_container: Node2D = $Nodes
 
+@export var grow_timer_range: float = 0.5
+@export var min_grow_timer: float = 1.0
+
 
 var _plant_nodes: Array[PlantNode] = []
 
@@ -16,6 +19,8 @@ func _ready():
 
 func grow() -> void:
 	appendNode()
+	grow_timer.wait_time = min_grow_timer + (randf() * grow_timer_range)
+	grow_timer.start()
 
 
 func appendNode() -> void:

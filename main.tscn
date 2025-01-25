@@ -98,9 +98,9 @@ left_bound = NodePath("../LeftBound")
 right_bound = NodePath("../RightBound")
 
 [node name="LeftBound" type="Node2D" parent="."]
-position = Vector2(-459, 0)
+position = Vector2(-410, 0)
 
 [node name="RightBound" type="Node2D" parent="."]
-position = Vector2(480, 0)
+position = Vector2(460, 0)
 
 [node name="TestTextScene" parent="." instance=ExtResource("8_fem26")]
