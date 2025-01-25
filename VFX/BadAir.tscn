@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://clhxhwr7gk2o6"]
+[gd_scene load_steps=7 format=3 uid="uid://dkkblekswbmfv"]
 
-[ext_resource type="Texture2D" uid="uid://cs1sbm0lug1ps" path="res://art/round_particle.png" id="1_wmbvu"]
+[ext_resource type="Texture2D" uid="uid://cs1sbm0lug1ps" path="res://art/round_particle.png" id="1_701iq"]
 
 [sub_resource type="Curve" id="Curve_7ooau"]
 _data = [Vector2(0, 0.791209), 0.0, 0.0, 0, 0, Vector2(0.76, 0.230769), 0.0, 0.0, 0, 0]
@@ -18,24 +18,27 @@ curve = SubResource("Curve_1n2yd")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kldyc"]
 particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 30, 1)
 angle_min = 1.07288e-05
 angle_max = 180.0
 direction = Vector3(0, -1, 0)
 spread = 30.0
-initial_velocity_min = 2.0
-initial_velocity_max = 2.0
+initial_velocity_min = 0.01
+initial_velocity_max = 0.01
 radial_velocity_min = -2.23517e-05
-radial_velocity_max = 9.99998
-scale_min = 0.2
-scale_max = 0.8
+radial_velocity_max = 1.99998
+gravity = Vector3(0, 0, 0)
+scale_min = 5.0
+scale_max = 5.0
 scale_curve = SubResource("CurveTexture_vv80l")
 alpha_curve = SubResource("CurveTexture_a0qjn")
-hue_variation_min = 0.95
-hue_variation_max = 0.95
+hue_variation_min = 0.16
+hue_variation_max = 0.16
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
-amount = 4
+amount = 48
 process_material = SubResource("ParticleProcessMaterial_kldyc")
-texture = ExtResource("1_wmbvu")
-explosiveness = 0.2
+texture = ExtResource("1_701iq")
+lifetime = 10.0
 randomness = 1.0
