@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ba0hqbqmx7rha"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_yk5km"]
-[ext_resource type="Texture2D" uid="uid://cae5003q3i5iy" path="res://icon.svg" id="2_ckkh4"]
+[ext_resource type="Texture2D" uid="uid://biqn3avir7ff8" path="res://art/player.png" id="2_whh4e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2f1u2"]
 
@@ -10,14 +10,10 @@ size = Vector2(25, 16)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_yk5km")
+SPEED = 150.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_2f1u2")
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-4.76837e-07, 9.53674e-07)
-scale = Vector2(0.15625, 0.234375)
-texture = ExtResource("2_ckkh4")
 
 [node name="RightCutCollisionDetection" type="CollisionShape2D" parent="."]
 position = Vector2(12.5, -5)
@@ -26,3 +22,7 @@ shape = SubResource("RectangleShape2D_1lpfn")
 [node name="LeftCutCollisionDetection" type="CollisionShape2D" parent="."]
 position = Vector2(-13, -5)
 shape = SubResource("RectangleShape2D_1lpfn")
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+scale = Vector2(4, 3)
+texture = ExtResource("2_whh4e")

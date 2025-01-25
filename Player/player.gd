@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export var SPEED : float = 300.0
+@export var JUMP_VELOCITY : float = -400.0
 
+@onready var PlayerSprite := $PlayerSprite
 @onready var LeftCutCollisionDetection := $LeftCutCollisionDetection
 @onready var RightCutCollisionDetection := $RightCutCollisionDetection
 
@@ -50,8 +51,10 @@ func _physics_process(delta: float) -> void:
 	if !IsCutting():
 		if bFacingRight and velocity.x < 0.0:
 			bFacingRight = false
+			PlayerSprite.flip_h = true
 		elif !bFacingRight and velocity.x > 0.0:
 			bFacingRight = true
+			PlayerSprite.flip_h = false
 
 	move_and_slide()
 
