@@ -32,13 +32,18 @@ func add_node(source: PlantNode, directions: Array[PlantNode.Direction]) -> void
 		var new_node = PLANT_NODE.instantiate()
 		var dir_info = PlantNode.DirectionMap[dir]
 		new_node.position = source.position + dir_info["relative_position"] * node_scale
-		new_node.scale = node_scale
+		# wait for sprite and collider to be available, so call using deferred
+		call_deferred("scale_node", new_node)
 		source[dir_info.key] = new_node
 		if (dir == PlantNode.Direction.UP):
 			_root.add_child(new_node)
 		else:
 			source.add_child(new_node)
 	
+
+func scale_node(node: PlantNode) -> void:
+	node.sprite.scale = node_scale
+	node.collider.scale = node_scale
 
 func _on_grow_timer_timeout() -> void:
 	grow()

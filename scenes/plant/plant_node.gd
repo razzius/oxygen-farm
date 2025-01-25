@@ -5,6 +5,7 @@ class_name PlantNode
 const SPRITE_HEIGHT = 6
 const SPRITE_WIDTH = 11
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var collider: CollisionShape2D = $Collider
 
 enum Direction {LEFT, RIGHT, UP}
 
