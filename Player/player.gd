@@ -95,17 +95,17 @@ func IsCutting() -> bool:
 
 
 func _on_right_cut_area_area_entered(area: Area2D) -> void:
-	if area is PlantNode:
-		CutPlantNode(area as PlantNode)
-	elif area is Plant:
+	if area is Plant:
 		CutPlant(area as Plant)
+	elif area is PlantNode:
+		CutPlantNode(area as PlantNode)
 
 
 func _on_left_cut_area_area_entered(area: Area2D) -> void:
-	if area is PlantNode:
-		CutPlantNode(area as PlantNode)
-	elif area is Plant:
+	if area is Plant:
 		CutPlant(area as Plant)
+	elif area is PlantNode:
+		CutPlantNode(area as PlantNode)
 
 
 func CutPlantNode(ThisPlantNode : PlantNode):
