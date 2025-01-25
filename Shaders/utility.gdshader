@@ -20,6 +20,7 @@ uniform sampler2D wave_texture;
 uniform float wave_speed:hint_range(0.0, 10.0) = 1.0;
 uniform float wave_amplitude:hint_range(0.0, 5.0) = 0.5;
 uniform float time_scale:hint_range(0.0, 100.0) = 0.5;
+uniform float random_seed:hint_range(0.0, 5.0) = 0.4;
 
 vec4 _palette(vec4 color) {
     if (color.a > 0.0) {
@@ -131,8 +132,8 @@ void fragment() {
 
     if (enable_wave) {
 	float wave = texture(wave_texture, vec2(
-	    UV.x + sin(TIME * 0.5) * 0.1,
-	    UV.y + cos(TIME * 0.3) * 0.1
+	    UV.x + sin(TIME * 0.5) * time_scale * random_seed,
+	    UV.y + cos(TIME * 0.3) * time_scale * random_seed
 	)).r;
     if (color.a > 0.0) {
         color.rgb /= color.a;
