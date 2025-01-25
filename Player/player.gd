@@ -5,8 +5,9 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY : float = -400.0
 
 @onready var PlayerSprite := $PlayerSprite
-@onready var LeftCutCollisionDetection := $LeftCutCollisionDetection
-@onready var RightCutCollisionDetection := $RightCutCollisionDetection
+@onready var CutAnimatedSprite := $CutAnimatedSprite
+@onready var LeftCutCollisionDetection := $LeftCutArea/LeftCutCollisionDetection
+@onready var RightCutCollisionDetection := $RightCutArea/RightCutCollisionDetection
 
 var CutEndTime : float = 0.0
 @export var CutAnimationDuration : float = 0.25
@@ -52,9 +53,11 @@ func _physics_process(delta: float) -> void:
 		if bFacingRight and velocity.x < 0.0:
 			bFacingRight = false
 			PlayerSprite.flip_h = true
+			CutAnimatedSprite.flip_h = true
 		elif !bFacingRight and velocity.x > 0.0:
 			bFacingRight = true
 			PlayerSprite.flip_h = false
+			CutAnimatedSprite.flip_h = false
 
 	move_and_slide()
 
@@ -81,3 +84,13 @@ func SetCutCollisionEnabled(bEnabled : bool) -> void:
 
 func IsCutting() -> bool:
 	return GameStateManager.Now < CutEndTime
+
+
+func _on_right_cut_area_area_entered(area: Area2D) -> void:
+	if area is PlantNode:
+		print("hit plant")
+
+
+func _on_left_cut_area_area_entered(area: Area2D) -> void:
+	if area is PlantNode:
+		print("hit plant")
