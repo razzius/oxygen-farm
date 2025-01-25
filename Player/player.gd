@@ -3,6 +3,13 @@ extends CharacterBody2D
 
 @export var SPEED : float = 300.0
 @export var JUMP_VELOCITY : float = -400.0
+@export var JETPACK_MAX_VELOCITY : float = -400.0
+@export var JETPACK_ACCELERATION : float = 50.0
+
+var JetPackVelocity : float = 0.0
+
+@export var bJetpackEnabled : bool = false
+var bJetPackActive : bool = false
 
 @onready var PlayerSprite := $PlayerSprite
 @onready var CutAnimatedSprite := $CutAnimatedSprite
@@ -42,6 +49,20 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+
+	if bJetpackEnabled:
+		if Input.is_action_pressed("up"):
+			bJetPackActive = true
+		else:
+			bJetPackActive = false
+			JetPackVelocity = 0.0
+	
+	if bJetPackActive:
+		JetPackVelocity -= JETPACK_ACCELERATION
+		
+	if JetPackVelocity != 0.0:
+		JetPackVelocity = maxf(JetPackVelocity, JETPACK_MAX_VELOCITY)
+		velocity.y = JetPackVelocity
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
