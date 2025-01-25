@@ -20,7 +20,3 @@ func _ready():
 func get_plant_root(current_node: Node2D = self) -> Plant:
 	var parent: Node2D = current_node.get_parent()
 	return parent as Plant if parent is Plant else get_plant_root(parent)
-
-
-func prune() -> void:
-	print("pruning", self)

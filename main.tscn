@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://bdy3tagav4qmb"]
+[gd_scene load_steps=19 format=3 uid="uid://bdy3tagav4qmb"]
 
 [ext_resource type="PackedScene" uid="uid://ba0hqbqmx7rha" path="res://Player/player.tscn" id="1_pwm58"]
 [ext_resource type="Texture2D" uid="uid://b1f7ktnndu0t7" path="res://art/world.png" id="2_0pt6b"]
 [ext_resource type="Shader" path="res://razzishader.gdshader" id="2_gyp2u"]
 [ext_resource type="PackedScene" uid="uid://csn4hjyqdpbqp" path="res://Bubble/bubble_composite.tscn" id="2_plnqy"]
 [ext_resource type="Texture2D" uid="uid://cae5003q3i5iy" path="res://icon.svg" id="3_4ldu5"]
-[ext_resource type="PackedScene" path="res://scenes/plant/plant_manager.tscn" id="6_bu0r6"]
+[ext_resource type="PackedScene" uid="uid://csjnkwkf5l1ty" path="res://scenes/plant/plant_manager.tscn" id="6_bu0r6"]
 [ext_resource type="PackedScene" path="res://Bubble/bubble_pop_particle.tscn" id="7_726qo"]
+[ext_resource type="PackedScene" uid="uid://ct2q4po8k2evr" path="res://scenes/razzi_test/test_text_scene.tscn" id="8_fem26"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uew2f"]
 shader = ExtResource("2_gyp2u")
@@ -48,7 +49,7 @@ shader = ExtResource("2_gyp2u")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8qj0a"]
 
-[node name="Main2" type="Node2D"]
+[node name="Main" type="Node2D"]
 material = SubResource("ShaderMaterial_uew2f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -56,10 +57,9 @@ position = Vector2(-0.5, -273.5)
 scale = Vector2(3.19722, 3.265)
 sprite_frames = SubResource("SpriteFrames_aki54")
 autoplay = "default"
-frame_progress = 0.138484
+frame_progress = 0.792974
 
 [node name="Bubble Composite" parent="." instance=ExtResource("2_plnqy")]
-position = Vector2(-1124, -1155)
 scale = Vector2(4.4, 4.4)
 new_scene = ExtResource("7_726qo")
 
@@ -79,8 +79,8 @@ shape = SubResource("RectangleShape2D_p8x5v")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 material = SubResource("ShaderMaterial_8jrpg")
-position = Vector2(-1.99994, 24.0001)
-scale = Vector2(8.96094, 0.382813)
+position = Vector2(0.999948, 40.25)
+scale = Vector2(9.3125, 0.636718)
 texture = ExtResource("3_4ldu5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -98,7 +98,9 @@ left_bound = NodePath("../LeftBound")
 right_bound = NodePath("../RightBound")
 
 [node name="LeftBound" type="Node2D" parent="."]
-position = Vector2(-459, 0)
+position = Vector2(-410, 0)
 
 [node name="RightBound" type="Node2D" parent="."]
-position = Vector2(480, 0)
+position = Vector2(460, 0)
+
+[node name="TestTextScene" parent="." instance=ExtResource("8_fem26")]

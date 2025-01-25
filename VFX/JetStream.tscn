@@ -1,20 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://ds522b031bxk1"]
+[gd_scene load_steps=5 format=3 uid="uid://ds522b031bxk1"]
 
 [ext_resource type="Texture2D" uid="uid://dhqwjgtqkr7hq" path="res://art/JetParticle2.png" id="1_mcya4"]
+
+[sub_resource type="Curve" id="Curve_ii1xf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.054401), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_p2q74"]
+curve = SubResource("Curve_ii1xf")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_exj0a"]
 particle_flag_disable_z = true
 angle_min = 1.07288e-05
 angle_max = 180.0
 direction = Vector3(0, 1, 0)
-initial_velocity_min = 15.0
-initial_velocity_max = 15.0
+spread = 14.318
+initial_velocity_min = 115.0
+initial_velocity_max = 115.0
 gravity = Vector3(0, 98, 0)
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_p2q74")
 hue_variation_min = -0.01
 hue_variation_max = 0.00999998
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
-amount = 32
+amount = 16
 process_material = SubResource("ParticleProcessMaterial_exj0a")
 texture = ExtResource("1_mcya4")
 lifetime = 0.8

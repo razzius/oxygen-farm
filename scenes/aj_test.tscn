@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0jk8y7t4t5ey"]
-
-[ext_resource type="PackedScene" uid="uid://bdy3tagav4qmb" path="res://main.tscn" id="1_e70pr"]
-[ext_resource type="PackedScene" uid="uid://dfmwi20j1detr" path="res://scenes/plant/plant.tscn" id="2_t2v4j"]
-
-[node name="Main" instance=ExtResource("1_e70pr")]
-
-[node name="PlantsContainer#Plant" parent="." index="0" instance=ExtResource("2_t2v4j")]
