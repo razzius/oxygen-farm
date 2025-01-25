@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://csn4hjyqdpbqp"]
+
+[ext_resource type="PackedScene" uid="uid://b21de53nsxgfk" path="res://Bubble/2d Bubble.tscn" id="1_fe6yk"]
+[ext_resource type="Shader" path="res://Shaders/utility.gdshader" id="2_6vgyn"]
+[ext_resource type="Texture2D" uid="uid://bcnsn43uxlcpu" path="res://art/iridescent-crystal-1x.png" id="3_6nywn"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lb21q"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_44jih"]
+seamless = true
+noise = SubResource("FastNoiseLite_lb21q")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66t0h"]
+shader = ExtResource("2_6vgyn")
+shader_parameter/modulate = Color(1, 1, 1, 0.513726)
+shader_parameter/gamma_amount = 100.0
+shader_parameter/bright_amount = 100.0
+shader_parameter/contrast_amount = 100.0
+shader_parameter/saturation_amount = 100.0
+shader_parameter/hue_amount = 0.0
+shader_parameter/enable_palette = true
+shader_parameter/enable_outline = true
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 2.0
+shader_parameter/enable_wave = true
+shader_parameter/wave_speed = 1.0
+shader_parameter/wave_amplitude = 1.427
+shader_parameter/time_scale = 83.084
+shader_parameter/palette = ExtResource("3_6nywn")
+shader_parameter/wave_texture = SubResource("NoiseTexture2D_44jih")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3lfsq"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3ieko"]
+seamless = true
+noise = SubResource("FastNoiseLite_3lfsq")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f2dlv"]
+shader = ExtResource("2_6vgyn")
+shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/gamma_amount = 100.0
+shader_parameter/bright_amount = 100.0
+shader_parameter/contrast_amount = 100.0
+shader_parameter/saturation_amount = 100.0
+shader_parameter/hue_amount = 56.061
+shader_parameter/enable_palette = true
+shader_parameter/enable_outline = false
+shader_parameter/outline_color = null
+shader_parameter/outline_width = 1.0
+shader_parameter/enable_wave = true
+shader_parameter/wave_speed = 1.0
+shader_parameter/wave_amplitude = 2.242
+shader_parameter/time_scale = 62.298
+shader_parameter/palette = ExtResource("3_6nywn")
+shader_parameter/wave_texture = SubResource("NoiseTexture2D_3ieko")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_25k0h"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1tec6"]
+seamless = true
+noise = SubResource("FastNoiseLite_25k0h")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5u46h"]
+shader = ExtResource("2_6vgyn")
+shader_parameter/modulate = Color(0.694207, 0.418802, 0.707966, 1)
+shader_parameter/gamma_amount = 100.0
+shader_parameter/bright_amount = 100.0
+shader_parameter/contrast_amount = 100.0
+shader_parameter/saturation_amount = 100.0
+shader_parameter/hue_amount = 0.0
+shader_parameter/enable_palette = true
+shader_parameter/enable_outline = false
+shader_parameter/outline_color = null
+shader_parameter/outline_width = 1.0
+shader_parameter/enable_wave = true
+shader_parameter/wave_speed = 3.752
+shader_parameter/wave_amplitude = 2.388
+shader_parameter/time_scale = 34.545
+shader_parameter/palette = ExtResource("3_6nywn")
+shader_parameter/wave_texture = SubResource("NoiseTexture2D_1tec6")
+
+[node name="Bubble Composite" type="Node2D"]
+
+[node name="Bubble2d3" parent="." instance=ExtResource("1_fe6yk")]
+material = SubResource("ShaderMaterial_66t0h")
+offset_right = 1426.0
+offset_bottom = 971.0
+
+[node name="Bubble2d2" parent="." instance=ExtResource("1_fe6yk")]
+material = SubResource("ShaderMaterial_f2dlv")
+offset_left = 1.0
+offset_right = 1427.0
+offset_bottom = 971.0
+
+[node name="Bubble2d" parent="." instance=ExtResource("1_fe6yk")]
+material = SubResource("ShaderMaterial_5u46h")
+offset_right = 1426.0
+offset_bottom = 971.0
