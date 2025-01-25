@@ -6,8 +6,15 @@
 particle_flag_disable_z = true
 angle_min = 1.07288e-05
 angle_max = 180.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 15.0
+initial_velocity_max = 15.0
 gravity = Vector3(0, 98, 0)
+hue_variation_min = -0.01
+hue_variation_max = 0.00999998
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 32
 process_material = SubResource("ParticleProcessMaterial_exj0a")
 texture = ExtResource("1_mcya4")
+lifetime = 0.8

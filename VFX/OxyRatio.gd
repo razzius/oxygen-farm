@@ -1,11 +1,11 @@
-extends GPUParticles2D
+extends ColorRect
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	restart()
-	print("test1")
-	emitting = true
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var ratio = GameStateManager.OxygenLevel;
+	material.set_shader_param("Ratio", ratio);

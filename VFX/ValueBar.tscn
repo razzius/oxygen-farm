@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkkblekswbmfv"]
+
+[ext_resource type="Shader" uid="uid://sef3s58rdhfo" path="res://Shaders/OxygenBar.tres" id="1_fgfev"]
+[ext_resource type="Script" path="res://VFX/OxyRatio.gd" id="2_aiv7d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_it6m7"]
+shader = ExtResource("1_fgfev")
+shader_parameter/Ratio = 0.595
+shader_parameter/OxygenColor = Color(0.705882, 0.92549, 0.890196, 1)
+shader_parameter/CO2Color = Color(0.765764, 0.600571, 0.408411, 1)
+
+[node name="ColorRect" type="ColorRect"]
+material = SubResource("ShaderMaterial_it6m7")
+offset_right = 40.0
+offset_bottom = 116.0
+script = ExtResource("2_aiv7d")

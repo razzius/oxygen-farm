@@ -116,16 +116,21 @@ new_scene = SubResource("PackedScene_n46hj")
 
 [node name="Bubble2d3" parent="." instance=ExtResource("1_fe6yk")]
 material = SubResource("ShaderMaterial_66t0h")
-offset_left = 1.0
-offset_right = 513.0
-offset_bottom = 512.0
+offset_left = -253.0
+offset_top = -265.0
+offset_right = 259.0
+offset_bottom = 247.0
 
 [node name="Bubble2d2" parent="." instance=ExtResource("1_fe6yk")]
 material = SubResource("ShaderMaterial_f2dlv")
-offset_right = 512.0
-offset_bottom = 512.0
+offset_left = -254.0
+offset_top = -265.0
+offset_right = 258.0
+offset_bottom = 247.0
 
 [node name="Bubble2d" parent="." instance=ExtResource("1_fe6yk")]
 material = SubResource("ShaderMaterial_5u46h")
-offset_right = 512.0
-offset_bottom = 512.0
+offset_left = -254.0
+offset_top = -265.0
+offset_right = 258.0
+offset_bottom = 247.0
