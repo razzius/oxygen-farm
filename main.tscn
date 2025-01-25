@@ -93,3 +93,4 @@ texture = SubResource("CanvasTexture_8qj0a")
 offset = Vector2(0, -272)
 
 [node name="Plant" parent="." instance=ExtResource("5_wpcyw")]
+position = Vector2(71, 0)

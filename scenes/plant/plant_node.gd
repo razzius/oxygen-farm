@@ -14,7 +14,13 @@ const relative_position = Vector2i.UP * NODE_SIZE.y
 
 
 func _ready():
-	pass
+	var root = get_plant_root(self)
+	sprite.scale = root.node_scale
+	collider.scale = root.node_scale
+
+func get_plant_root(current_node: Node2D) -> Plant:
+	var parent: Node2D = current_node.get_parent()
+	return parent as Plant if parent is Plant else get_plant_root(parent)
 
 
 func _process(_delta):

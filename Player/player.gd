@@ -1,26 +1,26 @@
 extends CharacterBody2D
 
 
-@export var SPEED : float = 300.0
-@export var JUMP_VELOCITY : float = -400.0
-@export var JETPACK_MAX_VELOCITY : float = -400.0
-@export var JETPACK_ACCELERATION : float = 50.0
+@export var SPEED: float = 300.0
+@export var JUMP_VELOCITY: float = -400.0
+@export var JETPACK_MAX_VELOCITY: float = -400.0
+@export var JETPACK_ACCELERATION: float = 50.0
 
-var JetPackVelocity : float = 0.0
+var JetPackVelocity: float = 0.0
 
-@export var bJetpackEnabled : bool = false
-var bJetPackActive : bool = false
+@export var bJetpackEnabled: bool = false
+var bJetPackActive: bool = false
 
 @onready var PlayerSprite := $PlayerSprite
 @onready var CutAnimatedSprite := $CutAnimatedSprite
 @onready var LeftCutCollisionDetection := $LeftCutArea/LeftCutCollisionDetection
 @onready var RightCutCollisionDetection := $RightCutArea/RightCutCollisionDetection
 
-var CutEndTime : float = 0.0
-@export var CutAnimationDuration : float = 0.25
-var bWasCutting : bool = false
+var CutEndTime: float = 0.0
+@export var CutAnimationDuration: float = 0.25
+var bWasCutting: bool = false
 
-var bFacingRight : bool = true
+var bFacingRight: bool = true
 
 func _ready() -> void:
 	LeftCutCollisionDetection.disabled = true
@@ -29,8 +29,8 @@ func _ready() -> void:
 	CutAnimatedSprite.visible = false
 
 
-func _process(delta : float) -> void:
-	var bIsCutting : bool = IsCutting()
+func _process(delta: float) -> void:
+	var bIsCutting: bool = IsCutting()
 
 	if !bIsCutting and bWasCutting:
 		StopCutting()
@@ -104,7 +104,7 @@ func StopCutting() -> void:
 	SetCutCollisionEnabled(false)
 
 
-func SetCutCollisionEnabled(bEnabled : bool) -> void:
+func SetCutCollisionEnabled(bEnabled: bool) -> void:
 	if bFacingRight:
 		RightCutCollisionDetection.disabled = !bEnabled
 	else:
@@ -116,22 +116,14 @@ func IsCutting() -> bool:
 
 
 func _on_right_cut_area_area_entered(area: Area2D) -> void:
-	if area is Plant:
-		CutPlant(area as Plant)
-	elif area is PlantNode:
+	if area is PlantNode:
 		CutPlantNode(area as PlantNode)
 
 
 func _on_left_cut_area_area_entered(area: Area2D) -> void:
-	if area is Plant:
-		CutPlant(area as Plant)
-	elif area is PlantNode:
+	if area is PlantNode:
 		CutPlantNode(area as PlantNode)
 
 
-func CutPlantNode(ThisPlantNode : PlantNode):
+func CutPlantNode(ThisPlantNode: PlantNode):
 	SignalManager.on_plant_node_cut.emit(ThisPlantNode)
-
-
-func CutPlant(ThisPlant : Plant):
-	SignalManager.on_plant_cut.emit(ThisPlant)
