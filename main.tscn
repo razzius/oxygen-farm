@@ -1,14 +1,36 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdy3tagav4qmb"]
+[gd_scene load_steps=17 format=3 uid="uid://bdy3tagav4qmb"]
 
 [ext_resource type="PackedScene" uid="uid://ba0hqbqmx7rha" path="res://Player/player.tscn" id="1_pwm58"]
+[ext_resource type="Texture2D" uid="uid://b1f7ktnndu0t7" path="res://art/world.png" id="2_0pt6b"]
 [ext_resource type="Shader" path="res://razzishader.gdshader" id="2_gyp2u"]
 [ext_resource type="PackedScene" uid="uid://csn4hjyqdpbqp" path="res://Bubble/bubble_composite.tscn" id="2_plnqy"]
 [ext_resource type="Texture2D" uid="uid://cae5003q3i5iy" path="res://icon.svg" id="3_4ldu5"]
-[ext_resource type="Texture2D" uid="uid://df558gbv2lc5i" path="res://art/background.png" id="5_n3lp2"]
 [ext_resource type="PackedScene" uid="uid://dfmwi20j1detr" path="res://scenes/plant/plant.tscn" id="5_wpcyw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uew2f"]
 shader = ExtResource("2_gyp2u")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bop3n"]
+atlas = ExtResource("2_0pt6b")
+region = Rect2(360, 0, 360, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fabc"]
+atlas = ExtResource("2_0pt6b")
+region = Rect2(0, 0, 360, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aki54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bop3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fabc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0nsgx"]
 shader = ExtResource("2_gyp2u")
@@ -23,10 +45,20 @@ shader = ExtResource("2_gyp2u")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ea2y"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_8qj0a"]
+
 [node name="Main" type="Node2D"]
 material = SubResource("ShaderMaterial_uew2f")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.5, -273.5)
+scale = Vector2(3.19722, 3.265)
+sprite_frames = SubResource("SpriteFrames_aki54")
+autoplay = "default"
+frame_progress = 0.792974
+
 [node name="Bubble Composite" parent="." instance=ExtResource("2_plnqy")]
+visible = false
 position = Vector2(-1124, -1155)
 scale = Vector2(4.4, 4.4)
 
@@ -52,7 +84,7 @@ z_index = -1
 material = SubResource("ShaderMaterial_5ea2y")
 position = Vector2(1, -273)
 scale = Vector2(3.18889, 3.22)
-texture = ExtResource("5_n3lp2")
+texture = SubResource("CanvasTexture_8qj0a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -272)
