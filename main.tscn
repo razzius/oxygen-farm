@@ -14,7 +14,7 @@ shader = ExtResource("2_gyp2u")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rhgpg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8x5v"]
-size = Vector2(164, 20)
+size = Vector2(1145, 47)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8jrpg"]
 shader = ExtResource("2_gyp2u")
@@ -32,13 +32,13 @@ material = SubResource("ShaderMaterial_0nsgx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 material = SubResource("ShaderMaterial_rhgpg")
-position = Vector2(531, 450)
+position = Vector2(574, 624)
 shape = SubResource("RectangleShape2D_p8x5v")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 material = SubResource("ShaderMaterial_8jrpg")
-position = Vector2(531, 450)
-scale = Vector2(1.28125, 0.15625)
+position = Vector2(573.5, 624.5)
+scale = Vector2(8.96094, 0.382813)
 texture = ExtResource("3_4ldu5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
