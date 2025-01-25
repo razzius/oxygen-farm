@@ -22,6 +22,8 @@ GameStateManager="*res://Managers/GameStateManager.gd"
 
 [display]
 
+window/size/window_width_override=2304
+window/size/window_height_override=1296
 window/stretch/mode="canvas_items"
 
 [dotnet]
