@@ -14,6 +14,9 @@ var bJetPackActive: bool = false
 @onready var JetStream: GPUParticles2D = $JetStream
 var JetStreamSpawnX: float = 0.0
 
+@onready var DirtTrail : GPUParticles2D = $DirtTrail
+var DirtTrailSpawnX : float = 0.0
+
 @onready var PlayerSprite := $PlayerSprite
 @onready var CutAnimatedSprite := $CutAnimatedSprite
 @onready var LeftCutCollisionDetection := $LeftCutArea/LeftCutCollisionDetection
@@ -33,6 +36,9 @@ func _ready() -> void:
 	
 	JetStream.emitting = false
 	JetStreamSpawnX = JetStream.position.x
+	
+	DirtTrail.emitting = false
+	DirtTrailSpawnX = DirtTrail.position.x
 
 
 func _process(_delta: float) -> void:
@@ -43,6 +49,9 @@ func _process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("cut"):
 		StartCutting()
+	
+	if is_on_floor():
+		DirtTrail.emitting = velocity.x != 0.0
 	
 	bWasCutting = bIsCutting
 
