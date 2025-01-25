@@ -52,13 +52,13 @@ shape = SubResource("CapsuleShape2D_2f1u2")
 [node name="RightCutArea" type="Area2D" parent="."]
 
 [node name="RightCutCollisionDetection" type="CollisionShape2D" parent="RightCutArea"]
-position = Vector2(12.5, -5)
+position = Vector2(18, 3)
 shape = SubResource("RectangleShape2D_1lpfn")
 
 [node name="LeftCutArea" type="Area2D" parent="."]
 
 [node name="LeftCutCollisionDetection" type="CollisionShape2D" parent="LeftCutArea"]
-position = Vector2(-13, -5)
+position = Vector2(-18, 3)
 shape = SubResource("RectangleShape2D_1lpfn")
 
 [connection signal="area_entered" from="RightCutArea" to="." method="_on_right_cut_area_area_entered"]

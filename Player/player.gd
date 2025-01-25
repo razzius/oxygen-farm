@@ -18,6 +18,8 @@ var bFacingRight : bool = true
 func _ready() -> void:
 	LeftCutCollisionDetection.disabled = true
 	RightCutCollisionDetection.disabled = true
+	
+	CutAnimatedSprite.visible = false
 
 
 func _process(delta : float) -> void:
@@ -68,10 +70,16 @@ func StartCutting() -> void:
 
 	CutEndTime = GameStateManager.Now + CutAnimationDuration
 
+	CutAnimatedSprite.visible = true
+	CutAnimatedSprite.play("Cut")
+
 	SetCutCollisionEnabled(true)
 
 
 func StopCutting() -> void:
+	CutAnimatedSprite.visible = false
+	CutAnimatedSprite.stop()
+	
 	SetCutCollisionEnabled(false)
 
 
@@ -88,9 +96,21 @@ func IsCutting() -> bool:
 
 func _on_right_cut_area_area_entered(area: Area2D) -> void:
 	if area is PlantNode:
-		print("hit plant")
+		CutPlantNode(area as PlantNode)
+	elif area is Plant:
+		CutPlant(area as Plant)
 
 
 func _on_left_cut_area_area_entered(area: Area2D) -> void:
 	if area is PlantNode:
-		print("hit plant")
+		CutPlantNode(area as PlantNode)
+	elif area is Plant:
+		CutPlant(area as Plant)
+
+
+func CutPlantNode(ThisPlantNode : PlantNode):
+	SignalManager.on_plant_node_cut.emit(ThisPlantNode)
+
+
+func CutPlant(ThisPlant : Plant):
+	SignalManager.on_plant_cut.emit(ThisPlant)
