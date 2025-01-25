@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd7785kmnbfal"
-path="res://.godot/imported/arms-run.png-c43a40146f8de9aa38c9801136cf0e29.ctex"
+uid="uid://dsdt76jkads70"
+path="res://.godot/imported/PerlinNoise.png-302951151086ba52215c5740874035b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/arms-run.png"
-dest_files=["res://.godot/imported/arms-run.png-c43a40146f8de9aa38c9801136cf0e29.ctex"]
+source_file="res://VFX/PerlinNoise.png"
+dest_files=["res://.godot/imported/PerlinNoise.png-302951151086ba52215c5740874035b0.ctex"]
 
 [params]
 

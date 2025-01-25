@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd7785kmnbfal"
-path="res://.godot/imported/arms-run.png-c43a40146f8de9aa38c9801136cf0e29.ctex"
+uid="uid://couq263kr64vm"
+path="res://.godot/imported/player-fly.png-298c4739346fdbb9db7e560447c131e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/arms-run.png"
-dest_files=["res://.godot/imported/arms-run.png-c43a40146f8de9aa38c9801136cf0e29.ctex"]
+source_file="res://art/player-fly.png"
+dest_files=["res://.godot/imported/player-fly.png-298c4739346fdbb9db7e560447c131e7.ctex"]
 
 [params]
 
