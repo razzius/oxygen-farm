@@ -4,6 +4,7 @@ class_name Plant
 
 const PLANT_NODE = preload("res://scenes/plant/plant_node.tscn")
 @onready var grow_timer: Timer = $GrowTimer
+@export var node_scale: Vector2 = Vector2(1, 1)
 
 var _root: PlantNode
 
@@ -30,7 +31,8 @@ func add_node(source: PlantNode, directions: Array[PlantNode.Direction]) -> void
 	for dir in directions:
 		var new_node = PLANT_NODE.instantiate()
 		var dir_info = PlantNode.DirectionMap[dir]
-		new_node.position = source.position + dir_info["relative_position"]
+		new_node.position = source.position + dir_info["relative_position"] * node_scale
+		new_node.scale = node_scale
 		source[dir_info.key] = new_node
 		if (dir == PlantNode.Direction.UP):
 			_root.add_child(new_node)

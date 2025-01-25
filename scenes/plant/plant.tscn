@@ -4,6 +4,7 @@
 
 [node name="Plant" type="Node2D"]
 script = ExtResource("1_0afwo")
+node_scale = Vector2(3, 3)
 
 [node name="GrowTimer" type="Timer" parent="."]
 autostart = true

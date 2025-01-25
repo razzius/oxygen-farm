@@ -2,9 +2,13 @@ extends Area2D
 
 class_name PlantNode
 
+const SPRITE_HEIGHT = 6
+const SPRITE_WIDTH = 11
+@onready var sprite: Sprite2D = $Sprite2D
+
 enum Direction {LEFT, RIGHT, UP}
 
-const PLANT_SIZE: Vector2 = Vector2i(16, 16)
+const PLANT_SIZE: Vector2 = Vector2i(SPRITE_WIDTH, SPRITE_HEIGHT)
 const DirectionMap: Dictionary = {
 	Direction.LEFT: {
 		"relative_position": Vector2i.LEFT * PLANT_SIZE.x,
