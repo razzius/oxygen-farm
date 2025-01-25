@@ -2,6 +2,9 @@ extends Node2D
 
 @export var new_scene: PackedScene
 
+func _ready():
+	pop()
+
 func replace_children():
 	# Remove all existing children
 	for child in get_children():

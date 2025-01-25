@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdy3tagav4qmb"]
+[gd_scene load_steps=17 format=3 uid="uid://bdy3tagav4qmb"]
 
 [ext_resource type="PackedScene" uid="uid://ba0hqbqmx7rha" path="res://Player/player.tscn" id="1_pwm58"]
 [ext_resource type="Texture2D" uid="uid://b1f7ktnndu0t7" path="res://art/world.png" id="2_0pt6b"]
 [ext_resource type="Shader" path="res://razzishader.gdshader" id="2_gyp2u"]
 [ext_resource type="PackedScene" uid="uid://csn4hjyqdpbqp" path="res://Bubble/bubble_composite.tscn" id="2_plnqy"]
 [ext_resource type="Texture2D" uid="uid://cae5003q3i5iy" path="res://icon.svg" id="3_4ldu5"]
+[ext_resource type="PackedScene" uid="uid://btjyh66f2bkio" path="res://Bubble/bubble_pop_particle.tscn" id="7_726qo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uew2f"]
 shader = ExtResource("2_gyp2u")
@@ -57,8 +58,8 @@ autoplay = "default"
 frame_progress = 0.792974
 
 [node name="Bubble Composite" parent="." instance=ExtResource("2_plnqy")]
-position = Vector2(-1124, -1155)
 scale = Vector2(4.4, 4.4)
+new_scene = ExtResource("7_726qo")
 
 [node name="Player" parent="." instance=ExtResource("1_pwm58")]
 position = Vector2(1, -41)
