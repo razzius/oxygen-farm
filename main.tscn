@@ -56,9 +56,10 @@ position = Vector2(-0.5, -273.5)
 scale = Vector2(3.19722, 3.265)
 sprite_frames = SubResource("SpriteFrames_aki54")
 autoplay = "default"
-frame_progress = 0.792974
+frame_progress = 0.138484
 
 [node name="Bubble Composite" parent="." instance=ExtResource("2_plnqy")]
+position = Vector2(-1124, -1155)
 scale = Vector2(4.4, 4.4)
 new_scene = ExtResource("7_726qo")
 

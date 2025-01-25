@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k8qmn31qhlou"
-path="res://.godot/imported/mound.png-114ace2b32cb932d984b0e1b63323b50.ctex"
+uid="uid://dd7785kmnbfal"
+path="res://.godot/imported/dirt.png-3b32c912863136ed31c8b8ddf819e7de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/mound.png"
-dest_files=["res://.godot/imported/mound.png-114ace2b32cb932d984b0e1b63323b50.ctex"]
+source_file="res://art/dirt.png"
+dest_files=["res://.godot/imported/dirt.png-3b32c912863136ed31c8b8ddf819e7de.ctex"]
 
 [params]
 
