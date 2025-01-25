@@ -50,8 +50,7 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("cut"):
 		StartCutting()
 	
-	if is_on_floor():
-		DirtTrail.emitting = velocity.x != 0.0
+	DirtTrail.emitting = velocity.x != 0.0 and is_on_floor()
 	
 	bWasCutting = bIsCutting
 
