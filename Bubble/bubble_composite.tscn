@@ -8,12 +8,14 @@
 noise_type = 3
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_44jih"]
+width = 128
+height = 128
 seamless = true
 noise = SubResource("FastNoiseLite_lb21q")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_66t0h"]
 shader = ExtResource("2_6vgyn")
-shader_parameter/modulate = Color(1, 1, 1, 0.513726)
+shader_parameter/modulate = Color(1, 0.964706, 1, 0.678431)
 shader_parameter/gamma_amount = 100.0
 shader_parameter/bright_amount = 100.0
 shader_parameter/contrast_amount = 100.0
@@ -24,42 +26,49 @@ shader_parameter/enable_outline = true
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 2.0
 shader_parameter/enable_wave = true
-shader_parameter/wave_speed = 1.0
-shader_parameter/wave_amplitude = 1.427
-shader_parameter/time_scale = 83.084
+shader_parameter/wave_speed = 0.0
+shader_parameter/wave_amplitude = 0.611
+shader_parameter/time_scale = 0.02
+shader_parameter/random_seed = 0.147
 shader_parameter/palette = ExtResource("3_6nywn")
 shader_parameter/wave_texture = SubResource("NoiseTexture2D_44jih")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_3lfsq"]
 noise_type = 3
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3ieko"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h4dx2"]
+width = 128
+height = 128
+invert = true
 seamless = true
 noise = SubResource("FastNoiseLite_3lfsq")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2dlv"]
 shader = ExtResource("2_6vgyn")
-shader_parameter/modulate = Color(1, 1, 1, 1)
+shader_parameter/modulate = Color(1, 1, 1, 0.396078)
 shader_parameter/gamma_amount = 100.0
 shader_parameter/bright_amount = 100.0
 shader_parameter/contrast_amount = 100.0
 shader_parameter/saturation_amount = 100.0
-shader_parameter/hue_amount = 56.061
+shader_parameter/hue_amount = 8.308
 shader_parameter/enable_palette = true
 shader_parameter/enable_outline = false
 shader_parameter/outline_color = null
 shader_parameter/outline_width = 1.0
 shader_parameter/enable_wave = true
-shader_parameter/wave_speed = 1.0
-shader_parameter/wave_amplitude = 2.242
-shader_parameter/time_scale = 62.298
+shader_parameter/wave_speed = 0.551
+shader_parameter/wave_amplitude = 0.0
+shader_parameter/time_scale = 0.12
+shader_parameter/random_seed = 0.19
 shader_parameter/palette = ExtResource("3_6nywn")
-shader_parameter/wave_texture = SubResource("NoiseTexture2D_3ieko")
+shader_parameter/wave_texture = SubResource("NoiseTexture2D_h4dx2")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_25k0h"]
 noise_type = 3
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1tec6"]
+width = 128
+height = 128
 seamless = true
 noise = SubResource("FastNoiseLite_25k0h")
 
@@ -76,9 +85,10 @@ shader_parameter/enable_outline = false
 shader_parameter/outline_color = null
 shader_parameter/outline_width = 1.0
 shader_parameter/enable_wave = true
-shader_parameter/wave_speed = 4.763
-shader_parameter/wave_amplitude = 1.967
+shader_parameter/wave_speed = 0.269
+shader_parameter/wave_amplitude = 1.095
 shader_parameter/time_scale = 0.025
+shader_parameter/random_seed = 0.822
 shader_parameter/palette = ExtResource("3_6nywn")
 shader_parameter/wave_texture = SubResource("NoiseTexture2D_1tec6")
 
@@ -86,16 +96,17 @@ shader_parameter/wave_texture = SubResource("NoiseTexture2D_1tec6")
 
 [node name="Bubble2d3" parent="." instance=ExtResource("1_fe6yk")]
 material = SubResource("ShaderMaterial_66t0h")
-offset_right = 1426.0
-offset_bottom = 971.0
+offset_left = 1.0
+offset_right = 513.0
+offset_bottom = 512.0
 
 [node name="Bubble2d2" parent="." instance=ExtResource("1_fe6yk")]
+texture_filter = 2
 material = SubResource("ShaderMaterial_f2dlv")
-offset_left = 1.0
-offset_right = 1427.0
-offset_bottom = 971.0
+offset_right = 512.0
+offset_bottom = 512.0
 
 [node name="Bubble2d" parent="." instance=ExtResource("1_fe6yk")]
 material = SubResource("ShaderMaterial_5u46h")
-offset_right = 1426.0
-offset_bottom = 971.0
+offset_right = 512.0
+offset_bottom = 512.0

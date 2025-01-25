@@ -1,7 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba0hqbqmx7rha"]
+[gd_scene load_steps=9 format=3 uid="uid://ba0hqbqmx7rha"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_yk5km"]
 [ext_resource type="Texture2D" uid="uid://biqn3avir7ff8" path="res://art/player.png" id="2_whh4e"]
+[ext_resource type="Texture2D" uid="uid://p8kw2a1vsapt" path="res://art/clippers-clip.png" id="3_0deai"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubxx8"]
+atlas = ExtResource("3_0deai")
+region = Rect2(0, 0, 15, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50s0o"]
+atlas = ExtResource("3_0deai")
+region = Rect2(15, 0, 15, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l1ua6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubxx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50s0o")
+}],
+"loop": true,
+"name": &"Cut",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2f1u2"]
 
@@ -12,17 +35,31 @@ size = Vector2(25, 16)
 script = ExtResource("1_yk5km")
 SPEED = 150.0
 
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+position = Vector2(-2, 0)
+scale = Vector2(4, 3)
+texture = ExtResource("2_whh4e")
+
+[node name="CutAnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 0)
+scale = Vector2(4, 3)
+sprite_frames = SubResource("SpriteFrames_l1ua6")
+animation = &"Cut"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_2f1u2")
 
-[node name="RightCutCollisionDetection" type="CollisionShape2D" parent="."]
+[node name="RightCutArea" type="Area2D" parent="."]
+
+[node name="RightCutCollisionDetection" type="CollisionShape2D" parent="RightCutArea"]
 position = Vector2(12.5, -5)
 shape = SubResource("RectangleShape2D_1lpfn")
 
-[node name="LeftCutCollisionDetection" type="CollisionShape2D" parent="."]
+[node name="LeftCutArea" type="Area2D" parent="."]
+
+[node name="LeftCutCollisionDetection" type="CollisionShape2D" parent="LeftCutArea"]
 position = Vector2(-13, -5)
 shape = SubResource("RectangleShape2D_1lpfn")
 
-[node name="PlayerSprite" type="Sprite2D" parent="."]
-scale = Vector2(4, 3)
-texture = ExtResource("2_whh4e")
+[connection signal="area_entered" from="RightCutArea" to="." method="_on_right_cut_area_area_entered"]
+[connection signal="area_entered" from="LeftCutArea" to="." method="_on_left_cut_area_area_entered"]
