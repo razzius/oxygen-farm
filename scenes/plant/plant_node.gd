@@ -66,5 +66,10 @@ func get_leaves() -> Array[PlantNode]:
 		
 	return leaves
 
+
 func has_immediate_leaves() -> bool:
 	return _left != null or _up != null or _right != null
+	
+	
+func prune() -> void:
+	print("pruning", self)
