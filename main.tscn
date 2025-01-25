@@ -47,7 +47,7 @@ shader = ExtResource("2_gyp2u")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_8qj0a"]
 
-[node name="Main" type="Node2D"]
+[node name="Main2" type="Node2D"]
 material = SubResource("ShaderMaterial_uew2f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -13,7 +13,6 @@ var _plant_nodes: Array[PlantNode] = []
 
 func _ready():
 	init_root()
-	SignalManager.on_plant_cut.connect(on_plant_cut)
 	SignalManager.on_plant_node_cut.connect(on_plant_node_cut)
 
 
@@ -42,12 +41,6 @@ func _on_grow_timer_timeout() -> void:
 	
 func get_timer() -> Timer:
 	return grow_timer
-
-
-# TODO: move this logic elsewhere?
-func on_plant_cut(_plant: Plant) -> void:
-	print("plant cut")
-	# plant.queue_free()
 
 func on_plant_node_cut(_plant_node: PlantNode) -> void:
 	print("plant node cut")

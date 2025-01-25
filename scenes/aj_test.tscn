@@ -4,11 +4,5 @@
 
 [node name="Main" instance=ExtResource("1_e70pr")]
 
-[node name="AnimatedSprite2D" parent="." index="0"]
-frame_progress = 0.792974
-
-[node name="Bubble Composite" parent="." index="1"]
-visible = false
-
 [node name="Plant" parent="." index="6"]
 position = Vector2(50, -3)
