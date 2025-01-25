@@ -28,5 +28,10 @@ func appendNode() -> void:
 func _on_grow_timer_timeout() -> void:
 	grow()
 
-func get_nodes() -> Array[PlantNode]:
-	return _plant_nodes
+func prune_node(starting_node: PlantNode) -> void:
+	if !starting_node:
+		return
+	var cut_index = _plant_nodes.find(starting_node)
+	for node in _plant_nodes.slice(cut_index):
+		node.queue_free()
+	_plant_nodes = _plant_nodes.slice(0, cut_index)

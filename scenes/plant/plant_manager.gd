@@ -50,7 +50,4 @@ func get_random_pos() -> Vector2:
 
 func on_plant_node_cut(plant_node: PlantNode) -> void:
 	var plant = plant_node.get_plant_root()
-	if plant.get_nodes().bsearch(plant_node) == 0:
-		print("chopped root")
-	else:
-		print("chopped node")
+	plant.prune_node(plant_node)
