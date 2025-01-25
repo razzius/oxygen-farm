@@ -1,8 +1,26 @@
-[gd_scene load_steps=13 format=3 uid="uid://csn4hjyqdpbqp"]
+[gd_scene load_steps=17 format=3 uid="uid://csn4hjyqdpbqp"]
 
 [ext_resource type="PackedScene" uid="uid://b21de53nsxgfk" path="res://Bubble/2d Bubble.tscn" id="1_fe6yk"]
+[ext_resource type="Script" path="res://Bubble/bubble.gd" id="1_wih81"]
 [ext_resource type="Shader" path="res://Shaders/utility.gdshader" id="2_6vgyn"]
 [ext_resource type="Texture2D" uid="uid://bcnsn43uxlcpu" path="res://art/iridescent-crystal-1x.png" id="3_6nywn"]
+[ext_resource type="PackedScene" uid="uid://btjyh66f2bkio" path="res://Bubble/bubble_pop_particle.tscn" id="3_66xpm"]
+
+[sub_resource type="Resource" id="Resource_wgsis"]
+metadata/__load_path__ = "res://Bubble/bubble_pop.gd"
+
+[sub_resource type="PackedScene" id="PackedScene_n46hj"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("BubblePop", "position", "script", "Node2D", "Pop Particle9"),
+"node_count": 2,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 3, 0, -1, 2, 1, 0, 2, 1, 0, 0, 0, 2147483647, 4, 2, 1, 1, 3, 0),
+"variants": [Vector2(4, 35), SubResource("Resource_wgsis"), ExtResource("3_66xpm"), Vector2(-476, -249)],
+"version": 3
+}
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_lb21q"]
 noise_type = 3
@@ -93,6 +111,8 @@ shader_parameter/palette = ExtResource("3_6nywn")
 shader_parameter/wave_texture = SubResource("NoiseTexture2D_1tec6")
 
 [node name="Bubble Composite" type="Node2D"]
+script = ExtResource("1_wih81")
+new_scene = SubResource("PackedScene_n46hj")
 
 [node name="Bubble2d3" parent="." instance=ExtResource("1_fe6yk")]
 material = SubResource("ShaderMaterial_66t0h")
