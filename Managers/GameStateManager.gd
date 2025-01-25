@@ -1,11 +1,12 @@
 extends Node
 
-var Now : float = 0.0
+var Now: float = 0.0
 
-var OxygenLevel : float = 0.0
-var OxygenDeltaPerPlant : float = 0.01
-var OxygenVelocity : float = 0.0
-var OxygenQuota : float = 0.0
+var OxygenLevel: float = 0.0
+var OxygenDeltaPerPlant: float = 0.01
+var OxygenVelocity: float = 0.0
+var OxygenQuota: float = 0.0
+var NodeScale: Vector2
 
 
 # Called when the node enters the scene tree for the first time.

@@ -7,40 +7,26 @@ const PLANT_NODE = preload("res://scenes/plant/plant_node.tscn")
 @onready var grow_timer: Timer = $GrowTimer
 @onready var node_container: Node2D = $Nodes
 
-var node_scale: Vector2 = Vector2(3, 3)
+
 var _plant_nodes: Array[PlantNode] = []
 
 func _ready():
-	init_root()
-	SignalManager.on_plant_node_cut.connect(on_plant_node_cut)
-
-
-func should_grow() -> bool:
-	return true
-	# return randi() % 2 == 0
-
-
-func init_root() -> void:
-	appendNode()
+	grow()
 
 
 func grow() -> void:
-	if should_grow():
-		appendNode()
+	appendNode()
 
 
 func appendNode() -> void:
 	var plant: PlantNode = PLANT_NODE.instantiate()
-	plant.position = (PlantNode.relative_position * node_scale) * _plant_nodes.size()
+	plant.position = (PlantNode.relative_position * GameStateManager.NodeScale) * _plant_nodes.size()
 	_plant_nodes.append(plant)
 	node_container.add_child(plant)
 
+
 func _on_grow_timer_timeout() -> void:
 	grow()
-	
-func get_timer() -> Timer:
-	return grow_timer
 
-func on_plant_node_cut(_plant_node: PlantNode) -> void:
-	print("plant node cut")
-	# plant_node.queue_free()
+func get_nodes() -> Array[PlantNode]:
+	return _plant_nodes
