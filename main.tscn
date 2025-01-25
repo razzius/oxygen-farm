@@ -26,29 +26,32 @@ shader = ExtResource("2_gyp2u")
 material = SubResource("ShaderMaterial_uew2f")
 
 [node name="Bubble Composite" parent="." instance=ExtResource("2_plnqy")]
-position = Vector2(-500, -458)
-scale = Vector2(4.2, 3.76)
+position = Vector2(-1124, -1155)
+scale = Vector2(4.4, 4.4)
 
 [node name="Player" parent="." instance=ExtResource("1_pwm58")]
-position = Vector2(537, 319)
+position = Vector2(1, -41)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 material = SubResource("ShaderMaterial_0nsgx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 material = SubResource("ShaderMaterial_rhgpg")
-position = Vector2(574, 624)
+position = Vector2(0, 24)
 shape = SubResource("RectangleShape2D_p8x5v")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 material = SubResource("ShaderMaterial_8jrpg")
-position = Vector2(573.5, 624.5)
+position = Vector2(-1.99994, 24.0001)
 scale = Vector2(8.96094, 0.382813)
 texture = ExtResource("3_4ldu5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 material = SubResource("ShaderMaterial_5ea2y")
-position = Vector2(573, 327)
+position = Vector2(1, -273)
 scale = Vector2(3.18889, 3.22)
 texture = ExtResource("3_ce1ep")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -272)
