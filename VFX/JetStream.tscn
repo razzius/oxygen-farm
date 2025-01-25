@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds522b031bxk1"]
+
+[ext_resource type="Texture2D" uid="uid://dhqwjgtqkr7hq" path="res://art/JetParticle2.png" id="1_mcya4"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_exj0a"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 180.0
+gravity = Vector3(0, 98, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+process_material = SubResource("ParticleProcessMaterial_exj0a")
+texture = ExtResource("1_mcya4")

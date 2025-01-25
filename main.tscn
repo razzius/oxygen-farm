@@ -55,14 +55,18 @@ position = Vector2(-0.5, -273.5)
 scale = Vector2(3.19722, 3.265)
 sprite_frames = SubResource("SpriteFrames_aki54")
 autoplay = "default"
-frame_progress = 0.138484
+frame_progress = 0.792974
 
 [node name="Bubble Composite" parent="." instance=ExtResource("2_plnqy")]
+visible = false
 position = Vector2(-1124, -1155)
 scale = Vector2(4.4, 4.4)
 
 [node name="Player" parent="." instance=ExtResource("1_pwm58")]
 position = Vector2(1, -41)
+JETPACK_MAX_VELOCITY = -200.0
+JETPACK_ACCELERATION = 4.0
+bJetpackEnabled = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 material = SubResource("ShaderMaterial_0nsgx")
@@ -89,3 +93,4 @@ texture = SubResource("CanvasTexture_8qj0a")
 offset = Vector2(0, -272)
 
 [node name="Plant" parent="." instance=ExtResource("5_wpcyw")]
+position = Vector2(71, 0)

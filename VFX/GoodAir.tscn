@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://clhxhwr7gk2o6"]
+
+[ext_resource type="Texture2D" uid="uid://cs1sbm0lug1ps" path="res://art/round_particle.png" id="1_wmbvu"]
+
+[sub_resource type="Curve" id="Curve_1n2yd"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 0.010989), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vv80l"]
+curve = SubResource("Curve_1n2yd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kldyc"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 180.0
+direction = Vector3(0, -1, 0)
+spread = 30.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 9.99998
+scale_min = 0.2
+scale_max = 0.8
+scale_curve = SubResource("CurveTexture_vv80l")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_kldyc")
+texture = ExtResource("1_wmbvu")
+explosiveness = 0.2
+randomness = 1.0
