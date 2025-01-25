@@ -6,3 +6,7 @@
 [node name="Main" instance=ExtResource("1_e70pr")]
 
 [node name="PlantsContainer#Plant" parent="." index="0" instance=ExtResource("2_t2v4j")]
+
+[node name="Sprite2D" parent="StaticBody2D" index="1"]
+position = Vector2(-1.99994, 24.0001)
+scale = Vector2(8.96094, 0.382813)

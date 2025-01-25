@@ -11,8 +11,8 @@ var JetPackVelocity: float = 0.0
 @export var bJetpackEnabled: bool = false
 var bJetPackActive: bool = false
 
-@onready var JetStream : GPUParticles2D = $JetStream
-var JetStreamSpawnX : float = 0.0
+@onready var JetStream: GPUParticles2D = $JetStream
+var JetStreamSpawnX: float = 0.0
 
 @onready var PlayerSprite := $PlayerSprite
 @onready var CutAnimatedSprite := $CutAnimatedSprite
@@ -35,7 +35,7 @@ func _ready() -> void:
 	JetStreamSpawnX = JetStream.position.x
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var bIsCutting: bool = IsCutting()
 
 	if !bIsCutting and bWasCutting:
