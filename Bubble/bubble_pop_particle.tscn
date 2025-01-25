@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://btjyh66f2bkio"]
+
+[ext_resource type="Texture2D" uid="uid://cs1sbm0lug1ps" path="res://art/round_particle.png" id="1_qvoba"]
+[ext_resource type="Texture2D" uid="uid://cpn0wxoehjce7" path="res://art/tintinship.png" id="2_4o64n"]
+[ext_resource type="Script" path="res://Bubble/bubble_pop_particle.gd" id="2_eieje"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cyxdv"]
+lifetime_randomness = 0.14
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 550.0
+emission_ring_radius = 550.0
+emission_ring_inner_radius = 550.0
+angle_min = -27.1
+angle_max = 16.9
+inherit_velocity_ratio = 0.206
+direction = Vector3(1, -1.36, 0)
+gravity = Vector3(0, -6.11, 0)
+
+[node name="Pop Particle" type="GPUParticles2D"]
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_cyxdv")
+texture = ExtResource("1_qvoba")
+lifetime = 3.75
+one_shot = true
+explosiveness = 1.0
+script = ExtResource("2_eieje")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_4o64n")
