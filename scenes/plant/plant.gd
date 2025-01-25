@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 class_name Plant
 
@@ -7,8 +7,7 @@ const PLANT_NODE = preload("res://scenes/plant/plant_node.tscn")
 @onready var grow_timer: Timer = $GrowTimer
 @onready var node_container: Node2D = $Nodes
 
-@export var node_scale: Vector2 = Vector2(1, 1)
-
+var node_scale: Vector2 = Vector2(3, 3)
 var _plant_nodes: Array[PlantNode] = []
 
 func _ready():

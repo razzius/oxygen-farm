@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://csn4hjyqdpbqp" path="res://Bubble/bubble_composite.tscn" id="2_plnqy"]
 [ext_resource type="Texture2D" uid="uid://cae5003q3i5iy" path="res://icon.svg" id="3_4ldu5"]
 [ext_resource type="PackedScene" uid="uid://btjyh66f2bkio" path="res://Bubble/bubble_pop_particle.tscn" id="7_726qo"]
+[ext_resource type="PackedScene" uid="uid://csjnkwkf5l1ty" path="res://scenes/plant/plant_manager.tscn" id="6_bu0r6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uew2f"]
 shader = ExtResource("2_gyp2u")
@@ -91,5 +92,12 @@ texture = SubResource("CanvasTexture_8qj0a")
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -272)
 
-[node name="PlantsContainer" type="Node2D" parent="."]
-position = Vector2(-472, 0)
+[node name="PlantManager" parent="." node_paths=PackedStringArray("left_bound", "right_bound") instance=ExtResource("6_bu0r6")]
+left_bound = NodePath("../LeftBound")
+right_bound = NodePath("../RightBound")
+
+[node name="LeftBound" type="Node2D" parent="."]
+position = Vector2(-459, 0)
+
+[node name="RightBound" type="Node2D" parent="."]
+position = Vector2(480, 0)
