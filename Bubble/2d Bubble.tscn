@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b21de53nsxgfk"]
+
+[ext_resource type="PackedScene" uid="uid://dkr40lnpqntlq" path="res://Bubble/3d Bubble.tscn" id="1_wldd1"]
+
+[sub_resource type="Environment" id="Environment_pgrjv"]
+
+[sub_resource type="Environment" id="Environment_l5y7v"]
+
+[sub_resource type="World3D" id="World3D_ip8ex"]
+resource_local_to_scene = true
+environment = SubResource("Environment_pgrjv")
+fallback_environment = SubResource("Environment_l5y7v")
+
+[node name="Bubble2d" type="SubViewportContainer"]
+
+[node name="SubViewport" type="SubViewport" parent="."]
+own_world_3d = true
+world_3d = SubResource("World3D_ip8ex")
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Node3D" parent="SubViewport" instance=ExtResource("1_wldd1")]

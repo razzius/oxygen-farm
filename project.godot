@@ -24,6 +24,10 @@ GameStateManager="*res://Managers/GameStateManager.gd"
 
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="Oxygen Farm"
+
 [input]
 
 up={
