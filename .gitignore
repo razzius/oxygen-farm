@@ -1,3 +1,4 @@
 .godot
-.vscode
 .DS_Store
+.vscode/*
+!.vscode/launch.json
