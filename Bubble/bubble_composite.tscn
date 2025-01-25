@@ -101,7 +101,6 @@ offset_right = 513.0
 offset_bottom = 512.0
 
 [node name="Bubble2d2" parent="." instance=ExtResource("1_fe6yk")]
-texture_filter = 2
 material = SubResource("ShaderMaterial_f2dlv")
 offset_right = 512.0
 offset_bottom = 512.0
