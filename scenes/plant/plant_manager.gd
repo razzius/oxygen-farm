@@ -57,6 +57,11 @@ func get_random_pos() -> Vector2:
 
 func on_plant_node_cut(plant_node: PlantNode) -> void:
 	var plant = plant_node.get_plant_root()
+	# if plant.get_first_node() == plant_node:
+	# 	var occupied_index = _plants.find(plant)
+	# 	_available_plots.append(occupied_index)
+	# 	print("available", _available_plots)
+	# 	plant.queue_free()
 	plant.prune_node(plant_node)
 
 func on_game_over(_message: String):

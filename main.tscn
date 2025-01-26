@@ -142,10 +142,10 @@ right_bound = NodePath("RightBound")
 MaxTimeBetweenNewPlant = 8.0
 
 [node name="LeftBound" type="Node2D" parent="PlantManager"]
-position = Vector2(-410, 0)
+position = Vector2(-435, 0)
 
 [node name="RightBound" type="Node2D" parent="PlantManager"]
-position = Vector2(460, 0)
+position = Vector2(440, 0)
 
 [node name="Hud" parent="." instance=ExtResource("10_l3d00")]
 

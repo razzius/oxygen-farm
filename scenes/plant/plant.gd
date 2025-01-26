@@ -48,6 +48,10 @@ func prune_node(starting_node: PlantNode) -> void:
 		node.queue_free()
 	_plant_nodes = _plant_nodes.slice(0, cut_index)
 
+func get_first_node() -> PlantNode:
+	return null if _plant_nodes.size() == 0 else _plant_nodes[0]
+
+
 func on_game_over(_message: String):
 	queue_free()
 
