@@ -14,6 +14,7 @@ func gather_resources():
 		SignalManager.on_game_over.emit("You didn't meet your quota!")
 	else:
 		GameStateManager.OxygenLevel -= GameStateManager.Quota * 10
+		SignalManager.on_gather.emit()
 
 
 func set_quota():

@@ -10,6 +10,8 @@ signal on_jetpack_usage_changed(is_using: bool)
 
 signal on_running_usage_changed(is_running: bool)
 
+signal on_gather
+
 signal on_quota_changed(quota: int)
 
 signal on_game_over(fail_message: String)
