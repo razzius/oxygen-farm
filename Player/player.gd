@@ -66,6 +66,10 @@ func _process(_delta: float) -> void:
 		PlayerAnimatedSprite2D.play("run")
 		if !cutAnimationPlaying:
 			ArmsAnimatedSprite2D.play("run")
+	elif bJetPackActive:
+		PlayerAnimatedSprite2D.play("fly")
+		if !cutAnimationPlaying:
+			ArmsAnimatedSprite2D.play("fly")
 	else:
 		PlayerAnimatedSprite2D.play("idle")
 		if !cutAnimationPlaying:
@@ -138,6 +142,8 @@ func EndCuttingAnimation() -> void:
 	cutAnimationPlaying = false
 	if isPlayerRunning:
 		ArmsAnimatedSprite2D.play("run")
+	elif bJetPackActive:
+		ArmsAnimatedSprite2D.play("fly")
 	else:
 		ArmsAnimatedSprite2D.play("idle")
 
