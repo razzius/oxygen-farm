@@ -13,4 +13,5 @@ force_type = 0
 [node name="Left" type="TextureRect"]
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(0.75, 0.75)
 texture = SubResource("Texture2D_nvky3")

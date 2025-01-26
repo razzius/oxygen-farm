@@ -30,7 +30,7 @@ func OnAnimationFinished():
 
 
 func _exit_tree():
-	SignalManager.on_plant_node_removed.emit()
+	SignalManager.on_plant_node_removed.emit(global_position)
 
 func get_plant_root(current_node: Node2D = self) -> Plant:
 	var parent: Node2D = current_node.get_parent()
