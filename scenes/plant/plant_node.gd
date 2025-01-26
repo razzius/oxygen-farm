@@ -17,6 +17,9 @@ func _ready():
 	sprite.scale = GameStateManager.NodeScale
 	collider.scale = GameStateManager.NodeScale
 
+func _exit_tree():
+	SignalManager.on_plant_node_removed.emit()
+
 func get_plant_root(current_node: Node2D = self) -> Plant:
 	var parent: Node2D = current_node.get_parent()
 	return parent as Plant if parent is Plant else get_plant_root(parent)

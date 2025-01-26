@@ -12,6 +12,7 @@ var NodeScale: Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalManager.on_plant_grow.connect(OnPlantGrow)
+	SignalManager.on_plant_node_removed.connect(OnPlantNodeRemoved)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,3 +24,6 @@ func _process(delta: float) -> void:
 
 func OnPlantGrow() -> void:
 	OxygenVelocity += OxygenDeltaPerPlant
+
+func OnPlantNodeRemoved() -> void:
+	OxygenVelocity -= OxygenDeltaPerPlant
