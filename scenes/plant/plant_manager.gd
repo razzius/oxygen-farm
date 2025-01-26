@@ -59,7 +59,7 @@ func on_plant_node_cut(plant_node: PlantNode) -> void:
 	var plant = plant_node.get_plant_root()
 	plant.prune_node(plant_node)
 
-func on_game_over() -> void:
+func on_game_over(_message: String):
 	timer.stop()
 
 func on_full_oxygen() -> void:

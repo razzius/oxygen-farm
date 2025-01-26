@@ -45,5 +45,5 @@ func _on_body_entered(body: Node2D):
 func on_game_reset():
 	get_tree().reload_current_scene()
 
-func on_game_over():
+func on_game_over(_message: String):
 	pop()

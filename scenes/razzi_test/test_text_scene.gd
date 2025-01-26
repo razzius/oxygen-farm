@@ -58,5 +58,5 @@ func write_message(message: String):
 func _process(_delta: float) -> void:
 	pass
 
-func on_game_over():
+func on_game_over(_message: String):
 	message_label.visible = false

@@ -48,7 +48,7 @@ func prune_node(starting_node: PlantNode) -> void:
 		node.queue_free()
 	_plant_nodes = _plant_nodes.slice(0, cut_index)
 
-func on_game_over() -> void:
+func on_game_over(_message: String):
 	queue_free()
 
 func on_full_oxygen() -> void:
