@@ -25,6 +25,8 @@ var ShouldCreatePlantParticles: bool = true
 
 var rng: RandomNumberGenerator
 
+var PickupsToWin : int = 10
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -80,6 +82,11 @@ func OnRunningUsageChanged(is_running: bool) -> void:
 
 
 func CalculateQuota(iteration) -> void:
+	print("iteration ", iteration)
+	if iteration == PickupsToWin:
+		SignalManager.on_game_over.emit("You won!")
+		return
+
 	if iteration <= 1:
 		Quota = 30
 	else:

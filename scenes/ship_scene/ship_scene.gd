@@ -17,6 +17,6 @@ func gather_resources():
 
 
 func set_quota():
-	GameStateManager.CalculateQuota(1)
+	GameStateManager.CalculateQuota(iteration)
 	print("ship - new quota: %d oxygen" % GameStateManager.Quota)
 	iteration += 1
