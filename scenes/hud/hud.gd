@@ -31,4 +31,4 @@ func reset_game():
 	SignalManager.on_game_reset.emit()
 
 func on_quota_changed(new_quota: int) -> void:
-	print("new quota: ", new_quota)
+	print("hud -- new quota: %d" % new_quota)
