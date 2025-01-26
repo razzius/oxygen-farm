@@ -17,7 +17,7 @@ var JetPackIsActive: bool = false
 var OxygenConsumptionRateFromRunning: float = 0.25
 var OxygenConsumptionRateFromJetPack: float = 1.0
 
-var QuotaMin: int = 20
+var QuotaMin: int = 40
 var QuotaMax: int = 80
 var Quota: int = 0
 
@@ -69,7 +69,10 @@ func OnRunningUsageChanged(is_running: bool) -> void:
 	PlayerIsRunning = is_running
 
 
-func CalculateQuota() -> void:
-	Quota = rng.randi_range(QuotaMin, QuotaMax)
+func CalculateQuota(iteration) -> void:
+	if iteration <= 1:
+		Quota = 30
+	else:
+		Quota = rng.randi_range(QuotaMin, QuotaMax)
 	SignalManager.on_quota_changed.emit(Quota)
 	SignalManager.on_show_message.emit("Incoming Quota:\nNew target %d%% oxygen" % Quota)
