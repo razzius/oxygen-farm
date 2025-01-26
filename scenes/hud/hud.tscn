@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi6558kvbsyug"]
+
+[ext_resource type="PackedScene" path="res://VFX/ValueBar.tscn" id="1_krf3o"]
+[ext_resource type="PackedScene" uid="uid://ct2q4po8k2evr" path="res://scenes/razzi_test/test_text_scene.tscn" id="1_q43jr"]
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="TestTextScene" parent="MarginContainer" instance=ExtResource("1_q43jr")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="ColorRect" parent="MarginContainer" instance=ExtResource("1_krf3o")]
+custom_minimum_size = Vector2(30, 120)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0

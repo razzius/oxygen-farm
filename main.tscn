@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bdy3tagav4qmb"]
+[gd_scene load_steps=19 format=3 uid="uid://bdy3tagav4qmb"]
 
 [ext_resource type="PackedScene" uid="uid://ba0hqbqmx7rha" path="res://Player/player.tscn" id="1_pwm58"]
 [ext_resource type="Texture2D" uid="uid://b1f7ktnndu0t7" path="res://art/world.png" id="2_0pt6b"]
@@ -6,10 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://csn4hjyqdpbqp" path="res://Bubble/bubble_composite.tscn" id="2_plnqy"]
 [ext_resource type="Texture2D" uid="uid://cae5003q3i5iy" path="res://icon.svg" id="3_4ldu5"]
 [ext_resource type="Script" path="res://scenes/background.gd" id="3_ge6qd"]
-[ext_resource type="PackedScene" path="res://scenes/plant/plant_manager.tscn" id="6_bu0r6"]
+[ext_resource type="PackedScene" uid="uid://csjnkwkf5l1ty" path="res://scenes/plant/plant_manager.tscn" id="6_bu0r6"]
 [ext_resource type="PackedScene" path="res://Bubble/bubble_pop_particle.tscn" id="7_726qo"]
-[ext_resource type="PackedScene" uid="uid://ct2q4po8k2evr" path="res://scenes/razzi_test/test_text_scene.tscn" id="8_fem26"]
-[ext_resource type="PackedScene" path="res://VFX/ValueBar.tscn" id="9_61lxv"]
+[ext_resource type="PackedScene" uid="uid://bi6558kvbsyug" path="res://scenes/hud/hud.tscn" id="10_l3d00"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uew2f"]
 shader = ExtResource("2_gyp2u")
@@ -59,10 +58,6 @@ size = Vector2(1145, 47)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8jrpg"]
 shader = ExtResource("2_gyp2u")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ea2y"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_8qj0a"]
-
 [node name="Main" type="Node2D"]
 material = SubResource("ShaderMaterial_uew2f")
 
@@ -85,26 +80,19 @@ JETPACK_MAX_VELOCITY = -200.0
 JETPACK_ACCELERATION = 4.0
 bJetpackEnabled = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Platform" type="StaticBody2D" parent="."]
 material = SubResource("ShaderMaterial_0nsgx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 material = SubResource("ShaderMaterial_rhgpg")
 position = Vector2(0, 24)
 shape = SubResource("RectangleShape2D_p8x5v")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
 material = SubResource("ShaderMaterial_8jrpg")
 position = Vector2(0.999948, 40.25)
 scale = Vector2(9.3125, 0.636718)
 texture = ExtResource("3_4ldu5")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -1
-material = SubResource("ShaderMaterial_5ea2y")
-position = Vector2(1, -273)
-scale = Vector2(3.18889, 3.22)
-texture = SubResource("CanvasTexture_8qj0a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -272)
@@ -119,10 +107,4 @@ position = Vector2(-410, 0)
 [node name="RightBound" type="Node2D" parent="PlantManager"]
 position = Vector2(460, 0)
 
-[node name="TestTextScene" parent="." instance=ExtResource("8_fem26")]
-
-[node name="ColorRect" parent="." instance=ExtResource("9_61lxv")]
-offset_left = 492.0
-offset_top = -554.0
-offset_right = 532.0
-offset_bottom = -438.0
+[node name="Hud" parent="." instance=ExtResource("10_l3d00")]
