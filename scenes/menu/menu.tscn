@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://du8py15bthmbo"]
+[gd_scene load_steps=16 format=3 uid="uid://du8py15bthmbo"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_oq7gu"]
 [ext_resource type="FontFile" uid="uid://dh4crsw6w562v" path="res://fonts/PolandCannedIntoFuture-OxE3.ttf" id="1_pem4x"]
 [ext_resource type="LabelSettings" uid="uid://c5e65p255u4nf" path="res://fonts/72_white.tres" id="1_q75ci"]
+[ext_resource type="Shader" path="res://Shaders/stars.gdshader" id="2_j3gmy"]
 [ext_resource type="AudioStream" uid="uid://d1wsol4sou5q0" path="res://SFX/BubblesTrack2.mp3" id="4_6yvkb"]
 [ext_resource type="PackedScene" uid="uid://bhamkai86gdep" path="res://scenes/controller_buttons/cut.tscn" id="4_nfxtj"]
 [ext_resource type="PackedScene" uid="uid://ch61cgsjqwhdi" path="res://scenes/controller_buttons/left.tscn" id="5_oikef"]
@@ -11,6 +12,10 @@
 [ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="7_38cbn"]
 [ext_resource type="LabelSettings" uid="uid://dkoj0ek22f50l" path="res://fonts/white_24.tres" id="8_vgfyj"]
 [ext_resource type="PackedScene" uid="uid://dee2vt4fgnxym" path="res://Bubble/title_buble.tscn" id="10_r4lk5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gp5op"]
+shader = ExtResource("2_j3gmy")
+shader_parameter/bg_color = Color(0.113725, 0.168627, 0.32549, 1)
 
 [sub_resource type="Texture2D" id="Texture2D_r360o"]
 resource_local_to_scene = false
@@ -30,6 +35,7 @@ script = ExtResource("1_oq7gu")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_gp5op")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
