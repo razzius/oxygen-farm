@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 @export var new_scene: PackedScene
 
@@ -21,6 +21,12 @@ func pop() -> void:
 	replace_children()
 
 
-func _on_area_exited(area: Node2D):
-	if area is PlantNode or area is Player:
+func _on_area_entered(area: Area2D):
+	if area is PlantNode:
 		pop()
+		# GameManager.end_game()
+
+func _on_body_entered(body: Node2D):
+	if body is Player:
+		# This doesn't work yet -- stretch goal
+		body.velocity = -body.global_position.normalized() * 1000

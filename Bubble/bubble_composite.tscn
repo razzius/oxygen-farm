@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://csn4hjyqdpbqp"]
+[gd_scene load_steps=16 format=3 uid="uid://csn4hjyqdpbqp"]
 
 [ext_resource type="PackedScene" uid="uid://b21de53nsxgfk" path="res://Bubble/2d Bubble.tscn" id="1_fe6yk"]
 [ext_resource type="Script" path="res://Bubble/bubble.gd" id="1_wih81"]
@@ -102,9 +102,6 @@ shader_parameter/random_seed = 0.822
 shader_parameter/palette = ExtResource("3_6nywn")
 shader_parameter/wave_texture = ExtResource("6_36nh2")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q20jt"]
-radius = 125.0
-
 [node name="Bubble Composite" type="Area2D"]
 script = ExtResource("1_wih81")
 new_scene = SubResource("PackedScene_n46hj")
@@ -130,8 +127,9 @@ offset_top = -265.0
 offset_right = 258.0
 offset_bottom = 247.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 0)
-shape = SubResource("CircleShape2D_q20jt")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(-123, -2, -117, -36, -104, -63, -86, -86, -65, -103, -37, -117, -17, -122, 0, -123, 13, -123, 28, -121, 45, -116, 62, -109, 79, -97, 96, -81, 110, -63, 119, -43, 125, -25, 127, -10, 128, -1, 127, 18, -120, 20)
 
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
