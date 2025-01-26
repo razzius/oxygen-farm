@@ -125,5 +125,5 @@ position = Vector2(460, 0)
 
 [node name="ObjectCreator" parent="." instance=ExtResource("10_i2pyn")]
 
-[node name="Node2D" parent="." instance=ExtResource("11_40mk4")]
+[node name="Ship" parent="." instance=ExtResource("11_40mk4")]
 position = Vector2(-479, 110)

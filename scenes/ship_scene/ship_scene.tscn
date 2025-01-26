@@ -80,7 +80,7 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_bwbkh"]
-resource_name = "new_animation"
+resource_name = "fly"
 length = 60.0
 loop_mode = 1
 tracks/0/type = "value"
@@ -162,7 +162,7 @@ tracks/6/path = NodePath("..")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(59.8667),
+"times": PackedFloat32Array(42.5667),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -173,10 +173,10 @@ tracks/6/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y6288"]
 _data = {
 "RESET": SubResource("Animation_fgkvk"),
-"new_animation": SubResource("Animation_bwbkh")
+"fly": SubResource("Animation_bwbkh")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Ship" type="Node2D"]
 script = ExtResource("1_vmshx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -184,7 +184,7 @@ root_node = NodePath("../Tintinship-idle")
 libraries = {
 "": SubResource("AnimationLibrary_y6288")
 }
-autoplay = "new_animation"
+autoplay = "fly"
 
 [node name="Tintinship-idle" type="Sprite2D" parent="."]
 scale = Vector2(3.875, 3.875)
