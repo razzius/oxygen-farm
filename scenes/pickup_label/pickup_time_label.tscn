@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b70b5nrvgkk7x"]
+
+[ext_resource type="Script" path="res://pickup_time_label.gd" id="1_nsw4w"]
+
+[node name="PickupTimeLabel" type="Label"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Pickup in 100s"
+script = ExtResource("1_nsw4w")

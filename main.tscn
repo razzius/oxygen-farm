@@ -19,8 +19,6 @@ shader = ExtResource("2_gyp2u")
 shader_parameter/color1 = Color(1, 1, 1, 1)
 shader_parameter/color2 = Color(1, 1, 1, 1)
 
-[sub_resource type="GDScript" id="GDScript_6e7s5"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sbfsj"]
 shader = ExtResource("2_4ycb1")
 shader_parameter/bg_color = Color(0.113725, 0.168627, 0.32549, 1)
@@ -92,7 +90,6 @@ shader_parameter/color2 = Color(0.205117, 0.205117, 0.205117, 1)
 
 [node name="Main" type="Node2D"]
 material = SubResource("ShaderMaterial_uew2f")
-script = SubResource("GDScript_6e7s5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -4

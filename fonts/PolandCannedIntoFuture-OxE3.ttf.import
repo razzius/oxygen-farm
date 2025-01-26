@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dh4crsw6w562v"
+uid="uid://bybg0pnw2inoq"
 path="res://.godot/imported/PolandCannedIntoFuture-OxE3.ttf-841b2e972eeeaf81586e6cf8ac997ccb.fontdata"
 
 [deps]
@@ -25,17 +25,10 @@ hinting=1
 subpixel_positioning=1
 oversampling=0.0
 Fallbacks=null
-fallbacks=[Object(FontVariation,"resource_local_to_scene":false,"resource_name":"","fallbacks":Array[Font]([]),"base_font":Resource("res://fonts/NotJamSciMono10.ttf"),"variation_opentype":{},"variation_face_index":0,"variation_embolden":0.0,"variation_transform":Transform2D(0.8, 0, 0, 0.8, 0, 0),"opentype_features":{},"spacing_glyph":0,"spacing_space":0,"spacing_top":0,"spacing_bottom":0,"baseline_offset":0.0,"script":null)
-]
+fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0),
-"variation_embolden": 0.0
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}
