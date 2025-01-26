@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bdy3tagav4qmb"]
+[gd_scene load_steps=20 format=3 uid="uid://bdy3tagav4qmb"]
 
 [ext_resource type="PackedScene" uid="uid://ba0hqbqmx7rha" path="res://Player/player.tscn" id="1_pwm58"]
 [ext_resource type="Texture2D" uid="uid://b1f7ktnndu0t7" path="res://art/world.png" id="2_0pt6b"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/background.gd" id="3_ge6qd"]
 [ext_resource type="PackedScene" uid="uid://csjnkwkf5l1ty" path="res://scenes/plant/plant_manager.tscn" id="6_bu0r6"]
 [ext_resource type="PackedScene" path="res://Bubble/bubble_pop_particle.tscn" id="7_726qo"]
+[ext_resource type="PackedScene" uid="uid://msfppvklpjyq" path="res://scenes/object_creator/object_creator.tscn" id="10_i2pyn"]
 [ext_resource type="PackedScene" uid="uid://bi6558kvbsyug" path="res://scenes/hud/hud.tscn" id="10_l3d00"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uew2f"]
@@ -108,3 +109,5 @@ position = Vector2(-410, 0)
 position = Vector2(460, 0)
 
 [node name="Hud" parent="." instance=ExtResource("10_l3d00")]
+
+[node name="ObjectCreator" parent="." instance=ExtResource("10_i2pyn")]
