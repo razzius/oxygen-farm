@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi0tfegt8p0uu"]
+[gd_scene load_steps=4 format=3 uid="uid://do07rvqonbvfg"]
 
 [ext_resource type="Script" path="res://VFX/value_bar.gd" id="1_a5whc"]
 [ext_resource type="Shader" uid="uid://bdbixa6setd7h" path="res://Shaders/OxygenBar.tres" id="1_fgfev"]
@@ -17,19 +17,22 @@ script = ExtResource("1_a5whc")
 
 [node name="VB" type="VBoxContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 
 [node name="OxyRatio" type="ColorRect" parent="VB"]
 material = SubResource("ShaderMaterial_it6m7")
 custom_minimum_size = Vector2(20, 100)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="VB"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/margin_left = -4
 
 [node name="Value" type="Label" parent="VB/MarginContainer"]
 layout_mode = 2
 text = "50%"
+horizontal_alignment = 1
 vertical_alignment = 1
