@@ -281,7 +281,7 @@ position = Vector2(-2, 14)
 stream = ExtResource("11_8qj0y")
 volume_db = -5.0
 
-[node name="ThustSFX" type="AudioStreamPlayer2D" parent="."]
+[node name="ThrustSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_daaop")
 volume_db = -5.0
 
