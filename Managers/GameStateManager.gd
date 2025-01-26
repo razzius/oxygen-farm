@@ -63,7 +63,7 @@ func _process(delta: float) -> void:
 
 
 func GetOxygenVelocity() -> float:
-	return minf(maxf(PlantCount * OXYGEN_DELTA_PER_PLANT, 0), MAX_OXYGEN_VELOCITY)
+	return clampf(PlantCount, 0, OXYGEN_DELTA_PER_PLANT)
 
 func OnPlantGrow() -> void:
 	PlantCount += 1
