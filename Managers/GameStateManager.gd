@@ -5,31 +5,26 @@ var Now: float = 0.0
 # OXYGEN_MAX and OxygenLevel are in the thousands,
 # but our quota is in the tens. Is this intentional?
 const OXYGEN_MAX: float = 1000.0
+const OXYGEN_DELTA_PER_PLANT: float = 0.01
+const QUOTA_GEN_MIN: int = 40
+const QUOTA_GEN_MAX: int = 80
+const QUOTA_ACCEPTABLE_RANGE: int = 20
+const INITIAL_QUOTA: int = 30
 
-var OxygenLevel: float = OXYGEN_MAX * 0.1 # start at 10%
-var OxygenDeltaPerPlant: float = 0.01
-var OxygenVelocity: float = 0.0
 var NodeScale: Vector2
-
-var PlayerIsRunning: bool = false
-var JetPackIsActive: bool = false
-
 var OxygenConsumptionRateFromRunning: float = 0.25
 var OxygenConsumptionRateFromJetPack: float = 1.0
-
-const QuotaGenMin: int = 40
-const QuotaGenMax: int = 80
-const QuotaAcceptableRange: int = 20
-const InitialQuota: int = 30
-
-var CurrentQuotaRange = Vector2(InitialQuota, InitialQuota + QuotaAcceptableRange)
-var Quota: int = 0
-
 var ShouldCreatePlantParticles: bool = true
-
+var PickupsToWin: int = 10
 var rng: RandomNumberGenerator
 
-var PickupsToWin: int = 10
+# These values need to be reinitialized when the game is reset
+var OxygenLevel: float
+var OxygenVelocity: float
+var PlayerIsRunning: bool
+var JetPackIsActive: bool
+var CurrentQuotaRange
+var Quota: int
 
 
 # Called when the node enters the scene tree for the first time.
@@ -67,10 +62,10 @@ func _process(delta: float) -> void:
 
 
 func OnPlantGrow() -> void:
-	OxygenVelocity += OxygenDeltaPerPlant
+	OxygenVelocity += OXYGEN_DELTA_PER_PLANT
 
 func OnPlantNodeRemoved(_position: Vector2) -> void:
-	OxygenVelocity -= OxygenDeltaPerPlant
+	OxygenVelocity -= OXYGEN_DELTA_PER_PLANT
 
 
 func GetOxygenPercent() -> float:
@@ -96,13 +91,13 @@ func CalculateQuota(iteration) -> void:
 		return
 
 	if iteration <= 1:
-		Quota = InitialQuota
+		Quota = INITIAL_QUOTA
 	else:
-		Quota = rng.randi_range(QuotaGenMin, QuotaGenMax)
+		Quota = rng.randi_range(QUOTA_GEN_MIN, QUOTA_GEN_MAX)
 
-	CurrentQuotaRange = Vector2(Quota, Quota + QuotaAcceptableRange)
+	CurrentQuotaRange = Vector2(Quota, Quota + QUOTA_ACCEPTABLE_RANGE)
 	SignalManager.on_quota_changed.emit(Quota)
-	SignalManager.on_show_message.emit("Incoming Quota:\nNew target %d%% - %d%% oxygen" % [Quota, Quota + QuotaAcceptableRange])
+	SignalManager.on_show_message.emit("Incoming Quota:\nNew target %d%% - %d%% oxygen" % [Quota, Quota + QUOTA_ACCEPTABLE_RANGE])
 
 
 func OnBubblePopped() -> void:
@@ -115,3 +110,12 @@ func GatherOxygen() -> void:
 		SignalManager.on_gather.emit()
 	else:
 		SignalManager.on_game_over.emit("You didn't meet your quota!")
+
+func InitializeGame() -> void:
+	print('reset game')
+	OxygenLevel = OXYGEN_MAX * 0.1
+	OxygenVelocity = 0.0
+	PlayerIsRunning = false
+	JetPackIsActive = false
+	CurrentQuotaRange = Vector2(INITIAL_QUOTA, INITIAL_QUOTA + QUOTA_ACCEPTABLE_RANGE)
+	Quota = 0
