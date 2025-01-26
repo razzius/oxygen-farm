@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://du8py15bthmbo"]
+[gd_scene load_steps=17 format=3 uid="uid://du8py15bthmbo"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_oq7gu"]
 [ext_resource type="FontFile" uid="uid://o4rkssadvjoh" path="res://fonts/PolandCannedIntoFuture-OxE3.ttf" id="1_pem4x"]
@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://d1wsol4sou5q0" path="res://SFX/BubblesTrack2.mp3" id="4_6yvkb"]
 [ext_resource type="PackedScene" uid="uid://bhamkai86gdep" path="res://scenes/controller_buttons/cut.tscn" id="4_nfxtj"]
 [ext_resource type="PackedScene" uid="uid://ch61cgsjqwhdi" path="res://scenes/controller_buttons/left.tscn" id="5_oikef"]
-[ext_resource type="LabelSettings" path="res://fonts/subtitle_white_36.tres" id="5_wnr7s"]
+[ext_resource type="LabelSettings" uid="uid://c3u847src7exe" path="res://fonts/subtitle_white_36.tres" id="5_wnr7s"]
 [ext_resource type="PackedScene" uid="uid://bfvjcxek8p3n5" path="res://scenes/controller_buttons/up.tscn" id="6_id8gt"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="7_38cbn"]
 [ext_resource type="LabelSettings" uid="uid://dkoj0ek22f50l" path="res://fonts/white_24.tres" id="8_vgfyj"]
@@ -30,6 +30,10 @@ force_type = 0
 [sub_resource type="LabelSettings" id="LabelSettings_7uo70"]
 font = ExtResource("1_pem4x")
 font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_cnl1l"]
+font = ExtResource("1_pem4x")
+font_size = 18
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_oq7gu")
@@ -54,7 +58,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 24
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer"]
@@ -195,8 +199,14 @@ label_settings = ExtResource("8_vgfyj")
 
 [node name="Label7" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Credits/Authors"]
 layout_mode = 2
-text = "Will Greenie"
+text = "Will Green"
 label_settings = ExtResource("8_vgfyj")
+
+[node name="Special thanks to Maria Burns Ortiz!" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Credits/Authors"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Special thanks to Maria Burns Ortiz!"
+label_settings = SubResource("LabelSettings_cnl1l")
 
 [node name="Bubble Composite2" parent="CanvasLayer" instance=ExtResource("10_r4lk5")]
 position = Vector2(124, 499)
