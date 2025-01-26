@@ -5,12 +5,12 @@ var Now: float = 0.0
 # OXYGEN_MAX and OxygenLevel are in the thousands,
 # but our quota is in the tens. Is this intentional?
 const OXYGEN_MAX: float = 1000.0
-const OXYGEN_DELTA_PER_PLANT: float = 0.25
+const OXYGEN_DELTA_PER_PLANT: float = 0.50
 const QUOTA_GEN_MIN: int = 40
 const QUOTA_GEN_MAX: int = 80
 const QUOTA_ACCEPTABLE_RANGE: int = 20
 const INITIAL_QUOTA: int = 30
-const MAX_OXYGEN_VELOCITY: float = 22.5
+const MAX_OXYGEN_VELOCITY: float = 35.0
 
 var NodeScale: Vector2
 var OxygenConsumptionRateFromRunning: float = 10.0
@@ -47,13 +47,13 @@ func _process(delta: float) -> void:
 		ShouldCreatePlantParticles = true
 
 	OxygenLevel += GetOxygenVelocity() * delta
-	
+
 	OxygenLevel = minf(OxygenLevel, OXYGEN_MAX)
 	OxygenLevel = maxf(OxygenLevel, 0.0)
 
 	#if PlayerIsRunning:
 		#OxygenLevel -= OxygenConsumptionRateFromRunning * delta
-	
+
 	if JetPackIsActive:
 		OxygenLevel -= OxygenConsumptionRateFromJetPack * delta
 
@@ -116,7 +116,7 @@ func GatherOxygen() -> void:
 		SignalManager.on_game_over.emit("You didn't meet your quota!")
 
 func InitializeGame() -> void:
-	OxygenLevel = OXYGEN_MAX * 0.15
+	OxygenLevel = OXYGEN_MAX * 0.20
 	PlantCount = 0
 	PlayerIsRunning = false
 	JetPackIsActive = false

@@ -7,6 +7,6 @@
 visible = false
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Pickup in 100s"
+text = ""
 label_settings = ExtResource("1_hdl08")
 script = ExtResource("1_nsw4w")

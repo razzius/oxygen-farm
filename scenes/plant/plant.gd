@@ -7,8 +7,8 @@ const PLANT_NODE = preload("res://scenes/plant/plant_node.tscn")
 @onready var grow_timer: Timer = $GrowTimer
 @onready var node_container: Node2D = $Nodes
 
-@export var grow_timer_range: float = 0.5
-@export var min_grow_timer: float = 1.0
+@export var grow_timer_range: float = 0.3
+@export var min_grow_timer: float = 0.5
 
 
 var _plant_nodes: Array[PlantNode] = []

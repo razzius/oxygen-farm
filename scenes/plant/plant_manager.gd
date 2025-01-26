@@ -19,8 +19,8 @@ var _max_plants: int
 var _plants: Array[Plant] = []
 var _available_plots: Array = []
 
-@export var MaxTimeBetweenNewPlant: float = 8.0
-@export var MinTimeBetweenNewPlant: float = 2.0
+@export var MaxTimeBetweenNewPlant: float = 16.0
+@export var MinTimeBetweenNewPlant: float = 4.0
 
 func _ready():
 	SignalManager.on_plant_node_cut.connect(on_plant_node_cut)
