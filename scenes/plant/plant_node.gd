@@ -4,7 +4,8 @@ class_name PlantNode
 
 const SPRITE_HEIGHT = 6
 const SPRITE_WIDTH = 11
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var GrownSprite: Sprite2D = $GrownSprite
+@onready var GrowingAnimatedSprite : AnimatedSprite2D = $GrowingAnimSprite
 @onready var collider: CollisionShape2D = $Collider
 
 enum Direction {LEFT, RIGHT, UP}
@@ -14,8 +15,19 @@ const relative_position = Vector2i.UP * NODE_SIZE.y
 
 
 func _ready():
-	sprite.scale = GameStateManager.NodeScale
+	GrownSprite.scale = GameStateManager.NodeScale
+	GrownSprite.visible = false
+
+	GrowingAnimatedSprite.scale = GameStateManager.NodeScale
+	GrowingAnimatedSprite.animation_finished.connect(OnAnimationFinished)
+
 	collider.scale = GameStateManager.NodeScale
+
+
+func OnAnimationFinished():
+	GrownSprite.visible = true
+	GrowingAnimatedSprite.visible = false
+
 
 func _exit_tree():
 	SignalManager.on_plant_node_removed.emit()
