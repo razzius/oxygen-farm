@@ -7,6 +7,9 @@ func _ready():
 
 
 func OnPlantNodeRemoved(pos: Vector2) -> void:
+	if !GameStateManager.ShouldCreatePlantParticles:
+		return
+
 	if get_tree() == null:
 		return
 		

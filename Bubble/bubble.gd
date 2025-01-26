@@ -29,7 +29,7 @@ func pop2() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "scale", scale * 1.15, 0.05)
 	tween.tween_callback(replace_children)
-	SignalManager.on_game_over.emit()
+	SignalManager.on_bubble_popped.emit()
 
 
 func _on_area_entered(area: Area2D):

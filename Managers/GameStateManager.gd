@@ -21,6 +21,8 @@ var QuotaMin: int = 40
 var QuotaMax: int = 80
 var Quota: int = 0
 
+var ShouldCreatePlantParticles : bool = true
+
 var rng: RandomNumberGenerator
 
 
@@ -32,11 +34,15 @@ func _ready() -> void:
 	SignalManager.on_plant_node_removed.connect(OnPlantNodeRemoved)
 	SignalManager.on_jetpack_usage_changed.connect(OnJetpackUsageChanged)
 	SignalManager.on_running_usage_changed.connect(OnRunningUsageChanged)
+	SignalManager.on_bubble_popped.connect(OnBubblePopped)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	Now += delta
+
+	if !ShouldCreatePlantParticles:
+		ShouldCreatePlantParticles = true
 
 	OxygenLevel += OxygenVelocity
 	
@@ -48,6 +54,10 @@ func _process(delta: float) -> void:
 	
 	if JetPackIsActive:
 		OxygenLevel -= OxygenConsumptionRateFromJetPack
+
+	if OxygenLevel == OXYGEN_MAX:
+		ShouldCreatePlantParticles = false
+		SignalManager.on_full_oxygen.emit()
 
 
 func OnPlantGrow() -> void:
@@ -76,3 +86,8 @@ func CalculateQuota(iteration) -> void:
 		Quota = rng.randi_range(QuotaMin, QuotaMax)
 	SignalManager.on_quota_changed.emit(Quota)
 	SignalManager.on_show_message.emit("Incoming Quota:\nNew target %d%% oxygen" % Quota)
+
+
+func OnBubblePopped() -> void:
+	ShouldCreatePlantParticles = false
+	SignalManager.on_game_over.emit()

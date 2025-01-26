@@ -19,3 +19,7 @@ signal on_game_reset
 signal on_gather_failed
 
 signal on_show_message(message: String)
+
+signal on_full_oxygen
+
+signal on_bubble_popped
