@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdknn3vtmsrph"]
+
+[ext_resource type="FontFile" uid="uid://btfem0tff5yhe" path="res://fonts/NotJamSciMono10.ttf" id="1_1ryu7"]
+[ext_resource type="Script" path="res://VFXCache.gd" id="1_ryypk"]
+[ext_resource type="PackedScene" uid="uid://b3xxxpcars0ik" path="res://VFX/DirtTrail.tscn" id="2_hwg7a"]
+[ext_resource type="PackedScene" uid="uid://ds522b031bxk1" path="res://VFX/JetStream.tscn" id="3_xnfkw"]
+[ext_resource type="PackedScene" uid="uid://cif326ctbmsyv" path="res://VFX/LeafPop.tscn" id="4_c45hl"]
+[ext_resource type="PackedScene" uid="uid://r7pbq7oe4i48" path="res://Bubble/bubble_pop_particle.tscn" id="5_qvbis"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ryypk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.113725, 0.168627, 0.32549, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -11.5
+offset_right = 31.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_1ryu7")
+theme_override_font_sizes/font_size = 40
+text = "Loading"
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("2_hwg7a")]
+position = Vector2(-307, 266)
+
+[node name="GPUParticles2D3" parent="." instance=ExtResource("3_xnfkw")]
+position = Vector2(-307, 266)
+
+[node name="LeafPop" parent="." instance=ExtResource("4_c45hl")]
+position = Vector2(-309, 380)
+
+[node name="Pop Particle" parent="." instance=ExtResource("5_qvbis")]
+position = Vector2(-311, 267)
