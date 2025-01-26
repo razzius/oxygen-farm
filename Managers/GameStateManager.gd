@@ -49,8 +49,8 @@ func _process(delta: float) -> void:
 	OxygenLevel = minf(OxygenLevel, OXYGEN_MAX)
 	OxygenLevel = maxf(OxygenLevel, 0.0)
 
-	if PlayerIsRunning:
-		OxygenLevel -= OxygenConsumptionRateFromRunning
+	#if PlayerIsRunning:
+		#OxygenLevel -= OxygenConsumptionRateFromRunning
 	
 	if JetPackIsActive:
 		OxygenLevel -= OxygenConsumptionRateFromJetPack
