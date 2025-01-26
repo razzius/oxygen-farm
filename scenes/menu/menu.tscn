@@ -192,7 +192,6 @@ label_settings = ExtResource("8_vgfyj")
 
 [node name="Bubble Composite" parent="CanvasLayer" instance=ExtResource("2_8ue58")]
 position = Vector2(125, 497)
-scale = Vector2(4, 4)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6yvkb")

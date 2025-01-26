@@ -9,17 +9,17 @@ var OxygenDeltaPerPlant: float = 0.01
 var OxygenVelocity: float = 0.0
 var NodeScale: Vector2
 
-var PlayerIsRunning : bool = false
-var JetPackIsActive : bool = false
+var PlayerIsRunning: bool = false
+var JetPackIsActive: bool = false
 
-var OxygenConsumptionRateFromRunning : float = 0.25
-var OxygenConsumptionRateFromJetPack : float = 1.0
+var OxygenConsumptionRateFromRunning: float = 0.25
+var OxygenConsumptionRateFromJetPack: float = 1.0
 
 var QuotaMin: float = 20.0
 var QuotaMax: float = 80.0
 var Quota: float = 0.0
 
-var rng : RandomNumberGenerator
+var rng: RandomNumberGenerator
 
 
 # Called when the node enters the scene tree for the first time.
@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 func OnPlantGrow() -> void:
 	OxygenVelocity += OxygenDeltaPerPlant
 
-func OnPlantNodeRemoved(position : Vector2) -> void:
+func OnPlantNodeRemoved(_position: Vector2) -> void:
 	OxygenVelocity -= OxygenDeltaPerPlant
 
 
@@ -59,11 +59,11 @@ func GetOxygenPercent() -> float:
 	return OxygenLevel / OXYGEN_MAX
 
 
-func OnJetpackUsageChanged(is_using : bool) -> void:
+func OnJetpackUsageChanged(is_using: bool) -> void:
 	JetPackIsActive = is_using
 
 
-func OnRunningUsageChanged(is_running : bool) -> void:
+func OnRunningUsageChanged(is_running: bool) -> void:
 	PlayerIsRunning = is_running
 
 

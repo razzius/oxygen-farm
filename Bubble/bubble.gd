@@ -2,6 +2,8 @@ extends Area2D
 
 @export var new_scene: PackedScene
 
+func _ready():
+	SignalManager.on_game_reset.connect(on_game_reset)
 
 func replace_children():
 	# Remove all existing children
@@ -18,15 +20,16 @@ func replace_children():
 		push_warning("No scene reference set for replacement")
 
 func pop() -> void:
+	SignalManager.on_game_over.emit()
 	var tween = create_tween()
 	tween.tween_property(self, "scale", scale * 0.85, 0.05)
 	tween.tween_callback(pop2)
 
 func pop2() -> void:
+	SignalManager.on_game_over.emit()
 	var tween = create_tween()
 	tween.tween_property(self, "scale", scale * 1.15, 0.05)
 	tween.tween_callback(replace_children)
-
 
 
 func _on_area_entered(area: Area2D):
@@ -39,3 +42,6 @@ func _on_body_entered(body: Node2D):
 		pop()
 		# This doesn't work yet -- stretch goal
 		# body.velocity = -body.global_position.normalized() * 1000
+
+func on_game_reset():
+	get_tree().reload_current_scene()

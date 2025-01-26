@@ -103,6 +103,7 @@ shader_parameter/palette = ExtResource("3_6nywn")
 shader_parameter/wave_texture = ExtResource("6_36nh2")
 
 [node name="Bubble Composite" type="Area2D"]
+scale = Vector2(4, 4)
 script = ExtResource("1_wih81")
 new_scene = SubResource("PackedScene_n46hj")
 

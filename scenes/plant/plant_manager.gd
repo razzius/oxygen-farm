@@ -21,6 +21,8 @@ var _available_plots: Array = []
 
 func _ready():
 	SignalManager.on_plant_node_cut.connect(on_plant_node_cut)
+	SignalManager.on_game_over.connect(on_game_over)
+
 	GameStateManager.NodeScale = node_scale
 	_min_x = left_bound.position.x
 	_max_x = right_bound.position.x
@@ -51,3 +53,6 @@ func get_random_pos() -> Vector2:
 func on_plant_node_cut(plant_node: PlantNode) -> void:
 	var plant = plant_node.get_plant_root()
 	plant.prune_node(plant_node)
+
+func on_game_over() -> void:
+	timer.stop()

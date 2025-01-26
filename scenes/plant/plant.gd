@@ -14,6 +14,7 @@ const PLANT_NODE = preload("res://scenes/plant/plant_node.tscn")
 var _plant_nodes: Array[PlantNode] = []
 
 func _ready():
+	SignalManager.on_game_over.connect(on_game_over)
 	grow()
 
 
@@ -45,3 +46,7 @@ func prune_node(starting_node: PlantNode) -> void:
 	for node in _plant_nodes.slice(cut_index):
 		node.queue_free()
 	_plant_nodes = _plant_nodes.slice(0, cut_index)
+
+func on_game_over() -> void:
+	prune_node(_plant_nodes[0])
+	queue_free()
