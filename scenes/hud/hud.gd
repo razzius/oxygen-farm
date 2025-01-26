@@ -8,6 +8,7 @@ var _can_input: bool = false
 func _ready():
 	SignalManager.on_game_over.connect(on_game_over)
 	SignalManager.on_quota_changed.connect(on_quota_changed)
+	SignalManager.on_gather_failed.connect(on_gather_failed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,4 +32,10 @@ func reset_game():
 	SignalManager.on_game_reset.emit()
 
 func on_quota_changed(new_quota: int) -> void:
+	# update UI to show new quota
 	print("hud -- new quota: %d" % new_quota)
+
+
+func on_gather_failed() -> void:
+	# update UI to say you missed quota
+	print("hud -- gather failed")

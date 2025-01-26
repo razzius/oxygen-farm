@@ -4,6 +4,7 @@ extends Area2D
 
 func _ready():
 	SignalManager.on_game_reset.connect(on_game_reset)
+	SignalManager.on_gather_failed.connect(pop)
 
 func replace_children():
 	# Remove all existing children
@@ -20,16 +21,16 @@ func replace_children():
 		push_warning("No scene reference set for replacement")
 
 func pop() -> void:
-	SignalManager.on_game_over.emit()
 	var tween = create_tween()
 	tween.tween_property(self, "scale", scale * 0.85, 0.05)
 	tween.tween_callback(pop2)
+	SignalManager.on_game_over.emit()
 
 func pop2() -> void:
-	SignalManager.on_game_over.emit()
 	var tween = create_tween()
 	tween.tween_property(self, "scale", scale * 1.15, 0.05)
 	tween.tween_callback(replace_children)
+	SignalManager.on_game_over.emit()
 
 
 func _on_area_entered(area: Area2D):

@@ -2,6 +2,8 @@ extends Node
 
 var Now: float = 0.0
 
+# OXYGEN_MAX and OxygenLevel are in the thousands,
+# but our quota is in the tens. Is this intentional?
 const OXYGEN_MAX: float = 1000.0
 
 var OxygenLevel: float = OXYGEN_MAX / 2.0

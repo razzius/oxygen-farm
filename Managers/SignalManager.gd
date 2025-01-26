@@ -15,3 +15,5 @@ signal on_quota_changed(quota: int)
 signal on_game_over
 
 signal on_game_reset
+
+signal on_gather_failed
