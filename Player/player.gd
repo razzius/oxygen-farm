@@ -23,8 +23,9 @@ var DirtTrailSpawnX: float = 0.0
 @onready var LeftCutCollisionDetection := $LeftCutArea/LeftCutCollisionDetection
 @onready var RightCutCollisionDetection := $RightCutArea/RightCutCollisionDetection
 
+var CutStartTime: float = 0.0
 var CutEndTime: float = 0.0
-@export var CutDuration: float = 0.25
+@export var CutDuration: float = 0.2
 var bWasCutting: bool = false
 
 var bFacingRight: bool = true
@@ -49,6 +50,9 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var bIsCutting: bool = IsCutting()
+
+	if IsActivelyCutting():
+		EnableCutCollision()
 
 	if !bIsCutting and bWasCutting:
 		StopCutting()
@@ -135,12 +139,14 @@ func StartCutting() -> void:
 	if IsCutting():
 		return
 
-	CutEndTime = GameStateManager.Now + CutDuration
+	CutStartTime = GameStateManager.Now + CutDuration
+	CutEndTime = GameStateManager.Now + (2 * CutDuration)
+	ArmsAnimatedSprite2D.stop()
 	ArmsAnimatedSprite2D.play("clip")
 	cutAnimationPlaying = true
 
+func EnableCutCollision() -> void:
 	SetCutCollisionEnabled(true)
-
 
 func StopCutting() -> void:
 	SetCutCollisionEnabled(false)
@@ -164,6 +170,9 @@ func SetCutCollisionEnabled(bEnabled: bool) -> void:
 
 func IsCutting() -> bool:
 	return GameStateManager.Now < CutEndTime
+	
+func IsActivelyCutting() -> bool:
+	return GameStateManager.Now > CutStartTime and GameStateManager.Now < CutEndTime
 
 
 func _on_right_cut_area_area_entered(area: Area2D) -> void:
