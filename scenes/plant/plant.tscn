@@ -4,7 +4,7 @@
 
 [node name="Plant" type="Node2D"]
 script = ExtResource("1_0afwo")
-grow_timer_range = 8.0
+grow_timer_range = 4.0
 
 [node name="GrowTimer" type="Timer" parent="."]
 one_shot = true

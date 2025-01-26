@@ -5,7 +5,7 @@ class_name PlantNode
 const SPRITE_HEIGHT = 6
 const SPRITE_WIDTH = 11
 @onready var GrownSprite: Sprite2D = $GrownSprite
-@onready var GrowingAnimatedSprite : AnimatedSprite2D = $GrowingAnimSprite
+@onready var GrowingAnimatedSprite: AnimatedSprite2D = $GrowingAnimSprite
 @onready var collider: CollisionShape2D = $Collider
 
 enum Direction {LEFT, RIGHT, UP}

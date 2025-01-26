@@ -5,7 +5,7 @@ var Now: float = 0.0
 # OXYGEN_MAX and OxygenLevel are in the thousands,
 # but our quota is in the tens. Is this intentional?
 const OXYGEN_MAX: float = 1000.0
-const OXYGEN_DELTA_PER_PLANT: float = 0.01
+const OXYGEN_DELTA_PER_PLANT: float = 0.5
 const QUOTA_GEN_MIN: int = 40
 const QUOTA_GEN_MAX: int = 80
 const QUOTA_ACCEPTABLE_RANGE: int = 20
@@ -45,7 +45,7 @@ func _process(delta: float) -> void:
 	if !ShouldCreatePlantParticles:
 		ShouldCreatePlantParticles = true
 
-	OxygenLevel += OxygenVelocity
+	OxygenLevel += OxygenVelocity * delta
 	
 	OxygenLevel = minf(OxygenLevel, OXYGEN_MAX)
 	OxygenLevel = maxf(OxygenLevel, 0.0)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj6n8gqu0yb22"]
+[gd_scene load_steps=2 format=3 uid="uid://csjnkwkf5l1ty"]
 
 [ext_resource type="Script" path="res://scenes/plant/plant_manager.gd" id="1_x518r"]
 
 [node name="PlantManager" type="Node2D"]
 script = ExtResource("1_x518r")
+MaxTimeBetweenNewPlant = 8.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
