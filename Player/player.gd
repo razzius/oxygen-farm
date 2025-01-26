@@ -33,6 +33,8 @@ var wasPlayerRunning: bool = false
 var cutAnimationPlaying: bool = false
 
 func _ready() -> void:
+	SignalManager.on_game_over.connect(on_game_over)
+
 	LeftCutCollisionDetection.disabled = true
 	RightCutCollisionDetection.disabled = true
 	
@@ -195,3 +197,7 @@ func StopJetpack():
 	JetPackVelocity = 0.0
 
 	SignalManager.on_jetpack_usage_changed.emit(bJetPackActive)
+
+func on_game_over():
+	# TODO: why can I still move the player?
+	set_process(false)
