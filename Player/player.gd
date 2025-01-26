@@ -28,7 +28,8 @@ var CutEndTime: float = 0.0
 var bWasCutting: bool = false
 
 var bFacingRight: bool = true
-var playerRunning: bool = false
+var isPlayerRunning: bool = false
+var wasPlayerRunning: bool = false
 
 func _ready() -> void:
 	LeftCutCollisionDetection.disabled = true
@@ -52,9 +53,15 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("cut"):
 		StartCutting()
 	
-	playerRunning = velocity.x != 0.0 and is_on_floor()
-	DirtTrail.emitting = playerRunning
-	if playerRunning:
+	isPlayerRunning = velocity.x != 0.0 and is_on_floor()
+
+	if (!wasPlayerRunning and isPlayerRunning) or (wasPlayerRunning and !isPlayerRunning):
+		SignalManager.on_running_usage_changed.emit(isPlayerRunning)
+
+
+	DirtTrail.emitting = isPlayerRunning
+
+	if isPlayerRunning:
 		PlayerAnimatedSprite2D.play("run")
 		ArmsAnimatedSprite2D.play("run")
 	else:
@@ -62,6 +69,7 @@ func _process(_delta: float) -> void:
 		ArmsAnimatedSprite2D.play("idle")
 	
 	bWasCutting = bIsCutting
+	wasPlayerRunning = isPlayerRunning
 
 
 func _physics_process(delta: float) -> void:
@@ -75,16 +83,9 @@ func _physics_process(delta: float) -> void:
 
 	if bJetpackEnabled:
 		if Input.is_action_pressed("up"):
-			if !bJetPackActive:
-				JetStream.emitting = true
-			
-			bJetPackActive = true
+			StartJetpack()
 		else:
-			if bJetPackActive:
-				JetStream.emitting = false
-				
-			bJetPackActive = false
-			JetPackVelocity = 0.0
+			StopJetpack()
 	
 	if bJetPackActive:
 		JetPackVelocity -= JETPACK_ACCELERATION
@@ -130,7 +131,7 @@ func StopCutting() -> void:
 	SetCutCollisionEnabled(false)
 	
 func EndCuttingAnimation() -> void:
-	if playerRunning:
+	if isPlayerRunning:
 		ArmsAnimatedSprite2D.play("run")
 	else:
 		ArmsAnimatedSprite2D.play("idle")
@@ -159,3 +160,22 @@ func _on_left_cut_area_area_entered(area: Area2D) -> void:
 
 func CutPlantNode(ThisPlantNode: PlantNode):
 	SignalManager.on_plant_node_cut.emit(ThisPlantNode)
+
+
+func StartJetpack():
+	if !bJetPackActive:
+		JetStream.emitting = true
+	
+	bJetPackActive = true
+
+	SignalManager.on_jetpack_usage_changed.emit(bJetPackActive)
+
+
+func StopJetpack():
+	if bJetPackActive:
+		JetStream.emitting = false
+		
+	bJetPackActive = false
+	JetPackVelocity = 0.0
+
+	SignalManager.on_jetpack_usage_changed.emit(bJetPackActive)
