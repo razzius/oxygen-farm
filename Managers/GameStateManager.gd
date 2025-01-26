@@ -87,7 +87,7 @@ func CalculateQuota(iteration) -> void:
 		SignalManager.on_game_over.emit("You won!")
 		return
 
-	if iteration <= 1:
+	if iteration == 0:
 		Quota = 30
 	else:
 		Quota = rng.randi_range(QuotaMin, QuotaMax)

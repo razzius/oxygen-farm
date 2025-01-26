@@ -1,6 +1,6 @@
 extends Node2D
 
-var iteration = 0
+var iteration = 1
 
 func _ready():
 	pass
