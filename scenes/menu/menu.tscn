@@ -16,7 +16,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gp5op"]
 shader = ExtResource("2_j3gmy")
 shader_parameter/bg_color = Color(0.113725, 0.168627, 0.32549, 1)
-shader_parameter/star_size = 80.0
+shader_parameter/star_size = 50.0
 shader_parameter/star_thickness = 2.0
 
 [sub_resource type="Texture2D" id="Texture2D_r360o"]
