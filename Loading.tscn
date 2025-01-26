@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdknn3vtmsrph"]
+[gd_scene load_steps=8 format=3 uid="uid://cdknn3vtmsrph"]
 
 [ext_resource type="FontFile" uid="uid://btfem0tff5yhe" path="res://fonts/NotJamSciMono10.ttf" id="1_1ryu7"]
 [ext_resource type="Script" path="res://VFXCache.gd" id="1_ryypk"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ds522b031bxk1" path="res://VFX/JetStream.tscn" id="3_xnfkw"]
 [ext_resource type="PackedScene" uid="uid://cif326ctbmsyv" path="res://VFX/LeafPop.tscn" id="4_c45hl"]
 [ext_resource type="PackedScene" uid="uid://r7pbq7oe4i48" path="res://Bubble/bubble_pop_particle.tscn" id="5_qvbis"]
+[ext_resource type="PackedScene" uid="uid://cd1xhhr861pxe" path="res://scenes/ship_scene/ship_scene.tscn" id="7_epiph"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ryypk")
@@ -48,3 +49,6 @@ position = Vector2(-309, 380)
 
 [node name="Pop Particle" parent="." instance=ExtResource("5_qvbis")]
 position = Vector2(-311, 267)
+
+[node name="Ship" parent="." instance=ExtResource("7_epiph")]
+position = Vector2(-441, 292)
