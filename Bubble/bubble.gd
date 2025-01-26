@@ -28,5 +28,6 @@ func _on_area_entered(area: Area2D):
 
 func _on_body_entered(body: Node2D):
 	if body is Player:
+		pop()
 		# This doesn't work yet -- stretch goal
-		body.velocity = -body.global_position.normalized() * 1000
+		# body.velocity = -body.global_position.normalized() * 1000
