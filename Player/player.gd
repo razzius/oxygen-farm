@@ -17,28 +17,29 @@ var JetStreamSpawnX: float = 0.0
 @onready var DirtTrail : GPUParticles2D = $DirtTrail
 var DirtTrailSpawnX : float = 0.0
 
-@onready var PlayerSprite := $PlayerSprite
-@onready var CutAnimatedSprite := $CutAnimatedSprite
+@onready var PlayerAnimatedSprite2D := $PlayerAnimatedSprite2D
+@onready var ArmsAnimatedSprite2D := $ArmsAnimatedSprite2D
 @onready var LeftCutCollisionDetection := $LeftCutArea/LeftCutCollisionDetection
 @onready var RightCutCollisionDetection := $RightCutArea/RightCutCollisionDetection
 
 var CutEndTime: float = 0.0
-@export var CutAnimationDuration: float = 0.25
+@export var CutDuration: float = 0.25
 var bWasCutting: bool = false
 
 var bFacingRight: bool = true
+var playerRunning: bool = false
 
 func _ready() -> void:
 	LeftCutCollisionDetection.disabled = true
 	RightCutCollisionDetection.disabled = true
-	
-	CutAnimatedSprite.visible = false
 	
 	JetStream.emitting = false
 	JetStreamSpawnX = JetStream.position.x
 	
 	DirtTrail.emitting = false
 	DirtTrailSpawnX = DirtTrail.position.x
+	
+	ArmsAnimatedSprite2D.animation_finished.connect(EndCuttingAnimation)
 
 
 func _process(_delta: float) -> void:
@@ -50,7 +51,14 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("cut"):
 		StartCutting()
 	
-	DirtTrail.emitting = velocity.x != 0.0 and is_on_floor()
+	playerRunning = velocity.x != 0.0 and is_on_floor()
+	DirtTrail.emitting = playerRunning
+	if playerRunning:
+		PlayerAnimatedSprite2D.play("run")
+		ArmsAnimatedSprite2D.play("run")
+	else:
+		PlayerAnimatedSprite2D.play("idle")
+		ArmsAnimatedSprite2D.play("idle")
 	
 	bWasCutting = bIsCutting
 
@@ -95,13 +103,13 @@ func _physics_process(delta: float) -> void:
 	if !IsCutting():
 		if bFacingRight and velocity.x < 0.0:
 			bFacingRight = false
-			PlayerSprite.flip_h = true
-			CutAnimatedSprite.flip_h = true
+			PlayerAnimatedSprite2D.flip_h = true
+			ArmsAnimatedSprite2D.flip_h = true
 			JetStream.position.x = -JetStreamSpawnX
 		elif !bFacingRight and velocity.x > 0.0:
 			bFacingRight = true
-			PlayerSprite.flip_h = false
-			CutAnimatedSprite.flip_h = false
+			PlayerAnimatedSprite2D.flip_h = false
+			ArmsAnimatedSprite2D.flip_h = false
 			JetStream.position.x = JetStreamSpawnX
 
 	move_and_slide()
@@ -111,19 +119,20 @@ func StartCutting() -> void:
 	if IsCutting():
 		return
 
-	CutEndTime = GameStateManager.Now + CutAnimationDuration
-
-	CutAnimatedSprite.visible = true
-	CutAnimatedSprite.play("Cut")
+	CutEndTime = GameStateManager.Now + CutDuration
+	ArmsAnimatedSprite2D.play("clip")
 
 	SetCutCollisionEnabled(true)
 
 
 func StopCutting() -> void:
-	CutAnimatedSprite.visible = false
-	CutAnimatedSprite.stop()
-	
 	SetCutCollisionEnabled(false)
+	
+func EndCuttingAnimation() -> void:
+	if playerRunning:
+		ArmsAnimatedSprite2D.play("run")
+	else:
+		ArmsAnimatedSprite2D.play("idle")
 
 
 func SetCutCollisionEnabled(bEnabled: bool) -> void:
