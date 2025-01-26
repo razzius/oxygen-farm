@@ -1,0 +1,79 @@
+[gd_resource type="VisualShader" load_steps=8 format=3 uid="uid://um5pvvnwswyp"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_vu3lr"]
+input_name = "camera_direction_world"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_qqhpi"]
+input_name = "normal"
+
+[sub_resource type="VisualShaderNodeDotProduct" id="VisualShaderNodeDotProduct_5qs2s"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_raytc"]
+parameter_name = "BaseColor"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_h3sg7"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_bmein"]
+function = 31
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_x1858"]
+parameter_name = "Texture2DParameter"
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform vec4 BaseColor : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+
+
+
+void fragment() {
+// ColorParameter:5
+	vec4 n_out5p0 = BaseColor;
+
+
+// Input:3
+	vec3 n_out3p0 = NORMAL;
+
+
+// Input:2
+	vec3 n_out2p0 = CAMERA_DIRECTION_WORLD;
+
+
+// DotProduct:4
+	float n_out4p0 = dot(n_out3p0, n_out2p0);
+
+
+// VectorOp:6
+	vec3 n_out6p0 = vec3(n_out5p0.xyz) * vec3(n_out4p0);
+
+
+// FloatFunc:7
+	float n_out7p0 = 1.0 - n_out6p0.x;
+
+
+// Output:0
+	ALBEDO = vec3(n_out5p0.xyz);
+	ALPHA = n_out7p0;
+
+
+}
+"
+graph_offset = Vector2(-892, -490)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_vu3lr")
+nodes/fragment/2/position = Vector2(-800, 460)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_qqhpi")
+nodes/fragment/3/position = Vector2(-800, 360)
+nodes/fragment/4/node = SubResource("VisualShaderNodeDotProduct_5qs2s")
+nodes/fragment/4/position = Vector2(-460, 380)
+nodes/fragment/5/node = SubResource("VisualShaderNodeColorParameter_raytc")
+nodes/fragment/5/position = Vector2(-540, 20)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_h3sg7")
+nodes/fragment/6/position = Vector2(-180, 260)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatFunc_bmein")
+nodes/fragment/7/position = Vector2(40, 320)
+nodes/fragment/8/node = SubResource("VisualShaderNodeTexture2DParameter_x1858")
+nodes/fragment/8/position = Vector2(-600, -420)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 2, 0, 4, 1, 5, 0, 6, 0, 4, 0, 6, 1, 6, 0, 7, 0, 7, 0, 0, 1, 5, 0, 0, 0)

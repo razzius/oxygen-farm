@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://cit7h8hanyqiw"]
+
+[ext_resource type="Shader" uid="uid://um5pvvnwswyp" path="res://Shaders/Bubble2.tres" id="1_ml3yr"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_so0kg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jsctd"]
+render_priority = 0
+shader = ExtResource("1_ml3yr")
+shader_parameter/BaseColor = Color(1, 1, 1, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7qsyi"]
+
+[sub_resource type="Sky" id="Sky_esj4i"]
+sky_material = SubResource("ProceduralSkyMaterial_7qsyi")
+
+[sub_resource type="Environment" id="Environment_v562q"]
+background_mode = 2
+sky = SubResource("Sky_esj4i")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_so0kg")
+surface_material_override/0 = SubResource("ShaderMaterial_jsctd")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.79697)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v562q")
