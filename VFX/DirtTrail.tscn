@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://g4oe5lnwdoov" path="res://art/Dirt.png" id="1_svejk"]
 
 [sub_resource type="Curve" id="Curve_ukurb"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.388142), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.496914, 0.316626), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_oe12y"]
@@ -16,12 +16,12 @@ angle_max = 180.0
 direction = Vector3(-1, -1, 0)
 initial_velocity_max = 30.0
 gravity = Vector3(0, 98, 0)
-scale_min = 3.0
-scale_max = 3.0
+scale_min = 6.0
+scale_max = 6.0
 scale_curve = SubResource("CurveTexture_oe12y")
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
-amount = 4
+amount = 3
 process_material = SubResource("ParticleProcessMaterial_d78k5")
 texture = ExtResource("1_svejk")
 lifetime = 0.4
