@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bdy3tagav4qmb"]
+[gd_scene load_steps=27 format=3 uid="uid://bdy3tagav4qmb"]
 
 [ext_resource type="PackedScene" uid="uid://ba0hqbqmx7rha" path="res://Player/player.tscn" id="1_pwm58"]
 [ext_resource type="Texture2D" uid="uid://b1f7ktnndu0t7" path="res://art/world.png" id="2_0pt6b"]
@@ -27,13 +27,21 @@ shader_parameter/bg_color = Color(0.113725, 0.168627, 0.32549, 1)
 shader_parameter/star_size = 70.0
 shader_parameter/star_thickness = 2.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bop3n"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0q0d"]
+atlas = ExtResource("2_0pt6b")
+region = Rect2(0, 0, 360, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52ly3"]
 atlas = ExtResource("2_0pt6b")
 region = Rect2(360, 0, 360, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7fabc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4gy7"]
 atlas = ExtResource("2_0pt6b")
-region = Rect2(0, 0, 360, 200)
+region = Rect2(720, 0, 360, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mem0"]
+atlas = ExtResource("2_0pt6b")
+region = Rect2(1080, 0, 360, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1gwol"]
 atlas = ExtResource("2_0pt6b")
@@ -43,10 +51,16 @@ region = Rect2(0, 0, 360, 200)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bop3n")
+"texture": SubResource("AtlasTexture_k0q0d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7fabc")
+"texture": SubResource("AtlasTexture_52ly3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4gy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mem0")
 }],
 "loop": true,
 "name": &"blink",
@@ -95,9 +109,8 @@ z_index = -3
 position = Vector2(-0.5, -273.5)
 scale = Vector2(3.19722, 3.265)
 sprite_frames = SubResource("SpriteFrames_aki54")
-animation = &"solid"
+animation = &"blink"
 autoplay = "solid"
-frame_progress = 0.837907
 script = ExtResource("3_ge6qd")
 
 [node name="Player" parent="." instance=ExtResource("1_pwm58")]
