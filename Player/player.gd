@@ -101,8 +101,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			StopJetpack()
 
-		# if GameStateManager.OxygenLevel < 1.0 and bJetPackActive:
-		# 	StopJetpack()
+		if GameStateManager.OxygenLevel < 1.0 and bJetPackActive:
+			StopJetpack()
 
 
 	if bJetPackActive:
