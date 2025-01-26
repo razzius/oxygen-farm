@@ -16,7 +16,7 @@ var NodeScale: Vector2
 var OxygenConsumptionRateFromRunning: float = 10.0
 var OxygenConsumptionRateFromJetPack: float = 70.0
 var ShouldCreatePlantParticles: bool = true
-var PickupsToWin: int = 10
+var PickupsToWin: int = 5
 var rng: RandomNumberGenerator
 
 # These values need to be reinitialized when the game is reset
