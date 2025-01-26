@@ -4,7 +4,7 @@ extends Area2D
 
 func _ready():
 	SignalManager.on_game_reset.connect(on_game_reset)
-	SignalManager.on_gather_failed.connect(pop)
+	SignalManager.on_game_over.connect(on_game_over)
 
 func replace_children():
 	# Remove all existing children
@@ -29,7 +29,7 @@ func pop2() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "scale", scale * 1.15, 0.05)
 	tween.tween_callback(replace_children)
-	SignalManager.on_game_over.emit()
+	SignalManager.on_bubble_popped.emit()
 
 
 func _on_area_entered(area: Area2D):
@@ -44,3 +44,6 @@ func _on_body_entered(body: Node2D):
 
 func on_game_reset():
 	get_tree().reload_current_scene()
+
+func on_game_over():
+	pop()

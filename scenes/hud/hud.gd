@@ -4,11 +4,11 @@ var _game_over: bool = false
 var _can_input: bool = false
 
 @onready var game_over_ui: ColorRect = $MarginContainer/GameOverBg
+@onready var game_over_message: Label = $MarginContainer/GameOverBg/VBoxContainer/FailureMessage
 
 func _ready():
 	SignalManager.on_game_over.connect(on_game_over)
 	SignalManager.on_quota_changed.connect(on_quota_changed)
-	SignalManager.on_gather_failed.connect(on_gather_failed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,8 +19,9 @@ func _process(_delta):
 		get_tree().quit()
 
 
-func on_game_over():
+func on_game_over(fail_message: String):
 	_game_over = true
+	game_over_message.text = fail_message
 	game_over_ui.show()
 	await get_tree().create_timer(1.0).timeout
 	_can_input = true
@@ -34,8 +35,3 @@ func reset_game():
 func on_quota_changed(new_quota: int) -> void:
 	# update UI to show new quota
 	print("hud -- new quota: %d" % new_quota)
-
-
-func on_gather_failed() -> void:
-	# update UI to say you missed quota
-	print("hud -- gather failed")

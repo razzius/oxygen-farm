@@ -15,6 +15,7 @@ var _plant_nodes: Array[PlantNode] = []
 
 func _ready():
 	SignalManager.on_game_over.connect(on_game_over)
+	SignalManager.on_full_oxygen.connect(on_full_oxygen)
 	grow()
 
 
@@ -48,7 +49,7 @@ func prune_node(starting_node: PlantNode) -> void:
 	_plant_nodes = _plant_nodes.slice(0, cut_index)
 
 func on_game_over() -> void:
-	#if !_plant_nodes.is_empty():
-		#prune_node(_plant_nodes[0])
-		
+	queue_free()
+
+func on_full_oxygen() -> void:
 	queue_free()

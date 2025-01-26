@@ -116,7 +116,8 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		velocity.x = direction * SPEED
+		var jetpack_bonus = 1 + int(bJetPackActive)
+		velocity.x = direction * SPEED * jetpack_bonus
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -144,6 +145,9 @@ func StartCutting() -> void:
 	# Todo: Play cutting sound effect here.
 	ArmsAnimatedSprite2D.stop()
 	ArmsAnimatedSprite2D.play("clip")
+
+	$SnipSFX.play()
+
 	cutAnimationPlaying = true
 
 func EnableCutCollision() -> void:
@@ -171,7 +175,7 @@ func SetCutCollisionEnabled(bEnabled: bool) -> void:
 
 func IsCutting() -> bool:
 	return GameStateManager.Now < CutEndTime
-	
+
 func IsActivelyCutting() -> bool:
 	return GameStateManager.Now > CutStartTime and GameStateManager.Now < CutEndTime
 
@@ -196,6 +200,8 @@ func StartJetpack():
 
 	bJetPackActive = true
 
+	$ThrustSFX.playing = true
+
 	SignalManager.on_jetpack_usage_changed.emit(bJetPackActive)
 
 
@@ -205,6 +211,8 @@ func StopJetpack():
 
 	bJetPackActive = false
 	JetPackVelocity = 0.0
+
+	$ThrustSFX.playing = false
 
 	SignalManager.on_jetpack_usage_changed.emit(bJetPackActive)
 

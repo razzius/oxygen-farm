@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd1xhhr861pxe"]
+[gd_scene load_steps=17 format=3 uid="uid://cd1xhhr861pxe"]
 
 [ext_resource type="Texture2D" uid="uid://ckjfdkv5o6aky" path="res://art/tintinship-idle.png" id="1_5mead"]
 [ext_resource type="Script" path="res://scenes/ship_scene/ship_scene.gd" id="1_vmshx"]
 [ext_resource type="Texture2D" uid="uid://cpn0wxoehjce7" path="res://art/tintinship.png" id="2_c2axb"]
+[ext_resource type="Texture2D" uid="uid://cs1sbm0lug1ps" path="res://art/round_particle.png" id="4_ionah"]
+[ext_resource type="Shader" path="res://Shaders/utility.gdshader" id="4_k04ua"]
 
 [sub_resource type="Animation" id="Animation_fgkvk"]
 length = 0.001
@@ -162,11 +164,11 @@ tracks/6/path = NodePath("..")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(4.36667, 42.5667),
+"times": PackedFloat32Array(6.56667, 42.5667),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"gather_resources"
+"method": &"set_quota"
 }, {
 "args": [],
 "method": &"gather_resources"
@@ -178,6 +180,68 @@ _data = {
 "RESET": SubResource("Animation_fgkvk"),
 "fly": SubResource("Animation_bwbkh")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l6gqj"]
+shader = ExtResource("4_k04ua")
+shader_parameter/modulate = Color(1, 1, 1, 0.286275)
+shader_parameter/gamma_amount = 100.0
+shader_parameter/bright_amount = 100.0
+shader_parameter/contrast_amount = 100.0
+shader_parameter/saturation_amount = 100.0
+shader_parameter/hue_amount = 0.0
+shader_parameter/enable_palette = false
+shader_parameter/enable_outline = false
+shader_parameter/outline_color = null
+shader_parameter/outline_width = 1.0
+shader_parameter/enable_wave = false
+shader_parameter/wave_speed = 1.0
+shader_parameter/wave_amplitude = 0.5
+shader_parameter/time_scale = 0.5
+shader_parameter/random_seed = 0.4
+
+[sub_resource type="Curve" id="Curve_642xa"]
+_data = [Vector2(0.238462, 0.296312), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_etcxg"]
+curve = SubResource("Curve_642xa")
+
+[sub_resource type="Curve" id="Curve_n1j0k"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5voni"]
+curve = SubResource("Curve_n1j0k")
+
+[sub_resource type="Curve" id="Curve_1x6f4"]
+_data = [Vector2(0.247436, 0.621523), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_6u6iq"]
+curve = SubResource("Curve_1x6f4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n17y2"]
+lifetime_randomness = 0.13
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+spread = 5.72
+angular_velocity_min = -53.7
+angular_velocity_max = 15.1
+radial_velocity_curve = SubResource("CurveTexture_6u6iq")
+gravity = Vector3(0, 15, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+linear_accel_curve = SubResource("CurveTexture_5voni")
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = -2.23517e-06
+scale_min = 1.5
+scale_max = 1.5
+alpha_curve = SubResource("CurveTexture_etcxg")
 
 [node name="Ship" type="Node2D"]
 script = ExtResource("1_vmshx")
@@ -192,3 +256,15 @@ autoplay = "fly"
 [node name="Tintinship-idle" type="Sprite2D" parent="."]
 scale = Vector2(3.875, 3.875)
 texture = ExtResource("1_5mead")
+
+[node name="Particles" type="GPUParticles2D" parent="Tintinship-idle"]
+z_index = 5
+material = SubResource("ShaderMaterial_l6gqj")
+position = Vector2(-0.774193, 18.0645)
+rotation = -0.407427
+scale = Vector2(0.121403, 0.121403)
+process_material = SubResource("ParticleProcessMaterial_n17y2")
+texture = ExtResource("4_ionah")
+lifetime = 0.12
+randomness = 0.3
+trail_lifetime = 1.0

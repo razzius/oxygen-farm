@@ -1,5 +1,6 @@
 extends Node2D
 
+var iteration = 0
 
 func _ready():
 	pass
@@ -8,8 +9,14 @@ func _ready():
 
 
 func gather_resources():
-	if GameStateManager.OxygenLevel <= GameStateManager.Quota:
-		SignalManager.on_gather_failed.emit()
 	print("ship - gathering: %d oxygen" % GameStateManager.Quota)
-	GameStateManager.CalculateQuota()
+	if GameStateManager.GetOxygenPercent() <= GameStateManager.Quota:
+		SignalManager.on_game_over.emit("You didn't meet your quota!")
+	else:
+		GameStateManager.OxygenLevel -= GameStateManager.Quota * 10
+
+
+func set_quota():
+	GameStateManager.CalculateQuota(1)
 	print("ship - new quota: %d oxygen" % GameStateManager.Quota)
+	iteration += 1
