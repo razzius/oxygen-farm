@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bdy3tagav4qmb"]
+[gd_scene load_steps=21 format=3 uid="uid://bdy3tagav4qmb"]
 
 [ext_resource type="PackedScene" uid="uid://ba0hqbqmx7rha" path="res://Player/player.tscn" id="1_pwm58"]
 [ext_resource type="Texture2D" uid="uid://b1f7ktnndu0t7" path="res://art/world.png" id="2_0pt6b"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://scenes/background.gd" id="3_ge6qd"]
 [ext_resource type="PackedScene" path="res://scenes/plant/plant_manager.tscn" id="6_bu0r6"]
 [ext_resource type="PackedScene" path="res://Bubble/bubble_pop_particle.tscn" id="7_726qo"]
-[ext_resource type="PackedScene" uid="uid://dkkblekswbmfv" path="res://VFX/ValueBar.tscn" id="9_61lxv"]
 [ext_resource type="PackedScene" uid="uid://msfppvklpjyq" path="res://scenes/object_creator/object_creator.tscn" id="10_i2pyn"]
 [ext_resource type="PackedScene" uid="uid://bi6558kvbsyug" path="res://scenes/hud/hud.tscn" id="10_l3d00"]
 [ext_resource type="PackedScene" uid="uid://cd1xhhr861pxe" path="res://scenes/ship_scene/ship_scene.tscn" id="11_40mk4"]
@@ -114,12 +113,6 @@ position = Vector2(460, 0)
 [node name="Hud" parent="." instance=ExtResource("10_l3d00")]
 
 [node name="ObjectCreator" parent="." instance=ExtResource("10_i2pyn")]
-
-[node name="ColorRect" parent="." instance=ExtResource("9_61lxv")]
-offset_left = 492.0
-offset_top = -554.0
-offset_right = 532.0
-offset_bottom = -438.0
 
 [node name="Node2D" parent="." instance=ExtResource("11_40mk4")]
 position = Vector2(-479, 110)
