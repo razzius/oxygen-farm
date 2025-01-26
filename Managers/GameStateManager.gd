@@ -85,8 +85,12 @@ func OnRunningUsageChanged(is_running: bool) -> void:
 	PlayerIsRunning = is_running
 
 
+func GetCurrentIsAcceptable() -> bool:
+	var adjusted_o2 = OxygenLevel / 10
+	var is_acceptable = adjusted_o2 >= CurrentQuotaRange.x && adjusted_o2 <= CurrentQuotaRange.y
+	return is_acceptable
+
 func CalculateQuota(iteration) -> void:
-	print("iteration ", iteration)
 	if iteration == PickupsToWin:
 		SignalManager.on_game_over.emit("You won!")
 		return
@@ -95,7 +99,8 @@ func CalculateQuota(iteration) -> void:
 		Quota = InitialQuota
 	else:
 		Quota = rng.randi_range(QuotaGenMin, QuotaGenMax)
-		CurrentQuotaRange = Vector2(Quota, Quota + QuotaAcceptableRange)
+
+	CurrentQuotaRange = Vector2(Quota, Quota + QuotaAcceptableRange)
 	SignalManager.on_quota_changed.emit(Quota)
 	SignalManager.on_show_message.emit("Incoming Quota:\nNew target %d%% - %d%% oxygen" % [Quota, Quota + QuotaAcceptableRange])
 
@@ -105,9 +110,7 @@ func OnBubblePopped() -> void:
 	SignalManager.on_game_over.emit("The bubble popped!")
 
 func GatherOxygen() -> void:
-	var adjusted_o2 = OxygenLevel / 10
-	var is_acceptable = adjusted_o2 <= CurrentQuotaRange.y && adjusted_o2 >= CurrentQuotaRange.x
-	if is_acceptable:
+	if GetCurrentIsAcceptable():
 		OxygenLevel -= Quota * 10
 		SignalManager.on_gather.emit()
 	else:

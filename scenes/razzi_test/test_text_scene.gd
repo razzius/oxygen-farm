@@ -32,7 +32,6 @@ sub-planet X-AB_JXT.""",
 
 
 func write_message(message: String):
-	print("Writing meassage:", message)
 	message_label.text = ""
 
 	for char_ in message:
