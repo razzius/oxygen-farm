@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bdy3tagav4qmb"]
+[gd_scene load_steps=21 format=3 uid="uid://bdy3tagav4qmb"]
 
 [ext_resource type="PackedScene" uid="uid://ba0hqbqmx7rha" path="res://Player/player.tscn" id="1_pwm58"]
 [ext_resource type="Texture2D" uid="uid://b1f7ktnndu0t7" path="res://art/world.png" id="2_0pt6b"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" path="res://Bubble/bubble_pop_particle.tscn" id="7_726qo"]
 [ext_resource type="PackedScene" uid="uid://msfppvklpjyq" path="res://scenes/object_creator/object_creator.tscn" id="10_i2pyn"]
 [ext_resource type="PackedScene" uid="uid://bi6558kvbsyug" path="res://scenes/hud/hud.tscn" id="10_l3d00"]
+[ext_resource type="PackedScene" uid="uid://cd1xhhr861pxe" path="res://scenes/ship_scene/ship_scene.tscn" id="11_40mk4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uew2f"]
 shader = ExtResource("2_gyp2u")
@@ -63,6 +64,7 @@ shader = ExtResource("2_gyp2u")
 material = SubResource("ShaderMaterial_uew2f")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -3
 position = Vector2(-0.5, -273.5)
 scale = Vector2(3.19722, 3.265)
 sprite_frames = SubResource("SpriteFrames_aki54")
@@ -111,3 +113,6 @@ position = Vector2(460, 0)
 [node name="Hud" parent="." instance=ExtResource("10_l3d00")]
 
 [node name="ObjectCreator" parent="." instance=ExtResource("10_i2pyn")]
+
+[node name="Node2D" parent="." instance=ExtResource("11_40mk4")]
+position = Vector2(-479, 110)

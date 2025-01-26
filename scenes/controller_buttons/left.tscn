@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch61cgsjqwhdi"]
+
+[ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="1_2lhkg"]
+
+[sub_resource type="Texture2D" id="Texture2D_nvky3"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_2lhkg")
+path = "left"
+show_mode = 0
+force_type = 0
+
+[node name="Left" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("Texture2D_nvky3")

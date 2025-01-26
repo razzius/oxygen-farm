@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://sef3s58rdhfo"]
+[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://bdbixa6setd7h"]
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_63qqg"]
 parameter_name = "OxygenColor"
