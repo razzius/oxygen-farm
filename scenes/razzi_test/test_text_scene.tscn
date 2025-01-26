@@ -26,6 +26,7 @@ grow_vertical = 2
 theme = SubResource("Theme_0to22")
 theme_override_fonts/font = ExtResource("2_b2p73")
 theme_override_font_sizes/font_size = 50
+text = "Default Text to show the size of it on the screen."
 autowrap_mode = 3
 
 [node name="Timer" type="Timer" parent="."]

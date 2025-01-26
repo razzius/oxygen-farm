@@ -9,6 +9,7 @@ func _ready() -> void:
 	SignalManager.on_show_message.connect(write_message)
 	SignalManager.on_game_over.connect(on_game_over)
 	timer.set_wait_time(SPEED)
+	message_label.text = ""
 	# write_intro_messages()
 
 
