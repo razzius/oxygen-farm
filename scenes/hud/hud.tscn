@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi6558kvbsyug"]
+[gd_scene load_steps=8 format=3 uid="uid://bi6558kvbsyug"]
 
 [ext_resource type="Script" path="res://scenes/hud/hud.gd" id="1_0bfy2"]
 [ext_resource type="PackedScene" path="res://VFX/ValueBar.tscn" id="1_krf3o"]
@@ -6,6 +6,7 @@
 [ext_resource type="LabelSettings" uid="uid://c5e65p255u4nf" path="res://fonts/72_white.tres" id="3_k61nt"]
 [ext_resource type="LabelSettings" path="res://fonts/subtitle_white_36.tres" id="4_04c3j"]
 [ext_resource type="PackedScene" uid="uid://bhamkai86gdep" path="res://scenes/controller_buttons/cut.tscn" id="5_ymg8d"]
+[ext_resource type="PackedScene" uid="uid://dhi2yevt3chr3" path="res://scenes/controller_buttons/esc.tscn" id="7_708pe"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_0bfy2")
@@ -34,7 +35,7 @@ size_flags_vertical = 0
 
 [node name="GameOverBg" type="ColorRect" parent="MarginContainer"]
 visible = false
-custom_minimum_size = Vector2(450, 350)
+custom_minimum_size = Vector2(450, 450)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -48,7 +49,7 @@ offset_right = 402.0
 offset_bottom = 287.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 50
+theme_override_constants/separation = 15
 
 [node name="Label" type="Label" parent="MarginContainer/GameOverBg/VBoxContainer"]
 layout_mode = 2
@@ -59,6 +60,7 @@ vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/GameOverBg/VBoxContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="Label2" type="Label" parent="MarginContainer/GameOverBg/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -73,6 +75,28 @@ layout_mode = 2
 [node name="Label3" type="Label" parent="MarginContainer/GameOverBg/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "to restart"
+label_settings = ExtResource("4_04c3j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/GameOverBg/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/GameOverBg/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Press"
+label_settings = ExtResource("4_04c3j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Esc" parent="MarginContainer/GameOverBg/VBoxContainer/HBoxContainer2" instance=ExtResource("7_708pe")]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/GameOverBg/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "to quit"
 label_settings = ExtResource("4_04c3j")
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var _game_over: bool = false
-var _can_restart: bool = false
+var _can_input: bool = false
 
 @onready var game_over_ui: ColorRect = $MarginContainer/GameOverBg
 
@@ -11,18 +11,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if _can_restart and Input.is_action_just_pressed("cut"):
+	if _can_input and Input.is_action_just_pressed("cut"):
 		reset_game()
+	if _can_input and Input.is_action_just_pressed("escape"):
+		get_tree().quit()
 
 
 func on_game_over():
 	_game_over = true
 	game_over_ui.show()
 	await get_tree().create_timer(1.0).timeout
-	_can_restart = true
+	_can_input = true
 
 func reset_game():
 	_game_over = false
-	_can_restart = false
+	_can_input = false
 	game_over_ui.hide()
 	SignalManager.on_game_reset.emit()
