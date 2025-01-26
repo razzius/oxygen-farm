@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Bubble/bubble.gd" id="1_wih81"]
 [ext_resource type="Shader" path="res://Shaders/utility.gdshader" id="2_6vgyn"]
 [ext_resource type="Texture2D" uid="uid://bcnsn43uxlcpu" path="res://art/iridescent-crystal-1x.png" id="3_6nywn"]
-[ext_resource type="PackedScene" uid="uid://r7pbq7oe4i48" path="res://Bubble/bubble_pop_particle.tscn" id="3_66xpm"]
+[ext_resource type="PackedScene" path="res://Bubble/bubble_pop_particle.tscn" id="3_66xpm"]
 [ext_resource type="Texture2D" uid="uid://dsdt76jkads70" path="res://VFX/PerlinNoise.png" id="6_36nh2"]
 
 [sub_resource type="Resource" id="Resource_wgsis"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhamkai86gdep"]
+
+[ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="1_un64b"]
+
+[sub_resource type="Texture2D" id="Texture2D_x135w"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_un64b")
+path = "cut"
+show_mode = 0
+force_type = 0
+
+[node name="Cut" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("Texture2D_x135w")
