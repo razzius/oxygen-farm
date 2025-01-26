@@ -6,7 +6,7 @@ func _ready():
 	SignalManager.on_plant_node_removed.connect(OnPlantNodeRemoved)
 
 
-func OnPlantNodeRemoved(position: Vector2) -> void:
+func OnPlantNodeRemoved(pos: Vector2) -> void:
 	if get_tree() == null:
 		return
 		
@@ -19,4 +19,4 @@ func OnPlantNodeRemoved(position: Vector2) -> void:
 		return
 	
 	get_tree().root.add_child(leaves)
-	leaves.global_position = position
+	leaves.global_position = pos
