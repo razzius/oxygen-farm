@@ -101,8 +101,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			StopJetpack()
 
-		# if GameStateManager.OxygenLevel < 1.0 and bJetPackActive:
-		# 	StopJetpack()
+		if GameStateManager.OxygenLevel < 1.0 and bJetPackActive:
+			StopJetpack()
 
 
 	if bJetPackActive:
@@ -216,6 +216,6 @@ func StopJetpack():
 
 	SignalManager.on_jetpack_usage_changed.emit(bJetPackActive)
 
-func on_game_over():
+func on_game_over(onGameOver: String):
 	set_process_mode(Node.PROCESS_MODE_DISABLED)
 	set_process(false)

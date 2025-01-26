@@ -3,11 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://ba0hqbqmx7rha" path="res://Player/player.tscn" id="1_pwm58"]
 [ext_resource type="Texture2D" uid="uid://b1f7ktnndu0t7" path="res://art/world.png" id="2_0pt6b"]
 [ext_resource type="Shader" path="res://Shaders/stars.gdshader" id="2_4ycb1"]
+[ext_resource type="Script" path="res://main.gd" id="2_aqc0i"]
 [ext_resource type="Shader" path="res://razzishader.gdshader" id="2_gyp2u"]
 [ext_resource type="PackedScene" uid="uid://csn4hjyqdpbqp" path="res://Bubble/bubble_composite.tscn" id="2_plnqy"]
 [ext_resource type="Script" path="res://scenes/background.gd" id="3_ge6qd"]
 [ext_resource type="Texture2D" uid="uid://xupwlneoxer2" path="res://White.png" id="5_xpa7p"]
-[ext_resource type="PackedScene" uid="uid://cj6n8gqu0yb22" path="res://scenes/plant/plant_manager.tscn" id="6_bu0r6"]
+[ext_resource type="PackedScene" uid="uid://csjnkwkf5l1ty" path="res://scenes/plant/plant_manager.tscn" id="6_bu0r6"]
 [ext_resource type="PackedScene" path="res://Bubble/bubble_pop_particle.tscn" id="7_726qo"]
 [ext_resource type="PackedScene" uid="uid://msfppvklpjyq" path="res://scenes/object_creator/object_creator.tscn" id="10_i2pyn"]
 [ext_resource type="PackedScene" uid="uid://bi6558kvbsyug" path="res://scenes/hud/hud.tscn" id="10_l3d00"]
@@ -90,6 +91,7 @@ shader_parameter/color2 = Color(0.205117, 0.205117, 0.205117, 1)
 
 [node name="Main" type="Node2D"]
 material = SubResource("ShaderMaterial_uew2f")
+script = ExtResource("2_aqc0i")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -4
