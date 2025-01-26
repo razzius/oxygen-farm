@@ -35,7 +35,6 @@ func pop2() -> void:
 func _on_area_entered(area: Area2D):
 	if area is PlantNode:
 		pop()
-		# GameManager.end_game()
 
 func _on_body_entered(body: Node2D):
 	if body is Player:
