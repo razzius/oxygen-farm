@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 	OxygenLevel += OxygenVelocity
 	
 	OxygenLevel = minf(OxygenLevel, OXYGEN_MAX)
+	OxygenLevel = maxf(OxygenLevel, 0.0)
 
 	if PlayerIsRunning:
 		OxygenLevel -= OxygenConsumptionRateFromRunning
