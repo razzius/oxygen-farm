@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://do07rvqonbvfg"]
+[gd_scene load_steps=4 format=3 uid="uid://bi0tfegt8p0uu"]
 
 [ext_resource type="Script" path="res://VFX/value_bar.gd" id="1_a5whc"]
 [ext_resource type="Shader" uid="uid://bdbixa6setd7h" path="res://Shaders/OxygenBar.tres" id="1_fgfev"]
