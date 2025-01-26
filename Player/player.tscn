@@ -272,7 +272,7 @@ position = Vector2(-18, 3)
 shape = SubResource("RectangleShape2D_1lpfn")
 
 [node name="JetStream" parent="." instance=ExtResource("4_fnd2g")]
-position = Vector2(-8, 11)
+position = Vector2(-5, 6)
 
 [node name="DirtTrail" parent="." instance=ExtResource("5_pc17p")]
 position = Vector2(-2, 14)
