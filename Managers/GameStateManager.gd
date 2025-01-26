@@ -51,10 +51,10 @@ func _process(delta: float) -> void:
 	OxygenLevel = maxf(OxygenLevel, 0.0)
 
 	#if PlayerIsRunning:
-		#OxygenLevel -= OxygenConsumptionRateFromRunning
+		#OxygenLevel -= OxygenConsumptionRateFromRunning * delta
 	
 	if JetPackIsActive:
-		OxygenLevel -= OxygenConsumptionRateFromJetPack
+		OxygenLevel -= OxygenConsumptionRateFromJetPack * delta
 
 	if OxygenLevel == OXYGEN_MAX:
 		ShouldCreatePlantParticles = false

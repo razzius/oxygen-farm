@@ -7,8 +7,3 @@ func _ready() -> void:
 	$"Pop Particle".emitting = true
 	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_packed(preload("res://scenes/menu/menu.tscn"))
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
