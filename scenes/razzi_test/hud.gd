@@ -28,14 +28,14 @@ sub-planet X-AB_JXT.""",
 func write_message(message):
 	$Message.text = ""
 
-	for char in message:
-		if char == "\n":
+	for char_ in message:
+		if char_ == "\n":
 			await delay(4)
 
-		elif char != " ":
+		elif char_ != " ":
 			await delay()
 
-		$Message.text += char
+		$Message.text += char_
 
 
 func write_messages():
