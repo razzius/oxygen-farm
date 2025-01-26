@@ -1,10 +1,110 @@
-[gd_scene load_steps=4 format=3 uid="uid://bj14g0cl18mxv"]
+[gd_scene load_steps=19 format=3 uid="uid://bj14g0cl18mxv"]
 
 [ext_resource type="Script" path="res://scenes/plant/plant_node.gd" id="1_dr78f"]
 [ext_resource type="Texture2D" uid="uid://bxvey8ys4geht" path="res://art/plant.png" id="2_mr1p6"]
+[ext_resource type="Texture2D" uid="uid://bjlwst7crtnht" path="res://art/plant-grow.png" id="3_t555v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqitn"]
 size = Vector2(9, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgr71"]
+atlas = ExtResource("3_t555v")
+region = Rect2(0, 0, 11, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkwwa"]
+atlas = ExtResource("3_t555v")
+region = Rect2(11, 0, 11, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmrwa"]
+atlas = ExtResource("3_t555v")
+region = Rect2(22, 0, 11, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0krgh"]
+atlas = ExtResource("3_t555v")
+region = Rect2(33, 0, 11, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5aqxq"]
+atlas = ExtResource("3_t555v")
+region = Rect2(44, 0, 11, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k1d4"]
+atlas = ExtResource("3_t555v")
+region = Rect2(55, 0, 11, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaf72"]
+atlas = ExtResource("3_t555v")
+region = Rect2(66, 0, 11, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foc0b"]
+atlas = ExtResource("3_t555v")
+region = Rect2(77, 0, 11, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgaeu"]
+atlas = ExtResource("3_t555v")
+region = Rect2(88, 0, 11, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk66s"]
+atlas = ExtResource("3_t555v")
+region = Rect2(99, 0, 11, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ejhd"]
+atlas = ExtResource("3_t555v")
+region = Rect2(110, 0, 11, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0duw"]
+atlas = ExtResource("3_t555v")
+region = Rect2(121, 0, 11, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yib2m"]
+atlas = ExtResource("3_t555v")
+region = Rect2(132, 0, 11, 6)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ogo1k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgr71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkwwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmrwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0krgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5aqxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k1d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uaf72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foc0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgaeu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk66s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ejhd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0duw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yib2m")
+}],
+"loop": false,
+"name": &"Grow",
+"speed": 5.0
+}]
 
 [node name="PlantNode" type="Area2D"]
 script = ExtResource("1_dr78f")
@@ -13,5 +113,10 @@ script = ExtResource("1_dr78f")
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_fqitn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="GrownSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_mr1p6")
+
+[node name="GrowingAnimSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ogo1k")
+animation = &"Grow"
+autoplay = "Grow"

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name Player
 
 @export var SPEED: float = 300.0
 @export var JUMP_VELOCITY: float = -400.0
@@ -14,8 +15,8 @@ var bJetPackActive: bool = false
 @onready var JetStream: GPUParticles2D = $JetStream
 var JetStreamSpawnX: float = 0.0
 
-@onready var DirtTrail : GPUParticles2D = $DirtTrail
-var DirtTrailSpawnX : float = 0.0
+@onready var DirtTrail: GPUParticles2D = $DirtTrail
+var DirtTrailSpawnX: float = 0.0
 
 @onready var PlayerAnimatedSprite2D := $PlayerAnimatedSprite2D
 @onready var ArmsAnimatedSprite2D := $ArmsAnimatedSprite2D

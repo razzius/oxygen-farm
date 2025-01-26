@@ -102,27 +102,35 @@ shader_parameter/random_seed = 0.822
 shader_parameter/palette = ExtResource("3_6nywn")
 shader_parameter/wave_texture = ExtResource("6_36nh2")
 
-[node name="Bubble Composite" type="Node2D"]
+[node name="Bubble Composite" type="Area2D"]
 script = ExtResource("1_wih81")
 new_scene = SubResource("PackedScene_n46hj")
 
 [node name="Bubble2d3" parent="." instance=ExtResource("1_fe6yk")]
 material = SubResource("ShaderMaterial_66t0h")
-offset_left = -253.0
+offset_left = -256.0
 offset_top = -265.0
-offset_right = 259.0
+offset_right = 256.0
 offset_bottom = 247.0
 
 [node name="Bubble2d2" parent="." instance=ExtResource("1_fe6yk")]
 material = SubResource("ShaderMaterial_f2dlv")
-offset_left = -254.0
+offset_left = -257.0
 offset_top = -265.0
-offset_right = 258.0
+offset_right = 255.0
 offset_bottom = 247.0
 
 [node name="Bubble2d" parent="." instance=ExtResource("1_fe6yk")]
 material = SubResource("ShaderMaterial_5u46h")
-offset_left = -254.0
+offset_left = -257.0
 offset_top = -265.0
-offset_right = 258.0
+offset_right = 255.0
 offset_bottom = 247.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-3, 0)
+build_mode = 1
+polygon = PackedVector2Array(-123, -2, -117, -36, -104, -63, -86, -86, -65, -103, -37, -117, -17, -122, 0, -123, 13, -123, 28, -121, 45, -116, 62, -109, 79, -97, 96, -81, 110, -63, 119, -43, 125, -25, 127, -10, 128, -1, 127, 18, -120, 20)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,11 +1,6 @@
 extends ColorRect
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	var ratio = GameStateManager.OxygenLevel;
-	material.set_shader_param("Ratio", ratio);
+func _process(_delta: float) -> void:
+	var ratio: float = GameStateManager.GetOxygenPercent();
+	material.set_shader_parameter("Ratio", ratio);

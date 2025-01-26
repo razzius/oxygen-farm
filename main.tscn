@@ -1,13 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://bdy3tagav4qmb"]
+[gd_scene load_steps=21 format=3 uid="uid://bdy3tagav4qmb"]
 
 [ext_resource type="PackedScene" uid="uid://ba0hqbqmx7rha" path="res://Player/player.tscn" id="1_pwm58"]
 [ext_resource type="Texture2D" uid="uid://b1f7ktnndu0t7" path="res://art/world.png" id="2_0pt6b"]
 [ext_resource type="Shader" path="res://razzishader.gdshader" id="2_gyp2u"]
 [ext_resource type="PackedScene" uid="uid://csn4hjyqdpbqp" path="res://Bubble/bubble_composite.tscn" id="2_plnqy"]
 [ext_resource type="Texture2D" uid="uid://cae5003q3i5iy" path="res://icon.svg" id="3_4ldu5"]
+[ext_resource type="Script" path="res://scenes/background.gd" id="3_ge6qd"]
 [ext_resource type="PackedScene" path="res://scenes/plant/plant_manager.tscn" id="6_bu0r6"]
 [ext_resource type="PackedScene" path="res://Bubble/bubble_pop_particle.tscn" id="7_726qo"]
 [ext_resource type="PackedScene" uid="uid://ct2q4po8k2evr" path="res://scenes/razzi_test/test_text_scene.tscn" id="8_fem26"]
+[ext_resource type="PackedScene" path="res://VFX/ValueBar.tscn" id="9_61lxv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uew2f"]
 shader = ExtResource("2_gyp2u")
@@ -17,6 +19,10 @@ atlas = ExtResource("2_0pt6b")
 region = Rect2(360, 0, 360, 200)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7fabc"]
+atlas = ExtResource("2_0pt6b")
+region = Rect2(0, 0, 360, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gwol"]
 atlas = ExtResource("2_0pt6b")
 region = Rect2(0, 0, 360, 200)
 
@@ -30,8 +36,16 @@ animations = [{
 "texture": SubResource("AtlasTexture_7fabc")
 }],
 "loop": true,
-"name": &"default",
+"name": &"blink",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gwol")
+}],
+"loop": true,
+"name": &"solid",
+"speed": 5.0
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0nsgx"]
@@ -56,8 +70,10 @@ material = SubResource("ShaderMaterial_uew2f")
 position = Vector2(-0.5, -273.5)
 scale = Vector2(3.19722, 3.265)
 sprite_frames = SubResource("SpriteFrames_aki54")
-autoplay = "default"
-frame_progress = 0.792974
+animation = &"solid"
+autoplay = "solid"
+frame_progress = 0.211953
+script = ExtResource("3_ge6qd")
 
 [node name="Bubble Composite" parent="." instance=ExtResource("2_plnqy")]
 scale = Vector2(4.4, 4.4)
@@ -94,13 +110,19 @@ texture = SubResource("CanvasTexture_8qj0a")
 offset = Vector2(0, -272)
 
 [node name="PlantManager" parent="." node_paths=PackedStringArray("left_bound", "right_bound") instance=ExtResource("6_bu0r6")]
-left_bound = NodePath("../LeftBound")
-right_bound = NodePath("../RightBound")
+left_bound = NodePath("LeftBound")
+right_bound = NodePath("RightBound")
 
-[node name="LeftBound" type="Node2D" parent="."]
+[node name="LeftBound" type="Node2D" parent="PlantManager"]
 position = Vector2(-410, 0)
 
-[node name="RightBound" type="Node2D" parent="."]
+[node name="RightBound" type="Node2D" parent="PlantManager"]
 position = Vector2(460, 0)
 
 [node name="TestTextScene" parent="." instance=ExtResource("8_fem26")]
+
+[node name="ColorRect" parent="." instance=ExtResource("9_61lxv")]
+offset_left = 492.0
+offset_top = -554.0
+offset_right = 532.0
+offset_bottom = -438.0
