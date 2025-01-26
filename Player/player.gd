@@ -30,6 +30,7 @@ var bWasCutting: bool = false
 var bFacingRight: bool = true
 var isPlayerRunning: bool = false
 var wasPlayerRunning: bool = false
+var cutAnimationPlaying: bool = false
 
 func _ready() -> void:
 	LeftCutCollisionDetection.disabled = true
@@ -63,10 +64,12 @@ func _process(_delta: float) -> void:
 
 	if isPlayerRunning:
 		PlayerAnimatedSprite2D.play("run")
-		ArmsAnimatedSprite2D.play("run")
+		if !cutAnimationPlaying:
+			ArmsAnimatedSprite2D.play("run")
 	else:
 		PlayerAnimatedSprite2D.play("idle")
-		ArmsAnimatedSprite2D.play("idle")
+		if !cutAnimationPlaying:
+			ArmsAnimatedSprite2D.play("idle")
 	
 	bWasCutting = bIsCutting
 	wasPlayerRunning = isPlayerRunning
@@ -123,6 +126,7 @@ func StartCutting() -> void:
 
 	CutEndTime = GameStateManager.Now + CutDuration
 	ArmsAnimatedSprite2D.play("clip")
+	cutAnimationPlaying = true
 
 	SetCutCollisionEnabled(true)
 
@@ -131,6 +135,7 @@ func StopCutting() -> void:
 	SetCutCollisionEnabled(false)
 	
 func EndCuttingAnimation() -> void:
+	cutAnimationPlaying = false
 	if isPlayerRunning:
 		ArmsAnimatedSprite2D.play("run")
 	else:
