@@ -48,5 +48,7 @@ func prune_node(starting_node: PlantNode) -> void:
 	_plant_nodes = _plant_nodes.slice(0, cut_index)
 
 func on_game_over() -> void:
-	prune_node(_plant_nodes[0])
+	#if !_plant_nodes.is_empty():
+		#prune_node(_plant_nodes[0])
+		
 	queue_free()

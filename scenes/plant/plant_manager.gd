@@ -19,6 +19,9 @@ var _max_plants: int
 var _plants: Array[Plant] = []
 var _available_plots: Array = []
 
+@export var MaxTimeBetweenNewPlant : float = 16.0
+@export var MinTimeBetweenNewPlant : float = 2.0
+
 func _ready():
 	SignalManager.on_plant_node_cut.connect(on_plant_node_cut)
 	SignalManager.on_game_over.connect(on_game_over)
@@ -41,10 +44,11 @@ func _on_timer_timeout():
 	plant.position = get_random_pos()
 	_plants.append(plant)
 	add_child(plant)
+	timer.wait_time = GameStateManager.rng.randf_range(MinTimeBetweenNewPlant, MaxTimeBetweenNewPlant)
 	timer.start()
 
 func get_random_pos() -> Vector2:
-	var insert_index = _available_plots.pick_random()
+	var insert_index : int = _available_plots[_available_plots.size() / 2]# _available_plots.pick_random()
 	var remove_index = _available_plots.find(insert_index)
 	_available_plots.remove_at(remove_index)
 	return Vector2(_min_x + insert_index * (_plant_width + _gap), 0)

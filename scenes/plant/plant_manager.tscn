@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://csjnkwkf5l1ty"]
+[gd_scene load_steps=2 format=3 uid="uid://cj6n8gqu0yb22"]
 
 [ext_resource type="Script" path="res://scenes/plant/plant_manager.gd" id="1_x518r"]
 
@@ -6,6 +6,7 @@
 script = ExtResource("1_x518r")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 3.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
