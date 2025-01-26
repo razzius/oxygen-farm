@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://ba0hqbqmx7rha"]
+[gd_scene load_steps=41 format=3 uid="uid://ba0hqbqmx7rha"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_yk5km"]
 [ext_resource type="Texture2D" uid="uid://couq263kr64vm" path="res://art/player-fly.png" id="2_tlem8"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://poa3sprb3m3v" path="res://art/arms-idle.png" id="5_sleqa"]
 [ext_resource type="Texture2D" uid="uid://b603llc240cnl" path="res://art/arms-fly.png" id="5_trn5e"]
 [ext_resource type="Texture2D" uid="uid://c1yxqu5jskg3k" path="res://art/arms-run.png" id="8_51jon"]
+[ext_resource type="AudioStream" uid="uid://ch0hj1gwffcj6" path="res://SFX/Snip.ogg" id="11_pabet"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sm170"]
 atlas = ExtResource("2_tlem8")
@@ -274,6 +275,10 @@ position = Vector2(-8, 11)
 
 [node name="DirtTrail" parent="." instance=ExtResource("5_pc17p")]
 position = Vector2(-2, 14)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_pabet")
+volume_db = -5.0
 
 [connection signal="area_entered" from="RightCutArea" to="." method="_on_right_cut_area_area_entered"]
 [connection signal="area_entered" from="LeftCutArea" to="." method="_on_left_cut_area_area_entered"]
