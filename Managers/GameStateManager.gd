@@ -10,10 +10,11 @@ const QUOTA_GEN_MIN: int = 40
 const QUOTA_GEN_MAX: int = 80
 const QUOTA_ACCEPTABLE_RANGE: int = 20
 const INITIAL_QUOTA: int = 30
+const MAX_OXYGEN_VELOCITY: float = 22.5
 
 var NodeScale: Vector2
-var OxygenConsumptionRateFromRunning: float = 0.25
-var OxygenConsumptionRateFromJetPack: float = 50.0
+var OxygenConsumptionRateFromRunning: float = 10.0
+var OxygenConsumptionRateFromJetPack: float = 70.0
 var ShouldCreatePlantParticles: bool = true
 var PickupsToWin: int = 10
 var rng: RandomNumberGenerator
@@ -63,6 +64,7 @@ func _process(delta: float) -> void:
 
 func OnPlantGrow() -> void:
 	OxygenVelocity += OXYGEN_DELTA_PER_PLANT
+	OxygenVelocity = minf(OxygenVelocity, MAX_OXYGEN_VELOCITY)
 
 func OnPlantNodeRemoved(_position: Vector2) -> void:
 	OxygenVelocity -= OXYGEN_DELTA_PER_PLANT
@@ -112,7 +114,7 @@ func GatherOxygen() -> void:
 		SignalManager.on_game_over.emit("You didn't meet your quota!")
 
 func InitializeGame() -> void:
-	OxygenLevel = OXYGEN_MAX * 0.1
+	OxygenLevel = OXYGEN_MAX * 0.15
 	OxygenVelocity = 0.0
 	PlayerIsRunning = false
 	JetPackIsActive = false
