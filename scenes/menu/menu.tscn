@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://du8py15bthmbo"]
+[gd_scene load_steps=6 format=3 uid="uid://du8py15bthmbo"]
 
 [ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_oq7gu"]
 [ext_resource type="FontFile" uid="uid://dh4crsw6w562v" path="res://fonts/PolandCannedIntoFuture-OxE3.ttf" id="1_pem4x"]
 [ext_resource type="LabelSettings" uid="uid://c5e65p255u4nf" path="res://fonts/72_white.tres" id="1_q75ci"]
+[ext_resource type="AudioStream" uid="uid://d1wsol4sou5q0" path="res://SFX/BubblesTrack2.mp3" id="4_6yvkb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mi1ga"]
 font = ExtResource("1_pem4x")
@@ -65,3 +66,7 @@ vertical_alignment = 1
 [node name="Spacer4" type="Control" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6yvkb")
+autoplay = true
