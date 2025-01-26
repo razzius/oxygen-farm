@@ -2,6 +2,8 @@ extends Node
 
 var Now: float = 0.0
 
+const OXYGEN_MAX : float = 1000.0
+
 var OxygenLevel: float = 0.0
 var OxygenDeltaPerPlant: float = 0.01
 var OxygenVelocity: float = 0.0
@@ -22,8 +24,12 @@ func _process(delta: float) -> void:
 	OxygenLevel += OxygenVelocity
 
 
-func OnPlantGrow() -> void:
+func OnPlantGrow(plant : Plant) -> void:
 	OxygenVelocity += OxygenDeltaPerPlant
 
 func OnPlantNodeRemoved() -> void:
 	OxygenVelocity -= OxygenDeltaPerPlant
+
+
+func GetOxygenPercent() -> float:
+	return OxygenLevel / OXYGEN_MAX

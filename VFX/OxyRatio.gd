@@ -7,5 +7,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var ratio = GameStateManager.OxygenLevel;
-	material.set_shader_param("Ratio", ratio);
+	var ratio : float = GameStateManager.GetOxygenPercent();
+	material.set_shader_parameter("Ratio", ratio);
