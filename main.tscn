@@ -24,7 +24,7 @@ shader_parameter/color2 = Color(1, 1, 1, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sbfsj"]
 shader = ExtResource("2_4ycb1")
 shader_parameter/bg_color = Color(0.494118, 0.145098, 0.32549, 1)
-shader_parameter/star_size = 100.0
+shader_parameter/star_size = 70.0
 shader_parameter/star_thickness = 2.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bop3n"]

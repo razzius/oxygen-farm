@@ -7,16 +7,16 @@
 [ext_resource type="AudioStream" uid="uid://d1wsol4sou5q0" path="res://SFX/BubblesTrack2.mp3" id="4_6yvkb"]
 [ext_resource type="PackedScene" uid="uid://bhamkai86gdep" path="res://scenes/controller_buttons/cut.tscn" id="4_nfxtj"]
 [ext_resource type="PackedScene" uid="uid://ch61cgsjqwhdi" path="res://scenes/controller_buttons/left.tscn" id="5_oikef"]
-[ext_resource type="LabelSettings" uid="uid://c3u847src7exe" path="res://fonts/subtitle_white_36.tres" id="5_wnr7s"]
+[ext_resource type="LabelSettings" path="res://fonts/subtitle_white_36.tres" id="5_wnr7s"]
 [ext_resource type="PackedScene" uid="uid://bfvjcxek8p3n5" path="res://scenes/controller_buttons/up.tscn" id="6_id8gt"]
 [ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="7_38cbn"]
 [ext_resource type="LabelSettings" uid="uid://dkoj0ek22f50l" path="res://fonts/white_24.tres" id="8_vgfyj"]
-[ext_resource type="PackedScene" uid="uid://dee2vt4fgnxym" path="res://Bubble/title_buble.tscn" id="10_r4lk5"]
+[ext_resource type="PackedScene" path="res://Bubble/title_buble.tscn" id="10_r4lk5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gp5op"]
 shader = ExtResource("2_j3gmy")
 shader_parameter/bg_color = Color(0.113725, 0.168627, 0.32549, 1)
-shader_parameter/star_size = 80.0
+shader_parameter/star_size = 50.0
 shader_parameter/star_thickness = 2.0
 
 [sub_resource type="Texture2D" id="Texture2D_r360o"]
