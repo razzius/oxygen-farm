@@ -90,9 +90,14 @@ func _physics_process(delta: float) -> void:
 
 	if bJetpackEnabled:
 		if Input.is_action_pressed("up"):
+			# if GameStateManager.OxygenLevel > 50.0:
 			StartJetpack()
 		else:
 			StopJetpack()
+	
+		# if GameStateManager.OxygenLevel < 1.0 and bJetPackActive:
+		# 	StopJetpack()
+
 	
 	if bJetPackActive:
 		JetPackVelocity -= JETPACK_ACCELERATION

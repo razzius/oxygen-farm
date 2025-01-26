@@ -4,7 +4,7 @@ var Now: float = 0.0
 
 const OXYGEN_MAX: float = 1000.0
 
-var OxygenLevel: float = 0.0
+var OxygenLevel: float = OXYGEN_MAX / 2.0
 var OxygenDeltaPerPlant: float = 0.01
 var OxygenVelocity: float = 0.0
 var NodeScale: Vector2
@@ -37,6 +37,9 @@ func _process(delta: float) -> void:
 	Now += delta
 
 	OxygenLevel += OxygenVelocity
+	
+	OxygenLevel = minf(OxygenLevel, OXYGEN_MAX)
+	OxygenLevel = maxf(OxygenLevel, 0.0)
 
 	if PlayerIsRunning:
 		OxygenLevel -= OxygenConsumptionRateFromRunning

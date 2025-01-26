@@ -15,3 +15,4 @@ func _process(delta: float) -> void:
 
 func _on_quota_timer_timeout() -> void:
 	QuotaTimer.start()
+	QuotaTimer.wait_time = 60.0

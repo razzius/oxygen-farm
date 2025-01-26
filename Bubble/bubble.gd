@@ -18,7 +18,15 @@ func replace_children():
 		push_warning("No scene reference set for replacement")
 
 func pop() -> void:
-	replace_children()
+	var tween = create_tween()
+	tween.tween_property(self, "scale", scale * 0.85, 0.05)
+	tween.tween_callback(pop2)
+
+func pop2() -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "scale", scale * 1.15, 0.05)
+	tween.tween_callback(replace_children)
+
 
 
 func _on_area_entered(area: Area2D):

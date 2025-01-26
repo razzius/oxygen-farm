@@ -182,7 +182,7 @@ label_settings = ExtResource("8_vgfyj")
 
 [node name="Label6" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Credits/Authors"]
 layout_mode = 2
-text = "Andrew LLLL"
+text = "Andrew Lubinus"
 label_settings = ExtResource("8_vgfyj")
 
 [node name="Label7" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Credits/Authors"]
