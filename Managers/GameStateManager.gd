@@ -112,7 +112,6 @@ func GatherOxygen() -> void:
 		SignalManager.on_game_over.emit("You didn't meet your quota!")
 
 func InitializeGame() -> void:
-	print('reset game')
 	OxygenLevel = OXYGEN_MAX * 0.1
 	OxygenVelocity = 0.0
 	PlayerIsRunning = false
