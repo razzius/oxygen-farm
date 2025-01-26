@@ -21,7 +21,7 @@ var rng: RandomNumberGenerator
 
 # These values need to be reinitialized when the game is reset
 var OxygenLevel: float
-var OxygenVelocity: float
+var PlantCount: int
 var PlayerIsRunning: bool
 var JetPackIsActive: bool
 var CurrentQuotaRange
@@ -46,7 +46,7 @@ func _process(delta: float) -> void:
 	if !ShouldCreatePlantParticles:
 		ShouldCreatePlantParticles = true
 
-	OxygenLevel += OxygenVelocity * delta
+	OxygenLevel += GetOxygenVelocity() * delta
 	
 	OxygenLevel = minf(OxygenLevel, OXYGEN_MAX)
 	OxygenLevel = maxf(OxygenLevel, 0.0)
@@ -62,12 +62,14 @@ func _process(delta: float) -> void:
 		SignalManager.on_full_oxygen.emit()
 
 
+func GetOxygenVelocity() -> float:
+	return minf(maxf(PlantCount * OXYGEN_DELTA_PER_PLANT, 0), MAX_OXYGEN_VELOCITY)
+
 func OnPlantGrow() -> void:
-	OxygenVelocity += OXYGEN_DELTA_PER_PLANT
-	OxygenVelocity = minf(OxygenVelocity, MAX_OXYGEN_VELOCITY)
+	PlantCount += 1
 
 func OnPlantNodeRemoved(_position: Vector2) -> void:
-	OxygenVelocity -= OXYGEN_DELTA_PER_PLANT
+	PlantCount -= 1
 
 
 func GetOxygenPercent() -> float:
@@ -115,7 +117,7 @@ func GatherOxygen() -> void:
 
 func InitializeGame() -> void:
 	OxygenLevel = OXYGEN_MAX * 0.15
-	OxygenVelocity = 0.0
+	PlantCount = 0
 	PlayerIsRunning = false
 	JetPackIsActive = false
 	CurrentQuotaRange = Vector2(INITIAL_QUOTA, INITIAL_QUOTA + QUOTA_ACCEPTABLE_RANGE)

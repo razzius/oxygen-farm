@@ -17,10 +17,8 @@ const relative_position = Vector2i.UP * NODE_SIZE.y
 func _ready():
 	GrownSprite.scale = GameStateManager.NodeScale
 	GrownSprite.visible = false
-
 	GrowingAnimatedSprite.scale = GameStateManager.NodeScale
 	GrowingAnimatedSprite.animation_finished.connect(OnAnimationFinished)
-
 	collider.scale = GameStateManager.NodeScale
 
 
