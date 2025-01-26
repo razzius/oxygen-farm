@@ -32,7 +32,9 @@ turbulence_initial_displacement_min = 1.49012e-06
 turbulence_initial_displacement_max = 1.49012e-06
 
 [node name="LeafPop" type="GPUParticles2D"]
+emitting = false
 process_material = SubResource("ParticleProcessMaterial_w83rd")
 texture = ExtResource("1_3mo7j")
 lifetime = 2.0
+one_shot = true
 explosiveness = 1.0

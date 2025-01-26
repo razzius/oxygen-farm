@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://msfppvklpjyq"]
+[gd_scene load_steps=2 format=3 uid="uid://msfppvklpjyq"]
+
+[ext_resource type="Script" path="res://scenes/object_creator/object_creator.gd" id="1_7nka0"]
 
 [node name="ObjectCreator" type="Node2D"]
+script = ExtResource("1_7nka0")
