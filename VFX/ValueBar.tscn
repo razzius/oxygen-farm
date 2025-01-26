@@ -6,8 +6,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_it6m7"]
 shader = ExtResource("1_fgfev")
 shader_parameter/Ratio = 0.595
-shader_parameter/OxygenColor = Color(0.45657, 0.589818, 0.772974, 1)
-shader_parameter/CO2Color = Color(0.765764, 0.600571, 0.408411, 1)
+shader_parameter/OxygenColor = Color(0.121186, 0.446674, 0.796375, 1)
+shader_parameter/CO2Color = Color(0.837229, 0.486918, 0.0989307, 1)
 
 [node name="OxygenBar" type="MarginContainer"]
 offset_right = 1152.0
