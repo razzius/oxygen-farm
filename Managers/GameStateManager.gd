@@ -17,15 +17,19 @@ var JetPackIsActive: bool = false
 var OxygenConsumptionRateFromRunning: float = 0.25
 var OxygenConsumptionRateFromJetPack: float = 1.0
 
-var QuotaMin: int = 40
-var QuotaMax: int = 80
+const QuotaGenMin: int = 40
+const QuotaGenMax: int = 80
+const QuotaAcceptableRange: int = 20
+const InitialQuota: int = 30
+
+var CurrentQuotaRange = Vector2(InitialQuota, InitialQuota + QuotaAcceptableRange)
 var Quota: int = 0
 
 var ShouldCreatePlantParticles: bool = true
 
 var rng: RandomNumberGenerator
 
-var PickupsToWin : int = 10
+var PickupsToWin: int = 10
 
 
 # Called when the node enters the scene tree for the first time.
@@ -88,13 +92,23 @@ func CalculateQuota(iteration) -> void:
 		return
 
 	if iteration <= 1:
-		Quota = 30
+		Quota = InitialQuota
 	else:
-		Quota = rng.randi_range(QuotaMin, QuotaMax)
+		Quota = rng.randi_range(QuotaGenMin, QuotaGenMax)
+		CurrentQuotaRange = Vector2(Quota, Quota + QuotaAcceptableRange)
 	SignalManager.on_quota_changed.emit(Quota)
-	SignalManager.on_show_message.emit("Incoming Quota:\nNew target %d%% oxygen" % Quota)
+	SignalManager.on_show_message.emit("Incoming Quota:\nNew target %d%% - %d%% oxygen" % [Quota, Quota + QuotaAcceptableRange])
 
 
 func OnBubblePopped() -> void:
 	ShouldCreatePlantParticles = false
 	SignalManager.on_game_over.emit("The bubble popped!")
+
+func GatherOxygen() -> void:
+	var adjusted_o2 = OxygenLevel / 10
+	var is_acceptable = adjusted_o2 <= CurrentQuotaRange.y && adjusted_o2 >= CurrentQuotaRange.x
+	if is_acceptable:
+		OxygenLevel -= Quota * 10
+		SignalManager.on_gather.emit()
+	else:
+		SignalManager.on_game_over.emit("You didn't meet your quota!")

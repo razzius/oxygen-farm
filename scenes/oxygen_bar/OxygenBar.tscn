@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://do07rvqonbvfg"]
 
-[ext_resource type="Script" path="res://VFX/value_bar.gd" id="1_a5whc"]
-[ext_resource type="Shader" uid="uid://bdbixa6setd7h" path="res://Shaders/OxygenBar.tres" id="1_fgfev"]
+[ext_resource type="Script" path="res://scenes/oxygen_bar/oxygen_bar.gd" id="1_lv3nc"]
+[ext_resource type="Shader" uid="uid://bdbixa6setd7h" path="res://Shaders/OxygenBar.tres" id="2_ec51b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_it6m7"]
-shader = ExtResource("1_fgfev")
+shader = ExtResource("2_ec51b")
 shader_parameter/Ratio = 0.595
 shader_parameter/OxygenColor = Color(0.121186, 0.446674, 0.796375, 1)
 shader_parameter/CO2Color = Color(0.837229, 0.486918, 0.0989307, 1)
@@ -13,7 +13,7 @@ shader_parameter/CO2Color = Color(0.837229, 0.486918, 0.0989307, 1)
 offset_right = 1152.0
 offset_bottom = 205.0
 theme_override_constants/margin_left = 12
-script = ExtResource("1_a5whc")
+script = ExtResource("1_lv3nc")
 
 [node name="VB" type="VBoxContainer" parent="."]
 layout_mode = 2

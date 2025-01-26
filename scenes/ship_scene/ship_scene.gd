@@ -1,23 +1,12 @@
 extends Node2D
 
-var iteration = 1
+var iteration = 2
 
 func _ready():
-	pass
-	# delay to get first quota
-	# GameStateManager.CalculateQuota()
-
+	await get_tree().create_timer(5.0).timeout
+	GameStateManager.CalculateQuota(1)
 
 func gather_resources():
-	print("ship - gathering: %d oxygen" % GameStateManager.Quota)
-	if GameStateManager.GetOxygenPercent() <= GameStateManager.Quota / 100.0:
-		SignalManager.on_game_over.emit("You didn't meet your quota!")
-	else:
-		GameStateManager.OxygenLevel -= GameStateManager.Quota * 10
-		SignalManager.on_gather.emit()
-
-
-func set_quota():
+	GameStateManager.GatherOxygen()
 	GameStateManager.CalculateQuota(iteration)
-	print("ship - new quota: %d oxygen" % GameStateManager.Quota)
 	iteration += 1

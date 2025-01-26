@@ -1,7 +1,7 @@
 extends Label
 
 const ANIM_TIME: float = 60
-const PICKUP_TIME_FROM_ANIM_START: float = 35
+const PICKUP_TIME_FROM_ANIM_START: float = 37
 var _time_left: float = PICKUP_TIME_FROM_ANIM_START
 var _timer_running = false
 
@@ -13,7 +13,7 @@ func _ready():
 
 func _process(_delta):
 	if _timer_running:
-		_time_left -= _delta
+		_time_left = max(_time_left - _delta, 0)
 		text = "Pickup in %ds" % ceil(_time_left)
 
 
