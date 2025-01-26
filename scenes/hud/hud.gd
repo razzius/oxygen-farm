@@ -7,6 +7,7 @@ var _can_input: bool = false
 
 func _ready():
 	SignalManager.on_game_over.connect(on_game_over)
+	SignalManager.on_quota_changed.connect(on_quota_changed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,3 +29,6 @@ func reset_game():
 	_can_input = false
 	game_over_ui.hide()
 	SignalManager.on_game_reset.emit()
+
+func on_quota_changed(new_quota: int) -> void:
+	print("new quota: ", new_quota)

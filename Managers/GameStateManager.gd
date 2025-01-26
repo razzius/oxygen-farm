@@ -15,9 +15,9 @@ var JetPackIsActive: bool = false
 var OxygenConsumptionRateFromRunning: float = 0.25
 var OxygenConsumptionRateFromJetPack: float = 1.0
 
-var QuotaMin: float = 20.0
-var QuotaMax: float = 80.0
-var Quota: float = 0.0
+var QuotaMin: int = 20
+var QuotaMax: int = 80
+var Quota: int = 0
 
 var rng: RandomNumberGenerator
 
@@ -68,4 +68,5 @@ func OnRunningUsageChanged(is_running: bool) -> void:
 
 
 func CalculateQuota() -> void:
-	Quota = rng.randf_range(QuotaMin, QuotaMax)
+	Quota = rng.randi_range(QuotaMin, QuotaMax)
+	SignalManager.on_quota_changed.emit(Quota)
