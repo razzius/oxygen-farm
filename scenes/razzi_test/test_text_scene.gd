@@ -3,6 +3,7 @@ extends Control
 const SPEED = 0.1
 
 func _ready() -> void:
+	SignalManager.on_game_over.connect(on_game_over)
 	$Timer.set_wait_time(SPEED)
 	write_messages()
 
@@ -51,3 +52,6 @@ func write_messages():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+
+func on_game_over():
+	$Message.visible = false

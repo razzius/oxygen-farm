@@ -37,13 +37,13 @@ func _ready() -> void:
 
 	LeftCutCollisionDetection.disabled = true
 	RightCutCollisionDetection.disabled = true
-	
+
 	JetStream.emitting = false
 	JetStreamSpawnX = JetStream.position.x
-	
+
 	DirtTrail.emitting = false
 	DirtTrailSpawnX = DirtTrail.position.x
-	
+
 	ArmsAnimatedSprite2D.animation_finished.connect(EndCuttingAnimation)
 
 
@@ -55,7 +55,7 @@ func _process(_delta: float) -> void:
 
 	if Input.is_action_just_pressed("cut"):
 		StartCutting()
-	
+
 	isPlayerRunning = velocity.x != 0.0 and is_on_floor()
 
 	if (!wasPlayerRunning and isPlayerRunning) or (wasPlayerRunning and !isPlayerRunning):
@@ -76,7 +76,7 @@ func _process(_delta: float) -> void:
 		PlayerAnimatedSprite2D.play("idle")
 		if !cutAnimationPlaying:
 			ArmsAnimatedSprite2D.play("idle")
-	
+
 	bWasCutting = bIsCutting
 	wasPlayerRunning = isPlayerRunning
 
@@ -96,14 +96,14 @@ func _physics_process(delta: float) -> void:
 			StartJetpack()
 		else:
 			StopJetpack()
-	
+
 		# if GameStateManager.OxygenLevel < 1.0 and bJetPackActive:
 		# 	StopJetpack()
 
-	
+
 	if bJetPackActive:
 		JetPackVelocity -= JETPACK_ACCELERATION
-		
+
 	if JetPackVelocity != 0.0:
 		JetPackVelocity = maxf(JetPackVelocity, JETPACK_MAX_VELOCITY)
 		velocity.y = JetPackVelocity
@@ -115,7 +115,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
+
 	if !IsCutting():
 		if bFacingRight and velocity.x < 0.0:
 			bFacingRight = false
@@ -144,7 +144,7 @@ func StartCutting() -> void:
 
 func StopCutting() -> void:
 	SetCutCollisionEnabled(false)
-	
+
 func EndCuttingAnimation() -> void:
 	cutAnimationPlaying = false
 	if isPlayerRunning:
@@ -160,7 +160,7 @@ func SetCutCollisionEnabled(bEnabled: bool) -> void:
 		RightCutCollisionDetection.disabled = !bEnabled
 	else:
 		LeftCutCollisionDetection.disabled = !bEnabled
-	
+
 
 func IsCutting() -> bool:
 	return GameStateManager.Now < CutEndTime
@@ -183,7 +183,7 @@ func CutPlantNode(ThisPlantNode: PlantNode):
 func StartJetpack():
 	if !bJetPackActive:
 		JetStream.emitting = true
-	
+
 	bJetPackActive = true
 
 	SignalManager.on_jetpack_usage_changed.emit(bJetPackActive)
@@ -192,12 +192,12 @@ func StartJetpack():
 func StopJetpack():
 	if bJetPackActive:
 		JetStream.emitting = false
-		
+
 	bJetPackActive = false
 	JetPackVelocity = 0.0
 
 	SignalManager.on_jetpack_usage_changed.emit(bJetPackActive)
 
 func on_game_over():
-	# TODO: why can I still move the player?
+	set_process_mode(Node.PROCESS_MODE_DISABLED)
 	set_process(false)
