@@ -1,0 +1,200 @@
+[gd_scene load_steps=14 format=3 uid="uid://du8py15bthmbo"]
+
+[ext_resource type="Script" path="res://scenes/menu/menu.gd" id="1_oq7gu"]
+[ext_resource type="FontFile" uid="uid://dh4crsw6w562v" path="res://fonts/PolandCannedIntoFuture-OxE3.ttf" id="1_pem4x"]
+[ext_resource type="LabelSettings" uid="uid://c5e65p255u4nf" path="res://fonts/72_white.tres" id="1_q75ci"]
+[ext_resource type="PackedScene" uid="uid://csn4hjyqdpbqp" path="res://Bubble/bubble_composite.tscn" id="2_8ue58"]
+[ext_resource type="AudioStream" uid="uid://d1wsol4sou5q0" path="res://SFX/BubblesTrack2.mp3" id="4_6yvkb"]
+[ext_resource type="PackedScene" uid="uid://bhamkai86gdep" path="res://scenes/controller_buttons/cut.tscn" id="4_nfxtj"]
+[ext_resource type="PackedScene" uid="uid://ch61cgsjqwhdi" path="res://scenes/controller_buttons/left.tscn" id="5_oikef"]
+[ext_resource type="LabelSettings" path="res://fonts/subtitle_white_36.tres" id="5_wnr7s"]
+[ext_resource type="PackedScene" uid="uid://bfvjcxek8p3n5" path="res://scenes/controller_buttons/up.tscn" id="6_id8gt"]
+[ext_resource type="Script" path="res://addons/controller_icons/objects/ControllerIconTexture.gd" id="7_38cbn"]
+[ext_resource type="LabelSettings" uid="uid://dkoj0ek22f50l" path="res://fonts/white_24.tres" id="8_vgfyj"]
+
+[sub_resource type="Texture2D" id="Texture2D_r360o"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("7_38cbn")
+path = "right"
+show_mode = 1
+force_type = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_7uo70"]
+font = ExtResource("1_pem4x")
+font_size = 36
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_oq7gu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.113725, 0.168627, 0.32549, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Spacer" type="Control" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Oxygen Farm"
+label_settings = ExtResource("1_q75ci")
+
+[node name="Spacer2" type="Control" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="HBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label2" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Control"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press "
+label_settings = ExtResource("5_wnr7s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cut" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Control" instance=ExtResource("4_nfxtj")]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Control"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "to Start"
+label_settings = ExtResource("5_wnr7s")
+
+[node name="Spacer3" type="Control" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label3" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Cut Plants:"
+label_settings = ExtResource("5_wnr7s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cut" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_nfxtj")]
+layout_mode = 2
+
+[node name="MoveControls" type="HBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label3" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MoveControls"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Move:"
+label_settings = ExtResource("5_wnr7s")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Left" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MoveControls" instance=ExtResource("5_oikef")]
+layout_mode = 2
+
+[node name="Up" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MoveControls" instance=ExtResource("6_id8gt")]
+layout_mode = 2
+
+[node name="KeyboardRight" type="TextureRect" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/VBoxContainer/MoveControls"]
+layout_mode = 2
+texture = SubResource("Texture2D_r360o")
+
+[node name="Spacer4" type="Control" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Credits" type="HBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="CreatedByLabel" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Credits"]
+layout_mode = 2
+text = "Created By:"
+label_settings = SubResource("LabelSettings_7uo70")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Authors" type="VBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Credits/Authors"]
+layout_mode = 2
+text = "Razzi Abuissa"
+label_settings = ExtResource("8_vgfyj")
+
+[node name="Label2" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Credits/Authors"]
+layout_mode = 2
+text = "Ian James"
+label_settings = ExtResource("8_vgfyj")
+
+[node name="Label3" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Credits/Authors"]
+layout_mode = 2
+text = "Lynne Gonzalez"
+label_settings = ExtResource("8_vgfyj")
+
+[node name="Label4" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Credits/Authors"]
+layout_mode = 2
+text = "Cole Cecil"
+label_settings = ExtResource("8_vgfyj")
+
+[node name="Label5" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Credits/Authors"]
+layout_mode = 2
+text = "AJ Cloutier"
+label_settings = ExtResource("8_vgfyj")
+
+[node name="Label6" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Credits/Authors"]
+layout_mode = 2
+text = "Andrew LLLL"
+label_settings = ExtResource("8_vgfyj")
+
+[node name="Label7" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/VBoxContainer/Credits/Authors"]
+layout_mode = 2
+text = "Will Greenie"
+label_settings = ExtResource("8_vgfyj")
+
+[node name="Bubble Composite" parent="CanvasLayer" instance=ExtResource("2_8ue58")]
+position = Vector2(125, 497)
+scale = Vector2(4, 4)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6yvkb")
+volume_db = -15.885
+autoplay = true

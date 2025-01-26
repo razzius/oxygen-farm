@@ -1,25 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://ct2q4po8k2evr"]
 
-[ext_resource type="Script" path="res://scenes/razzi_test/hud.gd" id="1_6ryt5"]
+[ext_resource type="Script" path="res://scenes/razzi_test/test_text_scene.gd" id="1_1keam"]
 [ext_resource type="FontFile" uid="uid://dh4crsw6w562v" path="res://fonts/PolandCannedIntoFuture-OxE3.ttf" id="2_b2p73"]
 
 [sub_resource type="Theme" id="Theme_0to22"]
 
-[node name="TestTextScene" type="Node2D"]
+[node name="TestTextScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1keam")
 
-[node name="HUD" type="CanvasLayer" parent="."]
-script = ExtResource("1_6ryt5")
-
-[node name="Message" type="Label" parent="HUD"]
+[node name="Message" type="Label" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -570.0
-offset_top = -319.0
-offset_right = 84.0
-offset_bottom = -161.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 660.0
+offset_bottom = 163.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_0to22")
@@ -27,4 +28,4 @@ theme_override_fonts/font = ExtResource("2_b2p73")
 theme_override_font_sizes/font_size = 50
 autowrap_mode = 3
 
-[node name="Timer" type="Timer" parent="HUD"]
+[node name="Timer" type="Timer" parent="."]

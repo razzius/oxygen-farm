@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cif326ctbmsyv"]
 
-[ext_resource type="Texture2D" uid="uid://bxvey8ys4geht" path="res://art/plant.png" id="1_3mo7j"]
+[ext_resource type="Texture2D" uid="uid://4wdc2ughd4lu" path="res://art/leaf.png" id="1_s2riv"]
 
 [sub_resource type="Curve" id="Curve_2ldvc"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.540123, 0.992054), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -23,6 +23,8 @@ radial_velocity_max = 20.0
 gravity = Vector3(0, 120, 0)
 radial_accel_min = 17.78
 radial_accel_max = 17.78
+scale_min = 3.0
+scale_max = 3.0
 scale_curve = SubResource("CurveTexture_0u8cq")
 turbulence_enabled = true
 turbulence_noise_strength = 3.7
@@ -32,7 +34,9 @@ turbulence_initial_displacement_min = 1.49012e-06
 turbulence_initial_displacement_max = 1.49012e-06
 
 [node name="LeafPop" type="GPUParticles2D"]
+emitting = false
 process_material = SubResource("ParticleProcessMaterial_w83rd")
-texture = ExtResource("1_3mo7j")
+texture = ExtResource("1_s2riv")
 lifetime = 2.0
+one_shot = true
 explosiveness = 1.0

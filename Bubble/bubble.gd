@@ -8,7 +8,7 @@ func replace_children():
 	for child in get_children():
 		remove_child(child)
 		child.queue_free()
-	
+
 	# Instance and add the new scene
 	if new_scene:
 		var instance = new_scene.instantiate()
@@ -16,7 +16,7 @@ func replace_children():
 		add_child(instance)
 	else:
 		push_warning("No scene reference set for replacement")
-	
+
 func pop() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "scale", scale * 0.85, 0.1)

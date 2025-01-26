@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c5e65p255u4nf"]
+
+[ext_resource type="FontFile" uid="uid://dh4crsw6w562v" path="res://fonts/PolandCannedIntoFuture-OxE3.ttf" id="1_t23ha"]
+
+[resource]
+font = ExtResource("1_t23ha")
+font_size = 72
