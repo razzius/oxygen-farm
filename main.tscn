@@ -84,10 +84,6 @@ autoplay = "solid"
 frame_progress = 0.211953
 script = ExtResource("3_ge6qd")
 
-[node name="Bubble Composite" parent="." instance=ExtResource("2_plnqy")]
-scale = Vector2(4.4, 4.4)
-new_scene = ExtResource("7_726qo")
-
 [node name="Player" parent="." instance=ExtResource("1_pwm58")]
 position = Vector2(1, -41)
 JETPACK_MAX_VELOCITY = -200.0
@@ -95,6 +91,7 @@ JETPACK_ACCELERATION = 4.0
 bJetpackEnabled = true
 
 [node name="Platform" type="StaticBody2D" parent="."]
+z_index = 1
 material = SubResource("ShaderMaterial_0nsgx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
@@ -127,3 +124,7 @@ position = Vector2(460, 0)
 
 [node name="Ship" parent="." instance=ExtResource("11_40mk4")]
 position = Vector2(-479, 110)
+
+[node name="Bubble Composite" parent="." instance=ExtResource("2_plnqy")]
+scale = Vector2(4.4, 4.4)
+new_scene = ExtResource("7_726qo")
