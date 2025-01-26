@@ -19,12 +19,12 @@ func replace_children():
 
 func pop() -> void:
 	var tween = create_tween()
-	tween.tween_property(self, "scale", scale * 0.85, 0.1)
+	tween.tween_property(self, "scale", scale * 0.85, 0.05)
 	tween.tween_callback(pop2)
 
 func pop2() -> void:
 	var tween = create_tween()
-	tween.tween_property(self, "scale", scale * 1.15, 0.1)
+	tween.tween_property(self, "scale", scale * 1.15, 0.05)
 	tween.tween_callback(replace_children)
 
 
