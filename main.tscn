@@ -4,16 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://b1f7ktnndu0t7" path="res://art/world.png" id="2_0pt6b"]
 [ext_resource type="Shader" path="res://razzishader.gdshader" id="2_gyp2u"]
 [ext_resource type="PackedScene" uid="uid://csn4hjyqdpbqp" path="res://Bubble/bubble_composite.tscn" id="2_plnqy"]
-[ext_resource type="Texture2D" uid="uid://cae5003q3i5iy" path="res://icon.svg" id="3_4ldu5"]
 [ext_resource type="Script" path="res://scenes/background.gd" id="3_ge6qd"]
-[ext_resource type="PackedScene" uid="uid://csjnkwkf5l1ty" path="res://scenes/plant/plant_manager.tscn" id="6_bu0r6"]
-[ext_resource type="PackedScene" path="res://Bubble/bubble_pop_particle.tscn" id="7_726qo"]
+[ext_resource type="Texture2D" uid="uid://xupwlneoxer2" path="res://White.png" id="5_xpa7p"]
+[ext_resource type="PackedScene" path="res://scenes/plant/plant_manager.tscn" id="6_bu0r6"]
+[ext_resource type="PackedScene" uid="uid://r7pbq7oe4i48" path="res://Bubble/bubble_pop_particle.tscn" id="7_726qo"]
 [ext_resource type="PackedScene" uid="uid://msfppvklpjyq" path="res://scenes/object_creator/object_creator.tscn" id="10_i2pyn"]
 [ext_resource type="PackedScene" uid="uid://bi6558kvbsyug" path="res://scenes/hud/hud.tscn" id="10_l3d00"]
 [ext_resource type="PackedScene" uid="uid://cd1xhhr861pxe" path="res://scenes/ship_scene/ship_scene.tscn" id="11_40mk4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uew2f"]
 shader = ExtResource("2_gyp2u")
+shader_parameter/color1 = Color(1, 1, 1, 1)
+shader_parameter/color2 = Color(1, 1, 1, 1)
 
 [sub_resource type="GDScript" id="GDScript_6e7s5"]
 script/source = "extends Node2D
@@ -61,6 +63,8 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0nsgx"]
 shader = ExtResource("2_gyp2u")
+shader_parameter/color1 = Color(1, 1, 1, 1)
+shader_parameter/color2 = Color(1, 1, 1, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rhgpg"]
 
@@ -69,6 +73,8 @@ size = Vector2(1145, 47)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8jrpg"]
 shader = ExtResource("2_gyp2u")
+shader_parameter/color1 = Color(0.670588, 0.321569, 0.211765, 1)
+shader_parameter/color2 = Color(0.205117, 0.205117, 0.205117, 1)
 
 [node name="Main" type="Node2D"]
 material = SubResource("ShaderMaterial_uew2f")
@@ -103,7 +109,7 @@ shape = SubResource("RectangleShape2D_p8x5v")
 material = SubResource("ShaderMaterial_8jrpg")
 position = Vector2(0.999948, 40.25)
 scale = Vector2(9.3125, 0.636718)
-texture = ExtResource("3_4ldu5")
+texture = ExtResource("5_xpa7p")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -272)

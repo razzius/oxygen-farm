@@ -10,7 +10,7 @@ void vertex() {
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	vec2 uv = SCREEN_UV 
+	
 }
 
 //void light() {
