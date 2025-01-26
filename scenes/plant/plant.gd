@@ -17,8 +17,13 @@ func _ready():
 	grow()
 
 
+func get_nodes() -> Array[PlantNode]:
+	return _plant_nodes
+
+
 func grow() -> void:
 	appendNode()
+	SignalManager.on_plant_grow.emit(self)
 	grow_timer.wait_time = min_grow_timer + (randf() * grow_timer_range)
 	grow_timer.start()
 
