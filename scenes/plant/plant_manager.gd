@@ -25,6 +25,7 @@ var _available_plots: Array = []
 func _ready():
 	SignalManager.on_plant_node_cut.connect(on_plant_node_cut)
 	SignalManager.on_game_over.connect(on_game_over)
+	SignalManager.on_full_oxygen.connect(on_full_oxygen)
 
 	GameStateManager.NodeScale = node_scale
 	_min_x = left_bound.position.x
@@ -60,3 +61,6 @@ func on_plant_node_cut(plant_node: PlantNode) -> void:
 
 func on_game_over() -> void:
 	timer.stop()
+
+func on_full_oxygen() -> void:
+	_available_plots = range(_max_plants)
