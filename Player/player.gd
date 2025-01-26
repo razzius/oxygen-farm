@@ -141,6 +141,7 @@ func StartCutting() -> void:
 
 	CutStartTime = GameStateManager.Now + CutDuration
 	CutEndTime = GameStateManager.Now + (2 * CutDuration)
+	# Todo: Play cutting sound effect here.
 	ArmsAnimatedSprite2D.stop()
 	ArmsAnimatedSprite2D.play("clip")
 	cutAnimationPlaying = true
