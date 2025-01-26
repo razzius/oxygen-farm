@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ct2q4po8k2evr"]
 
 [ext_resource type="Script" path="res://scenes/razzi_test/test_text_scene.gd" id="1_1keam"]
-[ext_resource type="FontFile" uid="uid://dh4crsw6w562v" path="res://fonts/PolandCannedIntoFuture-OxE3.ttf" id="2_b2p73"]
+[ext_resource type="FontFile" uid="uid://o4rkssadvjoh" path="res://fonts/PolandCannedIntoFuture-OxE3.ttf" id="2_b2p73"]
 
 [sub_resource type="Theme" id="Theme_0to22"]
 
