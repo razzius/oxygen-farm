@@ -6,12 +6,12 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_it6m7"]
 shader = ExtResource("1_fgfev")
 shader_parameter/Ratio = 0.595
-shader_parameter/OxygenColor = Color(0.45657, 0.589818, 0.772974, 1)
-shader_parameter/CO2Color = Color(0.765764, 0.600571, 0.408411, 1)
+shader_parameter/OxygenColor = Color(0.121186, 0.446674, 0.796375, 1)
+shader_parameter/CO2Color = Color(0.837229, 0.486918, 0.0989307, 1)
 
 [node name="OxygenBar" type="MarginContainer"]
 offset_right = 1152.0
-offset_bottom = 100.0
+offset_bottom = 205.0
 theme_override_constants/margin_left = 12
 script = ExtResource("1_a5whc")
 
@@ -19,11 +19,24 @@ script = ExtResource("1_a5whc")
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="OxyRatio" type="ColorRect" parent="VB"]
-material = SubResource("ShaderMaterial_it6m7")
-custom_minimum_size = Vector2(20, 100)
+[node name="MarginContainer2" type="MarginContainer" parent="VB"]
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/margin_left = -4
+
+[node name="Value" type="Label" parent="VB/MarginContainer2"]
+layout_mode = 2
+text = "O2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OxyRatio" type="ColorRect" parent="VB"]
+material = SubResource("ShaderMaterial_it6m7")
+custom_minimum_size = Vector2(30, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="VB"]
 custom_minimum_size = Vector2(40, 0)
