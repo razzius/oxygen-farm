@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkkblekswbmfv"]
+[gd_scene load_steps=4 format=3 uid="uid://do07rvqonbvfg"]
 
+[ext_resource type="Script" path="res://VFX/value_bar.gd" id="1_a5whc"]
 [ext_resource type="Shader" uid="uid://bdbixa6setd7h" path="res://Shaders/OxygenBar.tres" id="1_fgfev"]
-[ext_resource type="Script" path="res://VFX/OxyRatio.gd" id="2_aiv7d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_it6m7"]
 shader = ExtResource("1_fgfev")
@@ -9,8 +9,27 @@ shader_parameter/Ratio = 0.595
 shader_parameter/OxygenColor = Color(0.45657, 0.589818, 0.772974, 1)
 shader_parameter/CO2Color = Color(0.765764, 0.600571, 0.408411, 1)
 
-[node name="ColorRect" type="ColorRect"]
+[node name="OxygenBar" type="MarginContainer"]
+offset_right = 1152.0
+offset_bottom = 100.0
+theme_override_constants/margin_left = 12
+script = ExtResource("1_a5whc")
+
+[node name="VB" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="OxyRatio" type="ColorRect" parent="VB"]
 material = SubResource("ShaderMaterial_it6m7")
-offset_right = 40.0
-offset_bottom = 116.0
-script = ExtResource("2_aiv7d")
+custom_minimum_size = Vector2(20, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="VB"]
+layout_mode = 2
+theme_override_constants/margin_left = -4
+
+[node name="Value" type="Label" parent="VB/MarginContainer"]
+layout_mode = 2
+text = "50%"
+vertical_alignment = 1

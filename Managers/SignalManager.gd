@@ -17,3 +17,5 @@ signal on_game_over
 signal on_game_reset
 
 signal on_gather_failed
+
+signal on_show_message(message: String)

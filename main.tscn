@@ -19,14 +19,6 @@ shader_parameter/color1 = Color(1, 1, 1, 1)
 shader_parameter/color2 = Color(1, 1, 1, 1)
 
 [sub_resource type="GDScript" id="GDScript_6e7s5"]
-script/source = "extends Node2D
-
-@onready var timer: Timer = $QuotaTimer
-
-func _on_quota_timer_timeout() -> void:
-	GameStateManager.CalculateQuota()
-	timer.start()
-"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bop3n"]
 atlas = ExtResource("2_0pt6b")

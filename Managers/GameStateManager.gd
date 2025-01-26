@@ -6,7 +6,7 @@ var Now: float = 0.0
 # but our quota is in the tens. Is this intentional?
 const OXYGEN_MAX: float = 1000.0
 
-var OxygenLevel: float = OXYGEN_MAX / 2.0
+var OxygenLevel: float = OXYGEN_MAX * 0.1 # start at 10%
 var OxygenDeltaPerPlant: float = 0.01
 var OxygenVelocity: float = 0.0
 var NodeScale: Vector2
@@ -72,3 +72,4 @@ func OnRunningUsageChanged(is_running: bool) -> void:
 func CalculateQuota() -> void:
 	Quota = rng.randi_range(QuotaMin, QuotaMax)
 	SignalManager.on_quota_changed.emit(Quota)
+	SignalManager.on_show_message.emit("Incoming Quota:\nNew target %d%% oxygen" % Quota)

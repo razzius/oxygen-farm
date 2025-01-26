@@ -2,7 +2,9 @@ extends Node2D
 
 
 func _ready():
-	GameStateManager.CalculateQuota()
+	pass
+	# delay to get first quota
+	# GameStateManager.CalculateQuota()
 
 
 func gather_resources():
