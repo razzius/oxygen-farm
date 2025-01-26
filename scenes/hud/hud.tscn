@@ -58,6 +58,13 @@ label_settings = ExtResource("3_k61nt")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="FailureMessage" type="Label" parent="MarginContainer/GameOverBg/VBoxContainer"]
+layout_mode = 2
+text = "You ran out of oxygen!"
+label_settings = ExtResource("4_04c3j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/GameOverBg/VBoxContainer"]
 layout_mode = 2
 alignment = 1

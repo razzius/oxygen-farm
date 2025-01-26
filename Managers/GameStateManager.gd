@@ -21,7 +21,7 @@ var QuotaMin: int = 40
 var QuotaMax: int = 80
 var Quota: int = 0
 
-var ShouldCreatePlantParticles : bool = true
+var ShouldCreatePlantParticles: bool = true
 
 var rng: RandomNumberGenerator
 
@@ -90,4 +90,4 @@ func CalculateQuota(iteration) -> void:
 
 func OnBubblePopped() -> void:
 	ShouldCreatePlantParticles = false
-	SignalManager.on_game_over.emit()
+	SignalManager.on_game_over.emit("The bubble popped!")
