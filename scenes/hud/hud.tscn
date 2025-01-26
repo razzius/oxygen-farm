@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://do07rvqonbvfg" path="res://VFX/ValueBar.tscn" id="1_krf3o"]
 [ext_resource type="PackedScene" uid="uid://ct2q4po8k2evr" path="res://scenes/razzi_test/test_text_scene.tscn" id="1_q43jr"]
 [ext_resource type="LabelSettings" uid="uid://c5e65p255u4nf" path="res://fonts/72_white.tres" id="3_k61nt"]
-[ext_resource type="LabelSettings" path="res://fonts/subtitle_white_36.tres" id="4_04c3j"]
+[ext_resource type="LabelSettings" uid="uid://c3u847src7exe" path="res://fonts/subtitle_white_36.tres" id="4_04c3j"]
 [ext_resource type="PackedScene" uid="uid://bhamkai86gdep" path="res://scenes/controller_buttons/cut.tscn" id="5_ymg8d"]
 [ext_resource type="PackedScene" uid="uid://dhi2yevt3chr3" path="res://scenes/controller_buttons/esc.tscn" id="7_708pe"]
 
@@ -35,18 +35,18 @@ size_flags_vertical = 0
 
 [node name="GameOverBg" type="ColorRect" parent="MarginContainer"]
 visible = false
-custom_minimum_size = Vector2(450, 450)
+custom_minimum_size = Vector2(550, 550)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-color = Color(0.113725, 0.168627, 0.32549, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GameOverBg"]
 layout_mode = 2
-offset_left = 48.0
-offset_top = 62.0
-offset_right = 402.0
-offset_bottom = 287.0
+offset_left = 94.0
+offset_top = 97.0
+offset_right = 456.0
+offset_bottom = 452.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 15
@@ -60,7 +60,9 @@ vertical_alignment = 1
 
 [node name="FailureMessage" type="Label" parent="MarginContainer/GameOverBg/VBoxContainer"]
 layout_mode = 2
-text = "You ran out of oxygen!"
+text = "You ran out of oxygen!
+
+"
 label_settings = ExtResource("4_04c3j")
 horizontal_alignment = 1
 vertical_alignment = 1

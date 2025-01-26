@@ -22,6 +22,7 @@ func _process(_delta):
 func on_game_over(fail_message: String):
 	_game_over = true
 	game_over_message.text = fail_message
+	await get_tree().create_timer(.75).timeout
 	game_over_ui.show()
 	await get_tree().create_timer(1.0).timeout
 	_can_input = true
