@@ -209,7 +209,7 @@ text = "Special thanks to Maria Burns Ortiz!"
 label_settings = SubResource("LabelSettings_cnl1l")
 
 [node name="Bubble Composite2" parent="CanvasLayer" instance=ExtResource("10_r4lk5")]
-position = Vector2(124, 499)
+position = Vector2(74, 499)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6yvkb")

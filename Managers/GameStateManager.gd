@@ -13,7 +13,7 @@ const INITIAL_QUOTA: int = 30
 
 var NodeScale: Vector2
 var OxygenConsumptionRateFromRunning: float = 0.25
-var OxygenConsumptionRateFromJetPack: float = 1.0
+var OxygenConsumptionRateFromJetPack: float = 50.0
 var ShouldCreatePlantParticles: bool = true
 var PickupsToWin: int = 10
 var rng: RandomNumberGenerator
