@@ -9,10 +9,11 @@ func _ready():
 
 
 func gather_resources():
+	print("ship - gathering: %d oxygen" % GameStateManager.Quota)
 	if GameStateManager.OxygenLevel <= GameStateManager.Quota:
 		SignalManager.on_gather_failed.emit()
-
-	print("ship - gathering: %d oxygen" % GameStateManager.Quota)
+	else:
+		GameStateManager.OxygenLevel -= GameStateManager.Quota * 10
 
 
 func set_quota():
