@@ -216,6 +216,6 @@ func StopJetpack():
 
 	SignalManager.on_jetpack_usage_changed.emit(bJetPackActive)
 
-func on_game_over():
+func on_game_over(onGameOver: String):
 	set_process_mode(Node.PROCESS_MODE_DISABLED)
 	set_process(false)
