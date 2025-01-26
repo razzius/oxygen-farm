@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bi6558kvbsyug"]
 
 [ext_resource type="Script" path="res://scenes/hud/hud.gd" id="1_0bfy2"]
-[ext_resource type="PackedScene" path="res://VFX/ValueBar.tscn" id="1_krf3o"]
+[ext_resource type="PackedScene" uid="uid://do07rvqonbvfg" path="res://VFX/ValueBar.tscn" id="1_krf3o"]
 [ext_resource type="PackedScene" uid="uid://ct2q4po8k2evr" path="res://scenes/razzi_test/test_text_scene.tscn" id="1_q43jr"]
 [ext_resource type="LabelSettings" uid="uid://c5e65p255u4nf" path="res://fonts/72_white.tres" id="3_k61nt"]
 [ext_resource type="LabelSettings" path="res://fonts/subtitle_white_36.tres" id="4_04c3j"]

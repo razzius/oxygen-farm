@@ -2,16 +2,20 @@ extends Control
 
 const SPEED = 0.1
 
+@onready var message_label: Label = $Message
+@onready var timer: Timer = $Timer
+
 func _ready() -> void:
+	SignalManager.on_show_message.connect(write_message)
 	SignalManager.on_game_over.connect(on_game_over)
-	$Timer.set_wait_time(SPEED)
-	write_messages()
+	timer.set_wait_time(SPEED)
+	# write_intro_messages()
 
 
 func delay(repeats = 1):
 	for _i in repeats:
-		$Timer.start()
-		await $Timer.timeout
+		timer.start()
+		await timer.timeout
 
 
 var MESSAGES = [
@@ -26,8 +30,9 @@ sub-planet X-AB_JXT.""",
 ]
 
 
-func write_message(message):
-	$Message.text = ""
+func write_message(message: String):
+	print("Writing meassage:", message)
+	message_label.text = ""
 
 	for char_ in message:
 		if char_ == "\n":
@@ -36,17 +41,17 @@ func write_message(message):
 		elif char_ != " ":
 			await delay()
 
-		$Message.text += char_
+		message_label.text += char_
 
 
-func write_messages():
-	for message in MESSAGES:
-		await write_message(message)
-		await delay(10)
+# func write_intro_messages():
+# 	for message in MESSAGES:
+# 		await write_message(message)
+# 		await delay(10)
 
-	$Message.visible = false
+# 	message_label.visible = false
 
-	$Timer.stop()
+# 	timer.stop()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,4 +59,4 @@ func _process(_delta: float) -> void:
 	pass
 
 func on_game_over():
-	$Message.visible = false
+	message_label.visible = false
