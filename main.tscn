@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bdy3tagav4qmb"]
+[gd_scene load_steps=25 format=3 uid="uid://bdy3tagav4qmb"]
 
 [ext_resource type="PackedScene" uid="uid://ba0hqbqmx7rha" path="res://Player/player.tscn" id="1_pwm58"]
 [ext_resource type="Texture2D" uid="uid://b1f7ktnndu0t7" path="res://art/world.png" id="2_0pt6b"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://main.gd" id="2_aqc0i"]
 [ext_resource type="Shader" path="res://razzishader.gdshader" id="2_gyp2u"]
 [ext_resource type="PackedScene" uid="uid://csn4hjyqdpbqp" path="res://Bubble/bubble_composite.tscn" id="2_plnqy"]
-[ext_resource type="Script" path="res://scenes/background.gd" id="3_ge6qd"]
 [ext_resource type="Texture2D" uid="uid://xupwlneoxer2" path="res://White.png" id="5_xpa7p"]
 [ext_resource type="PackedScene" uid="uid://csjnkwkf5l1ty" path="res://scenes/plant/plant_manager.tscn" id="6_bu0r6"]
 [ext_resource type="PackedScene" uid="uid://r7pbq7oe4i48" path="res://Bubble/bubble_pop_particle.tscn" id="7_726qo"]
@@ -42,10 +41,6 @@ region = Rect2(720, 0, 360, 200)
 atlas = ExtResource("2_0pt6b")
 region = Rect2(1080, 0, 360, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1gwol"]
-atlas = ExtResource("2_0pt6b")
-region = Rect2(0, 0, 360, 200)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_aki54"]
 animations = [{
 "frames": [{
@@ -64,14 +59,6 @@ animations = [{
 "loop": true,
 "name": &"blink",
 "speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1gwol")
-}],
-"loop": true,
-"name": &"solid",
-"speed": 5.0
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0nsgx"]
@@ -109,8 +96,7 @@ position = Vector2(-0.5, -273.5)
 scale = Vector2(3.19722, 3.265)
 sprite_frames = SubResource("SpriteFrames_aki54")
 animation = &"blink"
-autoplay = "solid"
-script = ExtResource("3_ge6qd")
+autoplay = "blink"
 
 [node name="Player" parent="." instance=ExtResource("1_pwm58")]
 position = Vector2(1, -41)
