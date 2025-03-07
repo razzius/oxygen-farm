@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cs1sbm0lug1ps" path="res://art/round_particle.png" id="1_qvoba"]
 [ext_resource type="Texture2D" uid="uid://cpn0wxoehjce7" path="res://art/tintinship.png" id="2_4o64n"]
-[ext_resource type="Script" path="res://Bubble/bubble_pop_particle.gd" id="2_eieje"]
+[ext_resource type="Script" uid="uid://yxtubdu2rhtp" path="res://Bubble/bubble_pop_particle.gd" id="2_eieje"]
 
 [sub_resource type="Curve" id="Curve_jbtp0"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.993827, 0), 0.0, 0.0, 0, 0]
@@ -26,6 +26,7 @@ emission_ring_axis = Vector3(0, 0, 1)
 emission_ring_height = 100.0
 emission_ring_radius = 120.0
 emission_ring_inner_radius = 110.0
+emission_ring_cone_angle = 90.0
 angle_min = -27.1
 angle_max = 16.9
 inherit_velocity_ratio = 0.206

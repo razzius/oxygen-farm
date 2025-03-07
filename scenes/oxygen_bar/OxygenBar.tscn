@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://do07rvqonbvfg"]
 
-[ext_resource type="Script" path="res://scenes/oxygen_bar/oxygen_bar.gd" id="1_lv3nc"]
+[ext_resource type="Script" uid="uid://blhahfqtxbva7" path="res://scenes/oxygen_bar/oxygen_bar.gd" id="1_lv3nc"]
 [ext_resource type="Shader" uid="uid://bdbixa6setd7h" path="res://Shaders/OxygenBar.tres" id="2_ec51b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_it6m7"]

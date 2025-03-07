@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://cd1xhhr861pxe"]
 
 [ext_resource type="Texture2D" uid="uid://ckjfdkv5o6aky" path="res://art/tintinship-idle.png" id="1_5mead"]
-[ext_resource type="Script" path="res://scenes/ship_scene/ship_scene.gd" id="1_vmshx"]
+[ext_resource type="Script" uid="uid://c2urjhk6l61d3" path="res://scenes/ship_scene/ship_scene.gd" id="1_vmshx"]
 [ext_resource type="Texture2D" uid="uid://cpn0wxoehjce7" path="res://art/tintinship.png" id="2_c2axb"]
 [ext_resource type="Texture2D" uid="uid://cs1sbm0lug1ps" path="res://art/round_particle.png" id="4_ionah"]
-[ext_resource type="Shader" path="res://Shaders/utility.gdshader" id="4_k04ua"]
+[ext_resource type="Shader" uid="uid://uu4jd1fdf78y" path="res://Shaders/utility.gdshader" id="4_k04ua"]
 
 [sub_resource type="Animation" id="Animation_fgkvk"]
 length = 0.001
@@ -174,8 +174,8 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y6288"]
 _data = {
-"RESET": SubResource("Animation_fgkvk"),
-"fly": SubResource("Animation_bwbkh")
+&"RESET": SubResource("Animation_fgkvk"),
+&"fly": SubResource("Animation_bwbkh")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l6gqj"]
@@ -188,7 +188,7 @@ shader_parameter/saturation_amount = 100.0
 shader_parameter/hue_amount = 0.0
 shader_parameter/enable_palette = false
 shader_parameter/enable_outline = false
-shader_parameter/outline_color = null
+shader_parameter/outline_color = Color(0, 0, 0, 1)
 shader_parameter/outline_width = 1.0
 shader_parameter/enable_wave = false
 shader_parameter/wave_speed = 1.0
@@ -204,8 +204,7 @@ point_count = 1
 curve = SubResource("Curve_642xa")
 
 [sub_resource type="Curve" id="Curve_n1j0k"]
-min_value = -200.0
-max_value = 200.0
+_limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 

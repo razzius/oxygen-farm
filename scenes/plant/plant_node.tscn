@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://bj14g0cl18mxv"]
 
-[ext_resource type="Script" path="res://scenes/plant/plant_node.gd" id="1_dr78f"]
+[ext_resource type="Script" uid="uid://mbs0xi8iroys" path="res://scenes/plant/plant_node.gd" id="1_dr78f"]
 [ext_resource type="Texture2D" uid="uid://bxvey8ys4geht" path="res://art/plant.png" id="2_mr1p6"]
 [ext_resource type="Texture2D" uid="uid://bjlwst7crtnht" path="res://art/plant-grow.png" id="3_t555v"]
 

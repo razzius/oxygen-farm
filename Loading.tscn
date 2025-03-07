@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cdknn3vtmsrph"]
 
 [ext_resource type="FontFile" uid="uid://btfem0tff5yhe" path="res://fonts/NotJamSciMono10.ttf" id="1_1ryu7"]
-[ext_resource type="Script" path="res://VFXCache.gd" id="1_ryypk"]
+[ext_resource type="Script" uid="uid://c4kmecjpdhf30" path="res://VFXCache.gd" id="1_ryypk"]
 [ext_resource type="PackedScene" uid="uid://b3xxxpcars0ik" path="res://VFX/DirtTrail.tscn" id="2_hwg7a"]
 [ext_resource type="PackedScene" uid="uid://ds522b031bxk1" path="res://VFX/JetStream.tscn" id="3_xnfkw"]
 [ext_resource type="PackedScene" uid="uid://cif326ctbmsyv" path="res://VFX/LeafPop.tscn" id="4_c45hl"]

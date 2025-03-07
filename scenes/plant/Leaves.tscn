@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxotmab74w2rj"]
 
-[ext_resource type="Script" path="res://scenes/plant/leaves.gd" id="1_7cbq5"]
+[ext_resource type="Script" uid="uid://bnauca25qbhiq" path="res://scenes/plant/leaves.gd" id="1_7cbq5"]
 [ext_resource type="PackedScene" uid="uid://cif326ctbmsyv" path="res://VFX/LeafPop.tscn" id="1_tfy60"]
 
 [node name="Leaves" type="Node2D"]

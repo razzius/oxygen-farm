@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dkr40lnpqntlq"]
 
-[ext_resource type="Shader" path="res://Shaders/Water.gdshader" id="1_m1xhi"]
-[ext_resource type="Script" path="res://Bubble/random_seed.gd" id="2_qjd4r"]
+[ext_resource type="Shader" uid="uid://barjxmdgese2t" path="res://Shaders/Water.gdshader" id="1_m1xhi"]
+[ext_resource type="Script" uid="uid://6edk004tipwe" path="res://Bubble/random_seed.gd" id="2_qjd4r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vxvh1"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -43,6 +43,8 @@ shader_parameter/albedo = Color(0, 0, 0.768627, 1)
 shader_parameter/albedo2 = Color(0.264226, 0.326688, 0.786755, 1)
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 0.02
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_t2q17")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_si5n0")
 shader_parameter/wave_direction = Vector2(2, 0)
 shader_parameter/wave_direction2 = Vector2(0, 1)
 shader_parameter/time_scale = 0.025
@@ -53,8 +55,6 @@ shader_parameter/near = 1.0
 shader_parameter/far = 100.0
 shader_parameter/edge_color = Color(0, 0, 0, 1)
 shader_parameter/seed = 1234.0
-shader_parameter/texture_normal = SubResource("NoiseTexture2D_t2q17")
-shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_si5n0")
 
 [sub_resource type="SphereMesh" id="SphereMesh_d4c7y"]
 

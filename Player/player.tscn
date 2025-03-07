@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://ba0hqbqmx7rha"]
 
-[ext_resource type="Script" path="res://Player/player.gd" id="1_yk5km"]
+[ext_resource type="Script" uid="uid://dioo7px5gqudo" path="res://Player/player.gd" id="1_yk5km"]
 [ext_resource type="Texture2D" uid="uid://couq263kr64vm" path="res://art/player-fly.png" id="2_tlem8"]
 [ext_resource type="Texture2D" uid="uid://dywqagom0hjiy" path="res://art/player-idle.png" id="3_5l22e"]
 [ext_resource type="PackedScene" uid="uid://ds522b031bxk1" path="res://VFX/JetStream.tscn" id="4_fnd2g"]

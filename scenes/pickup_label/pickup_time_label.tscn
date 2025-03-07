@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b70b5nrvgkk7x"]
 
-[ext_resource type="LabelSettings" path="res://fonts/subtitle_white_36.tres" id="1_hdl08"]
-[ext_resource type="Script" path="res://pickup_time_label.gd" id="1_nsw4w"]
+[ext_resource type="LabelSettings" uid="uid://c3u847src7exe" path="res://fonts/subtitle_white_36.tres" id="1_hdl08"]
+[ext_resource type="Script" uid="uid://dya7yifsry2w1" path="res://pickup_time_label.gd" id="1_nsw4w"]
 
 [node name="PickupTimeLabel" type="Label"]
 visible = false
